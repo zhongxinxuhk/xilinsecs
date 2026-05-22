@@ -64,8 +64,8 @@ export default function ContactPage() {
               <div className="mt-6 grid gap-4">
                 {[...customerPortals, ...customerTicketPortals].map((portal) => (
                   <article key={portal.slug} className="glass-card p-5">
-                    <h3 className="text-lg font-semibold text-slate-950">{portal.title}</h3>
-                    <p className="mt-2 text-sm leading-7 text-slate-600">{portal.summary}</p>
+                    <h3 className="text-lg font-semibold text-slate-950 dark:text-slate-50">{portal.title}</h3>
+                    <p className="mt-2 text-sm leading-7 text-slate-600 dark:text-slate-400">{portal.summary}</p>
                     <a href={portal.href} className="mt-4 inline-flex text-sm font-semibold text-blue-700">
                       打开入口
                     </a>

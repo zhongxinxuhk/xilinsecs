@@ -1,7 +1,10 @@
 import type { Metadata } from "next";
 import { siteConfig } from "@/lib/site-data";
+import { ThemeProvider } from "@/components/ui/theme-provider";
 import Header from "@/components/layout/header";
 import Footer from "@/components/layout/footer";
+import ReadingProgress from "@/components/interactive/reading-progress";
+import BackToTop from "@/components/interactive/back-to-top";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -40,17 +43,49 @@ export const metadata: Metadata = {
     description: siteConfig.seoDescription,
     images: [siteConfig.heroImage],
   },
+  robots: {
+    index: true,
+    follow: true,
+  },
+  icons: {
+    icon: "/favicon.ico",
+  },
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="zh-CN">
+    <html lang="zh-CN" suppressHydrationWarning>
+      <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta name="theme-color" media="(prefers-color-scheme: light)" content="#f8f4ec" />
+        <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#0f172a" />
+        {/* Prevent flash of wrong theme */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              (function() {
+                try {
+                  var stored = localStorage.getItem('hkx-theme');
+                  var prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+                  if (stored === 'dark' || (!stored && prefersDark)) {
+                    document.documentElement.classList.add('dark');
+                  }
+                } catch(e) {}
+              })();
+            `,
+          }}
+        />
+      </head>
       <body className="antialiased">
-        <div className="relative flex min-h-screen flex-col">
-          <Header />
-          <main className="flex-1 pt-24 md:pt-28">{children}</main>
-          <Footer />
-        </div>
+        <ThemeProvider>
+          <ReadingProgress />
+          <div className="relative flex min-h-screen flex-col">
+            <Header />
+            <main className="flex-1 pt-24 md:pt-28">{children}</main>
+            <Footer />
+          </div>
+          <BackToTop />
+        </ThemeProvider>
       </body>
     </html>
   );

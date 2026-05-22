@@ -558,9 +558,9 @@ function renderCustomerHome() {
           { label: "联系团队", href: "/contact/", variant: "outline" },
         ]}
         aside={
-          <div className="glass-card p-6 text-slate-950">
+          <div className="glass-card p-6 text-slate-950 dark:text-slate-50">
             <p className="text-xs uppercase tracking-[0.22em] text-blue-700">Service scope</p>
-            <p className="mt-4 text-base leading-8 text-slate-600">
+            <p className="mt-4 text-base leading-8 text-slate-600 dark:text-slate-400">
               适合现有客户和潜在客户快速进入正确入口，也方便团队把需求、查询和售后动作统一收口。
             </p>
           </div>
@@ -579,9 +579,9 @@ function renderCustomerHome() {
           <div className="mt-8 grid gap-5 xl:grid-cols-3">
             {serviceCards.map((card) => (
               <Reveal key={card.href}>
-                <article className="glass-card flex h-full flex-col p-6 text-slate-950">
+                <article className="glass-card flex h-full flex-col p-6 text-slate-950 dark:text-slate-50">
                   <h3 className="text-xl font-semibold">{card.title}</h3>
-                  <p className="mt-3 flex-1 text-sm leading-7 text-slate-600">{card.summary}</p>
+                  <p className="mt-3 flex-1 text-sm leading-7 text-slate-600 dark:text-slate-400">{card.summary}</p>
                   <SmartLink
                     href={card.href}
                     className="mt-6 inline-flex h-11 items-center justify-center rounded-full bg-blue-600 px-5 text-sm font-semibold text-white transition hover:bg-blue-500"
@@ -646,8 +646,8 @@ function renderPartnersHome() {
             {partnershipModes.map((mode) => (
               <Reveal key={mode.title}>
                 <article className="glass-card p-6">
-                  <h3 className="text-xl font-semibold text-slate-950">{mode.title}</h3>
-                  <p className="mt-3 text-sm leading-7 text-slate-600">{mode.description}</p>
+                  <h3 className="text-xl font-semibold text-slate-950 dark:text-slate-50">{mode.title}</h3>
+                  <p className="mt-3 text-sm leading-7 text-slate-600 dark:text-slate-400">{mode.description}</p>
                 </article>
               </Reveal>
             ))}
@@ -669,8 +669,8 @@ function renderPartnersHome() {
               <Reveal key={portal.slug}>
                 <article className="glass-card flex h-full flex-col p-6">
                   <div className="text-xs font-semibold uppercase tracking-[0.18em] text-blue-700">{portal.audience}</div>
-                  <h3 className="mt-4 text-xl font-semibold text-slate-950">{portal.title}</h3>
-                  <p className="mt-3 flex-1 text-sm leading-7 text-slate-600">{portal.summary}</p>
+                  <h3 className="mt-4 text-xl font-semibold text-slate-950 dark:text-slate-50">{portal.title}</h3>
+                  <p className="mt-3 flex-1 text-sm leading-7 text-slate-600 dark:text-slate-400">{portal.summary}</p>
                   <SmartLink href={portal.href} className="mt-6 text-sm font-semibold text-blue-700">
                     打开入口
                   </SmartLink>
@@ -805,9 +805,9 @@ function renderEnterpriseService() {
           { label: "查看相关案例", href: "/projects/", variant: "outline" },
         ]}
         aside={
-          <div className="glass-card p-6 text-slate-950">
+          <div className="glass-card p-6 text-slate-950 dark:text-slate-50">
             <p className="text-xs uppercase tracking-[0.22em] text-blue-700">Scope</p>
-            <p className="mt-4 text-base leading-8 text-slate-600">{service.summary}</p>
+            <p className="mt-4 text-base leading-8 text-slate-600 dark:text-slate-400">{service.summary}</p>
           </div>
         }
       />
@@ -959,9 +959,9 @@ function renderProjectDetail(projectSlug: string) {
           { label: "返回案例列表", href: "/projects/", variant: "outline" },
         ]}
         aside={
-          <div className="glass-card p-6 text-slate-950">
+          <div className="glass-card p-6 text-slate-950 dark:text-slate-50">
             <p className="text-xs uppercase tracking-[0.22em] text-blue-700">Client</p>
-            <p className="mt-3 text-lg font-semibold text-slate-950">{project.client}</p>
+            <p className="mt-3 text-lg font-semibold text-slate-950 dark:text-slate-50">{project.client}</p>
             <div className="mt-5 flex flex-wrap gap-2">
               {project.tags?.map((tag) => (
                 <span key={tag} className="rounded-full bg-blue-50 px-3 py-1 text-xs uppercase tracking-[0.16em] text-blue-700">
@@ -978,7 +978,7 @@ function renderProjectDetail(projectSlug: string) {
           <Reveal>
             <div className="glass-card p-6">
               <SectionHeading title="项目概览" description={project.summary} />
-              <div className="mt-6 space-y-4 text-sm leading-8 text-slate-700">
+              <div className="mt-6 space-y-4 text-sm leading-8 text-slate-700 dark:text-slate-300">
                 {project.overview.map((paragraph) => (
                   <p key={paragraph}>{paragraph}</p>
                 ))}
@@ -1043,7 +1043,7 @@ function renderNewsDetail(year: string, newsSlug: string) {
         <div className="site-shell max-w-4xl">
           <Reveal>
             <article className="glass-card p-8">
-              <div className="space-y-5 text-base leading-8 text-slate-700">
+              <div className="space-y-5 text-base leading-8 text-slate-700 dark:text-slate-300">
                 {item.body.map((paragraph) => (
                   <p key={paragraph}>{paragraph}</p>
                 ))}
@@ -1120,12 +1120,12 @@ function renderGeminiGateway() {
           { label: "联系支持中心", href: "/contact/", variant: "outline" },
         ]}
         aside={
-          <div className="glass-card p-6 text-slate-950">
+          <div className="glass-card p-6 text-slate-950 dark:text-slate-50">
             <p className="text-xs uppercase tracking-[0.22em] text-blue-700">Endpoint</p>
             <div className="mt-4 rounded-[24px] border border-blue-100 bg-blue-50/80 p-4 font-mono text-sm text-blue-900">
               https://gemini.xinnew.top/
             </div>
-            <p className="mt-4 text-sm leading-7 text-slate-600">
+            <p className="mt-4 text-sm leading-7 text-slate-600 dark:text-slate-400">
               支持 IPv4 / IPv6 双栈，适合开发测试、受限网络环境下的 API 联调和迁移场景。
             </p>
           </div>
@@ -1171,7 +1171,7 @@ function renderGeminiGateway() {
                 </SmartLink>
                 <SmartLink
                   href="/contact/"
-                  className="inline-flex h-11 items-center justify-center rounded-full border border-slate-300 bg-white px-5 text-sm font-semibold text-slate-900"
+                  className="inline-flex h-11 items-center justify-center rounded-full border border-slate-300 bg-white px-5 text-sm font-semibold text-slate-900 dark:text-slate-100"
                 >
                   联系团队
                 </SmartLink>

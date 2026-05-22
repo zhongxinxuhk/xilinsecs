@@ -95,9 +95,9 @@ export default function LegacyCustomerServicePage() {
           { label: "联系团队", href: "/contact/", variant: "outline" },
         ]}
         aside={
-          <div className="glass-card p-6 text-slate-950">
+          <div className="glass-card p-6 text-slate-950 dark:text-slate-50">
             <p className="text-xs uppercase tracking-[0.22em] text-blue-700">Service scope</p>
-            <p className="mt-4 text-base leading-8 text-slate-600">
+            <p className="mt-4 text-base leading-8 text-slate-600 dark:text-slate-400">
               适合现有客户和潜在客户快速进入正确入口，也方便团队把需求、查询和售后动作统一收口。
             </p>
           </div>
@@ -116,9 +116,9 @@ export default function LegacyCustomerServicePage() {
           <div className="mt-8 grid gap-5 xl:grid-cols-3">
             {serviceCards.map((card) => (
               <Reveal key={card.href}>
-                <article className="glass-card flex h-full flex-col p-6 text-slate-950">
+                <article className="glass-card flex h-full flex-col p-6 text-slate-950 dark:text-slate-50">
                   <h3 className="text-xl font-semibold">{card.title}</h3>
-                  <p className="mt-3 flex-1 text-sm leading-7 text-slate-600">{card.summary}</p>
+                  <p className="mt-3 flex-1 text-sm leading-7 text-slate-600 dark:text-slate-400">{card.summary}</p>
                   <SmartLink
                     href={card.href}
                     className="mt-6 inline-flex h-11 items-center justify-center rounded-full bg-blue-600 px-5 text-sm font-semibold text-white transition hover:bg-blue-500"

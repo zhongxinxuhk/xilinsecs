@@ -25,14 +25,14 @@ export default function ProjectCard({ project }: ProjectCardProps) {
             {project.category}
           </span>
           {project.tags?.map((tag) => (
-            <span key={tag} className="max-w-full rounded-full bg-slate-100 px-3 py-1 text-xs text-slate-600">
+            <span key={tag} className="max-w-full rounded-full bg-slate-100 px-3 py-1 text-xs text-slate-600 dark:text-slate-400">
               {tag}
             </span>
           ))}
         </div>
         <div className="min-w-0">
-          <h3 className="text-xl font-semibold text-slate-950">{project.title}</h3>
-          <p className="mt-3 text-sm leading-7 text-slate-600">{project.description}</p>
+          <h3 className="text-xl font-semibold text-slate-950 dark:text-slate-50">{project.title}</h3>
+          <p className="mt-3 text-sm leading-7 text-slate-600 dark:text-slate-400">{project.description}</p>
         </div>
         <ButtonLink href={project.href} variant="outline" className="group">
           <span className="min-w-0">查看详情</span>

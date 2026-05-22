@@ -8,6 +8,7 @@ import CheckList from "@/components/sections/check-list";
 import CtaBanner from "@/components/sections/cta-banner";
 import Reveal from "@/components/sections/reveal";
 import JsonLd from "@/components/seo/json-ld";
+import Breadcrumbs from "@/components/ui/breadcrumbs";
 
 export function generateStaticParams() {
   return projects.map((project) => ({ slug: project.slug }));
@@ -31,6 +32,7 @@ export default function ProjectDetailPage({ params }: { params: { slug: string }
 
   return (
     <>
+      <Breadcrumbs items={[{ label: "项目案例", href: "/projects/" }, { label: project.title }]} />
       <JsonLd
         data={{
           "@context": "https://schema.org",

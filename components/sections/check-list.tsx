@@ -6,7 +6,7 @@ type CheckListProps = {
 };
 
 export default function CheckList({ items, tone = "light" }: CheckListProps) {
-  const textClass = tone === "dark" ? "text-slate-200" : "text-slate-700";
+  const textClass = tone === "dark" ? "text-slate-200" : "text-slate-700 dark:text-slate-300";
   const iconClass = tone === "dark" ? "bg-cyan-400/15 text-cyan-200" : "bg-blue-100 text-blue-700";
 
   return (

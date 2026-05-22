@@ -55,7 +55,7 @@ export default function FounderDetailPage({ params }: { params: { slug: string }
                   />
                 </div>
                 <div className="flex-1 text-center md:text-left">
-                  <h1 className="text-3xl font-bold text-slate-950">{member.name}</h1>
+                  <h1 className="text-3xl font-bold text-slate-950 dark:text-slate-50">{member.name}</h1>
                   <p className="mt-2 text-lg font-medium uppercase tracking-[0.16em] text-blue-700">
                     {member.title}
                   </p>
@@ -94,19 +94,19 @@ export default function FounderDetailPage({ params }: { params: { slug: string }
                     <div className="flex flex-col gap-3">
                       <div className="flex items-start justify-between">
                         <div>
-                          <h3 className="text-lg font-semibold text-slate-950">
+                          <h3 className="text-lg font-semibold text-slate-950 dark:text-slate-50">
                             {edu.institution}
                           </h3>
                           <p className="text-blue-700">{edu.major}</p>
                         </div>
-                        <span className="rounded-full bg-slate-100 px-3 py-1 text-sm font-medium text-slate-600">
+                        <span className="rounded-full bg-slate-100 px-3 py-1 text-sm font-medium text-slate-600 dark:text-slate-400">
                           {edu.period}
                         </span>
                       </div>
                       {edu.details && edu.details.length > 0 && (
                         <ul className="mt-2 space-y-2">
                           {edu.details.map((detail, idx) => (
-                            <li key={idx} className="flex items-start gap-2 text-sm text-slate-600">
+                            <li key={idx} className="flex items-start gap-2 text-sm text-slate-600 dark:text-slate-400">
                               <span className="mt-1 h-1.5 w-1.5 shrink-0 rounded-full bg-blue-500"></span>
                               {detail}
                             </li>
@@ -140,16 +140,16 @@ export default function FounderDetailPage({ params }: { params: { slug: string }
                     <div className="flex flex-col gap-3">
                       <div className="flex items-start justify-between">
                         <div>
-                          <h3 className="text-lg font-semibold text-slate-950">
+                          <h3 className="text-lg font-semibold text-slate-950 dark:text-slate-50">
                             {project.company}
                           </h3>
                           <p className="text-blue-700">{project.role}</p>
                         </div>
-                        <span className="rounded-full bg-slate-100 px-3 py-1 text-sm font-medium text-slate-600">
+                        <span className="rounded-full bg-slate-100 px-3 py-1 text-sm font-medium text-slate-600 dark:text-slate-400">
                           {project.period}
                         </span>
                       </div>
-                      <p className="text-sm leading-7 text-slate-600">
+                      <p className="text-sm leading-7 text-slate-600 dark:text-slate-400">
                         {project.description}
                       </p>
                     </div>
@@ -179,18 +179,18 @@ export default function FounderDetailPage({ params }: { params: { slug: string }
                     <div className="flex flex-col gap-3">
                       <div className="flex items-start justify-between">
                         <div>
-                          <h3 className="text-lg font-semibold text-slate-950">
+                          <h3 className="text-lg font-semibold text-slate-950 dark:text-slate-50">
                             {work.company}
                           </h3>
                           <p className="text-blue-700">{work.role}</p>
                         </div>
-                        <span className="rounded-full bg-slate-100 px-3 py-1 text-sm font-medium text-slate-600">
+                        <span className="rounded-full bg-slate-100 px-3 py-1 text-sm font-medium text-slate-600 dark:text-slate-400">
                           {work.period}
                         </span>
                       </div>
                       <ul className="mt-2 space-y-2">
                         {work.details.map((detail, idx) => (
-                          <li key={idx} className="flex items-start gap-2 text-sm text-slate-600">
+                          <li key={idx} className="flex items-start gap-2 text-sm text-slate-600 dark:text-slate-400">
                             <span className="mt-1 h-1.5 w-1.5 shrink-0 rounded-full bg-blue-500"></span>
                             {detail}
                           </li>
@@ -220,7 +220,7 @@ export default function FounderDetailPage({ params }: { params: { slug: string }
               {member.skills.certifications && member.skills.certifications.length > 0 && (
                 <Reveal>
                   <div>
-                    <h4 className="mb-4 flex items-center gap-2 text-sm font-semibold uppercase tracking-wider text-slate-500">
+                    <h4 className="mb-4 flex items-center gap-2 text-sm font-semibold uppercase tracking-wider text-slate-500 dark:text-slate-400">
                       <Award className="h-4 w-4" />
                       职业资质
                     </h4>
@@ -241,13 +241,13 @@ export default function FounderDetailPage({ params }: { params: { slug: string }
               {member.skills.security && member.skills.security.length > 0 && (
                 <Reveal>
                   <div>
-                    <h4 className="mb-4 flex items-center gap-2 text-sm font-semibold uppercase tracking-wider text-slate-500">
+                    <h4 className="mb-4 flex items-center gap-2 text-sm font-semibold uppercase tracking-wider text-slate-500 dark:text-slate-400">
                       <Shield className="h-4 w-4" />
                       网络安全
                     </h4>
                     <ul className="space-y-2">
                       {member.skills.security.map((skill, idx) => (
-                        <li key={idx} className="flex items-start gap-2 text-sm text-slate-600">
+                        <li key={idx} className="flex items-start gap-2 text-sm text-slate-600 dark:text-slate-400">
                           <span className="mt-1 h-1.5 w-1.5 shrink-0 rounded-full bg-green-500"></span>
                           {skill}
                         </li>
@@ -260,13 +260,13 @@ export default function FounderDetailPage({ params }: { params: { slug: string }
               {member.skills.cloud && member.skills.cloud.length > 0 && (
                 <Reveal>
                   <div>
-                    <h4 className="mb-4 flex items-center gap-2 text-sm font-semibold uppercase tracking-wider text-slate-500">
+                    <h4 className="mb-4 flex items-center gap-2 text-sm font-semibold uppercase tracking-wider text-slate-500 dark:text-slate-400">
                       <Cloud className="h-4 w-4" />
                       云计算与虚拟化
                     </h4>
                     <ul className="space-y-2">
                       {member.skills.cloud.map((skill, idx) => (
-                        <li key={idx} className="flex items-start gap-2 text-sm text-slate-600">
+                        <li key={idx} className="flex items-start gap-2 text-sm text-slate-600 dark:text-slate-400">
                           <span className="mt-1 h-1.5 w-1.5 shrink-0 rounded-full bg-blue-500"></span>
                           {skill}
                         </li>
@@ -279,13 +279,13 @@ export default function FounderDetailPage({ params }: { params: { slug: string }
               {member.skills.ai && member.skills.ai.length > 0 && (
                 <Reveal>
                   <div>
-                    <h4 className="mb-4 flex items-center gap-2 text-sm font-semibold uppercase tracking-wider text-slate-500">
+                    <h4 className="mb-4 flex items-center gap-2 text-sm font-semibold uppercase tracking-wider text-slate-500 dark:text-slate-400">
                       <Cpu className="h-4 w-4" />
                       AI应用
                     </h4>
                     <ul className="space-y-2">
                       {member.skills.ai.map((skill, idx) => (
-                        <li key={idx} className="flex items-start gap-2 text-sm text-slate-600">
+                        <li key={idx} className="flex items-start gap-2 text-sm text-slate-600 dark:text-slate-400">
                           <span className="mt-1 h-1.5 w-1.5 shrink-0 rounded-full bg-purple-500"></span>
                           {skill}
                         </li>
@@ -298,13 +298,13 @@ export default function FounderDetailPage({ params }: { params: { slug: string }
               {member.skills.other && member.skills.other.length > 0 && (
                 <Reveal>
                   <div>
-                    <h4 className="mb-4 flex items-center gap-2 text-sm font-semibold uppercase tracking-wider text-slate-500">
+                    <h4 className="mb-4 flex items-center gap-2 text-sm font-semibold uppercase tracking-wider text-slate-500 dark:text-slate-400">
                       <Sparkles className="h-4 w-4" />
                       其他
                     </h4>
                     <ul className="space-y-2">
                       {member.skills.other.map((skill, idx) => (
-                        <li key={idx} className="flex items-start gap-2 text-sm text-slate-600">
+                        <li key={idx} className="flex items-start gap-2 text-sm text-slate-600 dark:text-slate-400">
                           <span className="mt-1 h-1.5 w-1.5 shrink-0 rounded-full bg-indigo-500"></span>
                           {skill}
                         </li>

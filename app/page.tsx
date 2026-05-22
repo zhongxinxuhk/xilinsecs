@@ -9,6 +9,10 @@ import {
   ShieldCheck,
   Users,
   Workflow,
+  TrendingUp,
+  Sparkles,
+  Timer,
+  HeartHandshake,
 } from "lucide-react";
 import { buildMetadata } from "@/lib/metadata";
 import { homeHero, siteConfig, teamMembers, timeline } from "@/lib/site-data";
@@ -18,6 +22,8 @@ import IconCardGrid from "@/components/sections/icon-card-grid";
 import TimelineList from "@/components/sections/timeline-list";
 import Reveal from "@/components/sections/reveal";
 import { ButtonLink } from "@/components/ui/button";
+import AnimatedCounter from "@/components/interactive/animated-counter";
+import JsonLd from "@/components/seo/json-ld";
 
 const coreCapabilities = [
   {
@@ -150,6 +156,13 @@ const latestNews = [
   },
 ];
 
+const statItems = [
+  { value: 5, suffix: "+", label: "年行业经验", icon: TrendingUp },
+  { value: 50, suffix: "+", label: "服务客户", icon: HeartHandshake },
+  { value: 100, suffix: "%", label: "项目交付率", icon: Timer },
+  { value: 4, suffix: "", label: "核心业务线", icon: Sparkles },
+];
+
 export const metadata = buildMetadata({
   title: "海口希灵赛斯：一家专注于信息化解决方案的科技公司",
   description: siteConfig.seoDescription,
@@ -160,6 +173,28 @@ export const metadata = buildMetadata({
 export default function HomePage() {
   return (
     <>
+      <JsonLd
+        data={{
+          "@context": "https://schema.org",
+          "@type": "Organization",
+          name: siteConfig.name,
+          url: siteConfig.domain,
+          logo: siteConfig.logo,
+          description: siteConfig.description,
+          address: {
+            "@type": "PostalAddress",
+            addressLocality: "海口",
+            addressRegion: "海南",
+            addressCountry: "CN",
+          },
+          contactPoint: {
+            "@type": "ContactPoint",
+            email: siteConfig.email,
+            contactType: "customer service",
+          },
+        }}
+      />
+
       <PageHero
         kicker={homeHero.kicker}
         title={homeHero.title}
@@ -168,15 +203,37 @@ export default function HomePage() {
         actions={[homeHero.primaryCta]}
       />
 
+      {/* Animated stats counter */}
+      <section className="section-space !pb-0">
+        <div className="site-shell">
+          <Reveal>
+            <div className="glass-card grid grid-cols-2 gap-6 p-6 sm:gap-8 sm:p-8 md:gap-10 md:p-10 xl:grid-cols-4">
+              {statItems.map((item) => {
+                const Icon = item.icon;
+                return (
+                  <div key={item.label} className="text-center">
+                    <Icon className="mx-auto h-7 w-7 text-blue-600 dark:text-blue-400" />
+                    <div className="heading-display mt-3 text-3xl font-bold text-slate-950 dark:text-slate-50 sm:text-4xl md:text-5xl">
+                      <AnimatedCounter end={item.value} suffix={item.suffix} />
+                    </div>
+                    <p className="mt-2 text-sm font-medium text-slate-500 dark:text-slate-400">{item.label}</p>
+                  </div>
+                );
+              })}
+            </div>
+          </Reveal>
+        </div>
+      </section>
+
       <section className="section-space">
         <div className="site-shell">
           <Reveal className="ink-panel overflow-hidden px-6 py-10 sm:px-8 md:px-10">
             <div className="max-w-3xl">
               <div className="section-kicker">核心定位</div>
-              <h2 className="heading-display mt-4 text-3xl font-semibold tracking-tight text-slate-950 md:text-4xl">
+              <h2 className="heading-display mt-4 text-3xl font-semibold tracking-tight text-slate-950 dark:text-slate-50 md:text-4xl">
                 打造数字化未来
               </h2>
-              <p className="mt-4 text-base leading-8 text-slate-600 md:text-lg">专业IT解决方案提供商</p>
+              <p className="mt-4 text-base leading-8 text-slate-600 dark:text-slate-400 md:text-lg">专业IT解决方案提供商</p>
             </div>
             <div className="mt-8">
               <IconCardGrid items={coreCapabilities} columns="three" />
@@ -187,7 +244,7 @@ export default function HomePage() {
 
       <section className="section-space pt-0">
         <div className="site-shell">
-          <Reveal className="rainbow-panel overflow-hidden px-6 py-10 text-slate-950 sm:px-8 md:px-10">
+          <Reveal className="rainbow-panel overflow-hidden px-6 py-10 text-slate-950 dark:text-slate-50 sm:px-8 md:px-10">
             <div className="grid gap-8 lg:grid-cols-[0.92fr_1.08fr]">
               <div className="relative min-h-[320px] overflow-hidden rounded-[28px] border border-white/80 shadow-soft">
                 <Image
@@ -196,16 +253,16 @@ export default function HomePage() {
                   fill
                   className="object-cover"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-white/75 via-white/10 to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-t from-white/75 via-white/10 to-transparent dark:from-slate-900/75 dark:via-slate-900/10" />
               </div>
 
               <div>
                 <div className="max-w-3xl">
                   <div className="section-kicker">核心产品</div>
-                  <h2 className="heading-display mt-4 text-3xl font-semibold tracking-tight text-slate-950 md:text-4xl">
+                  <h2 className="heading-display mt-4 text-3xl font-semibold tracking-tight text-slate-950 dark:text-slate-50 md:text-4xl">
                     我们的核心产品与服务
                   </h2>
-                  <p className="mt-4 text-base leading-8 text-slate-600 md:text-lg">
+                  <p className="mt-4 text-base leading-8 text-slate-600 dark:text-slate-400 md:text-lg">
                     围绕私有云、信息安全、信创适配与信息系统建设，提供从咨询到实施的整体支撑。
                   </p>
                 </div>
@@ -216,21 +273,21 @@ export default function HomePage() {
                     return (
                       <article
                         key={item.title}
-                        className="glass-card p-5 transition hover:-translate-y-1"
+                        className="glass-card p-5 transition hover:-translate-y-1 hover:shadow-glass"
                       >
-                        <div className="inline-flex h-12 w-12 items-center justify-center rounded-2xl bg-blue-100 text-blue-700">
+                        <div className="inline-flex h-12 w-12 items-center justify-center rounded-2xl bg-blue-100 text-blue-700 dark:bg-blue-900/50 dark:text-blue-300">
                           <Icon className="h-5 w-5" />
                         </div>
-                        <h3 className="mt-4 text-lg font-semibold text-slate-950">{item.title}</h3>
-                        <p className="mt-3 text-sm leading-7 text-slate-600">{item.description}</p>
+                        <h3 className="mt-4 text-lg font-semibold text-slate-950 dark:text-slate-50">{item.title}</h3>
+                        <p className="mt-3 text-sm leading-7 text-slate-600 dark:text-slate-400">{item.description}</p>
                       </article>
                     );
                   })}
                 </div>
 
-                <div className="mt-6 rounded-[28px] border border-orange-200 bg-white/80 p-6 shadow-soft backdrop-blur">
-                  <h3 className="text-2xl font-semibold text-slate-950">提交您的需求</h3>
-                  <p className="mt-3 text-sm leading-7 text-slate-600">
+                <div className="mt-6 rounded-[28px] border border-orange-200 bg-white/80 p-6 shadow-soft backdrop-blur dark:border-orange-900/30 dark:bg-slate-800/80">
+                  <h3 className="text-2xl font-semibold text-slate-950 dark:text-slate-50">提交您的需求</h3>
+                  <p className="mt-3 text-sm leading-7 text-slate-600 dark:text-slate-400">
                     把您的项目需求、时间节点与预算提交给我们，我们会在T+1个工作日内联系您。
                   </p>
                   <ButtonLink href="/contact/request/" className="mt-6">
@@ -246,11 +303,11 @@ export default function HomePage() {
 
       <section className="section-space pt-0">
         <div className="site-shell">
-          <Reveal className="rainbow-panel overflow-hidden px-6 py-10 text-slate-950 sm:px-8 md:px-10">
+          <Reveal className="rainbow-panel overflow-hidden px-6 py-10 text-slate-950 dark:text-slate-50 sm:px-8 md:px-10">
             <div className="grid gap-8 lg:grid-cols-[0.88fr_1.12fr]">
               <div className="glass-card p-6">
-                <h2 className="heading-display text-3xl font-semibold text-slate-950 md:text-4xl">定制专属方案</h2>
-                <p className="mt-4 text-base leading-8 text-slate-600">
+                <h2 className="heading-display text-3xl font-semibold text-slate-950 dark:text-slate-50 md:text-4xl">定制专属方案</h2>
+                <p className="mt-4 text-base leading-8 text-slate-600 dark:text-slate-400">
                   我们为每个客户提供量身定制的解决方案，满足您的独特需求，助力业务发展。
                 </p>
                 <div className="mt-8 space-y-4">
@@ -259,14 +316,14 @@ export default function HomePage() {
                     return (
                       <div
                         key={feature.title}
-                        className="flex items-start gap-4 rounded-[22px] border border-white/80 bg-white/70 p-4 shadow-soft"
+                        className="flex items-start gap-4 rounded-[22px] border border-white/80 bg-white/70 p-4 shadow-soft transition hover:-translate-x-0.5 dark:border-slate-700/50 dark:bg-slate-800/70"
                       >
-                        <div className="flex h-12 w-12 flex-none items-center justify-center rounded-2xl bg-blue-100 text-blue-700">
+                        <div className="flex h-12 w-12 flex-none items-center justify-center rounded-2xl bg-blue-100 text-blue-700 dark:bg-blue-900/50 dark:text-blue-300">
                           <Icon className="h-5 w-5" />
                         </div>
                         <div>
-                          <h3 className="text-lg font-semibold text-slate-950">{feature.title}</h3>
-                          <p className="mt-2 text-sm leading-7 text-slate-600">{feature.description}</p>
+                          <h3 className="text-lg font-semibold text-slate-950 dark:text-slate-50">{feature.title}</h3>
+                          <p className="mt-2 text-sm leading-7 text-slate-600 dark:text-slate-400">{feature.description}</p>
                         </div>
                       </div>
                     );
@@ -281,28 +338,28 @@ export default function HomePage() {
               <div>
                 <div className="max-w-3xl">
                   <div className="section-kicker">项目案例</div>
-                  <h2 className="heading-display mt-4 text-3xl font-semibold tracking-tight text-slate-950 md:text-4xl">
+                  <h2 className="heading-display mt-4 text-3xl font-semibold tracking-tight text-slate-950 dark:text-slate-50 md:text-4xl">
                     精选项目案例
                   </h2>
-                  <p className="mt-4 text-base leading-8 text-slate-600 md:text-lg">我们为客户创造的商业价值</p>
+                  <p className="mt-4 text-base leading-8 text-slate-600 dark:text-slate-400 md:text-lg">我们为客户创造的商业价值</p>
                 </div>
 
                 <div className="mt-8 grid gap-5 xl:grid-cols-2">
                   {featuredProjects.map((project) => (
-                    <article key={project.title} className="glass-card overflow-hidden">
+                    <article key={project.title} className="glass-card overflow-hidden transition hover:-translate-y-1 hover:shadow-glass">
                       <div className="relative h-56 overflow-hidden">
                         <Image src={project.image} alt={project.title} fill className="object-cover transition duration-500 hover:scale-105" />
-                        <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-white/95 to-transparent p-4 text-xs font-semibold tracking-[0.18em] text-blue-700">
+                        <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-white/95 to-transparent p-4 text-xs font-semibold tracking-[0.18em] text-blue-700 dark:from-slate-900/95">
                           {project.date}
                         </div>
                       </div>
                       <div className="space-y-4 p-6">
-                        <p className="text-sm text-slate-500">
-                          负责人 <span className="font-semibold text-slate-800">{project.author}</span>
+                        <p className="text-sm text-slate-500 dark:text-slate-400">
+                          负责人 <span className="font-semibold text-slate-800 dark:text-slate-200">{project.author}</span>
                         </p>
                         <div>
-                          <h3 className="text-xl font-semibold text-slate-950">{project.title}</h3>
-                          <p className="mt-3 text-sm leading-7 text-slate-600">{project.description}</p>
+                          <h3 className="text-xl font-semibold text-slate-950 dark:text-slate-50">{project.title}</h3>
+                          <p className="mt-3 text-sm leading-7 text-slate-600 dark:text-slate-400">{project.description}</p>
                         </div>
                         <ButtonLink href={project.href} variant="outline">
                           查看详情
@@ -328,17 +385,17 @@ export default function HomePage() {
             />
           </Reveal>
           <div className="mt-8 grid gap-5 md:grid-cols-2 xl:grid-cols-4">
-            {latestNews.map((item) => (
+            {latestNews.map((item, i) => (
               <Reveal key={item.title}>
-                <article className="glass-card overflow-hidden">
+                <article className="glass-card overflow-hidden transition hover:-translate-y-1 hover:shadow-glass" style={{ animationDelay: `${i * 100}ms` }}>
                   <div className="relative h-48 overflow-hidden">
                     <Image src={item.image} alt={item.title} fill className="object-cover transition duration-500 hover:scale-105" />
                   </div>
                   <div className="space-y-4 p-6">
-                    <p className="text-xs font-semibold uppercase tracking-[0.18em] text-blue-700">{item.date}</p>
+                    <p className="text-xs font-semibold uppercase tracking-[0.18em] text-blue-700 dark:text-blue-400">{item.date}</p>
                     <div>
-                      <h3 className="text-xl font-semibold text-slate-950">{item.title}</h3>
-                      <p className="mt-3 text-sm leading-7 text-slate-600">{item.summary}</p>
+                      <h3 className="text-xl font-semibold text-slate-950 dark:text-slate-50">{item.title}</h3>
+                      <p className="mt-3 text-sm leading-7 text-slate-600 dark:text-slate-400">{item.summary}</p>
                     </div>
                     <ButtonLink href={item.href} variant="ghost" className="group px-0">
                       阅读更多
@@ -364,12 +421,12 @@ export default function HomePage() {
           <div className="mt-8 grid gap-5 sm:grid-cols-2 xl:grid-cols-3">
             {teamMembers.map((member) => (
               <Reveal key={member.slug}>
-                <article className="glass-card p-6 text-center">
-                  <div className="relative mx-auto h-32 w-32 overflow-hidden rounded-[24px] border border-white/70">
+                <article className="glass-card p-6 text-center transition hover:-translate-y-1 hover:shadow-glass">
+                  <div className="relative mx-auto h-32 w-32 overflow-hidden rounded-[24px] border border-white/70 transition-transform duration-300 hover:scale-105">
                     <Image src={member.image} alt={member.name} fill className="object-cover" />
                   </div>
-                  <h3 className="mt-5 text-xl font-semibold text-slate-950">{member.name}</h3>
-                  <p className="mt-2 text-sm font-medium uppercase tracking-[0.16em] text-blue-700">{member.title}</p>
+                  <h3 className="mt-5 text-xl font-semibold text-slate-950 dark:text-slate-50">{member.name}</h3>
+                  <p className="mt-2 text-sm font-medium uppercase tracking-[0.16em] text-blue-700 dark:text-blue-400">{member.title}</p>
                 </article>
               </Reveal>
             ))}

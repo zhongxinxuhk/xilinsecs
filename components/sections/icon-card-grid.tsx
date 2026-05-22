@@ -53,14 +53,14 @@ export default function IconCardGrid({
             >
               <Icon className="h-5 w-5" />
             </div>
-            <h3 className={cn("responsive-text mt-5 text-xl font-semibold", isDark ? "text-white" : "text-slate-950")}>
+            <h3 className={cn("responsive-text mt-5 text-xl font-semibold", isDark ? "text-white" : "text-slate-950 dark:text-slate-50")}>
               {item.title}
             </h3>
-            <p className={cn("responsive-text mt-3 text-sm leading-7", isDark ? "text-slate-300" : "text-slate-600")}>
+            <p className={cn("responsive-text mt-3 text-sm leading-7", isDark ? "text-slate-300" : "text-slate-600 dark:text-slate-400")}>
               {item.description}
             </p>
             {item.bullets?.length ? (
-              <ul className={cn("mt-5 space-y-2 text-sm", isDark ? "text-slate-200" : "text-slate-700")}>
+              <ul className={cn("mt-5 space-y-2 text-sm", isDark ? "text-slate-200" : "text-slate-700 dark:text-slate-300")}>
                 {item.bullets.map((bullet) => (
                   <li key={bullet} className="flex min-w-0 gap-2">
                     <span className={cn("mt-1 h-2 w-2 flex-none rounded-full", isDark ? "bg-cyan-300" : "bg-blue-600")} />

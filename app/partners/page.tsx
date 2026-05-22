@@ -40,8 +40,8 @@ export default function PartnersPage() {
             {partnershipModes.map((mode) => (
               <Reveal key={mode.title}>
                 <article className="glass-card p-6">
-                  <h3 className="text-xl font-semibold text-slate-950">{mode.title}</h3>
-                  <p className="mt-3 text-sm leading-7 text-slate-600">{mode.description}</p>
+                  <h3 className="text-xl font-semibold text-slate-950 dark:text-slate-50">{mode.title}</h3>
+                  <p className="mt-3 text-sm leading-7 text-slate-600 dark:text-slate-400">{mode.description}</p>
                 </article>
               </Reveal>
             ))}
@@ -63,8 +63,8 @@ export default function PartnersPage() {
               <Reveal key={portal.slug}>
                 <article className="glass-card flex h-full flex-col p-6">
                   <div className="text-xs font-semibold uppercase tracking-[0.18em] text-blue-700">{portal.audience}</div>
-                  <h3 className="mt-4 text-xl font-semibold text-slate-950">{portal.title}</h3>
-                  <p className="mt-3 flex-1 text-sm leading-7 text-slate-600">{portal.summary}</p>
+                  <h3 className="mt-4 text-xl font-semibold text-slate-950 dark:text-slate-50">{portal.title}</h3>
+                  <p className="mt-3 flex-1 text-sm leading-7 text-slate-600 dark:text-slate-400">{portal.summary}</p>
                   <a href={portal.href} className="mt-6 text-sm font-semibold text-blue-700">
                     打开入口
                   </a>
