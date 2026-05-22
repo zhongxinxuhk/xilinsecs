@@ -1,3 +1,115 @@
+html {
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+
+body {
+  min-width: 0;
+  overflow-x: hidden;
+}
+
+img,
+svg,
+video,
+canvas,
+iframe {
+  max-width: 100%;
+}
+
+iframe {
+  border: 0;
+}
+
+.responsive-iframe {
+  width: 100%;
+  min-height: 320px;
+}
+
+.iframe-container {
+  max-width: 100%;
+}
+
+.nav,
+.navbar,
+.xsec-navbar {
+  max-width: 100vw;
+}
+
+.nav-inner,
+.navbar-container,
+.navbar-menu,
+.navbar-collapse,
+.nav-list,
+.nav-links {
+  min-width: 0;
+}
+
+.brand,
+.navbar-brand {
+  min-width: 0;
+}
+
+.brand span,
+.brand-text,
+.navbar-brand {
+  overflow-wrap: anywhere;
+}
+
+@media (max-width: 768px) {
+  .nav .nav-inner {
+    position: relative;
+  }
+
+  .nav .nav-links {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    width: 100%;
+    max-height: calc(100dvh - 56px);
+    overflow-y: auto;
+  }
+
+  .nav .nav-links.active {
+    display: flex;
+  }
+
+  .nav .nav-toggle {
+    display: flex;
+    flex: 0 0 auto;
+  }
+
+  .navbar-menu,
+  .navbar-collapse {
+    max-width: 100vw;
+    overflow-x: hidden;
+  }
+
+  .submenu,
+  .dropdown-menu {
+    max-width: 100%;
+  }
+
+  .submenu-link,
+  .dropdown-item,
+  .nav-link {
+    white-space: normal;
+    overflow-wrap: anywhere;
+  }
+
+  .footer .row {
+    grid-template-columns: 1fr !important;
+  }
+
+  .footer-bottom,
+  .footer-extra-links,
+  .footer-ip-info {
+    max-width: 100%;
+    overflow-wrap: anywhere;
+  }
+}
+
 @supports not (display: grid) {
   .product-grid { display: flex; flex-wrap: wrap; gap: 20px; }
   .product-card { flex: 1 1 100%; }

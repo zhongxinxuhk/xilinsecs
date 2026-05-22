@@ -1,6 +1,6 @@
 import { notFound } from "next/navigation";
 import { buildMetadata } from "@/lib/metadata";
-import { getProductBySlug } from "@/lib/site-data";
+import { getProductBySlug, products } from "@/lib/site-data";
 import PageHero from "@/components/sections/page-hero";
 import SectionHeading from "@/components/sections/section-heading";
 import CheckList from "@/components/sections/check-list";
@@ -8,7 +8,7 @@ import CtaBanner from "@/components/sections/cta-banner";
 import Reveal from "@/components/sections/reveal";
 
 export function generateStaticParams() {
-  return ["cloud", "software", "hardware"].map((slug) => ({ slug }));
+  return products.map((product) => ({ slug: product.slug }));
 }
 
 export function generateMetadata({ params }: { params: { slug: string } }) {

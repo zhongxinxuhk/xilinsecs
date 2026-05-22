@@ -1,0 +1,7 @@
+- [x] Checklist 1: TeamMember 类型定义已扩展，包含教育背景、项目经历、工作经历、技能等字段
+- [x] Checklist 2: team.ts 中创始人数据已更新，包含详细履历信息
+- [x] Checklist 3: PersonCard 组件已修改，创始人卡片可点击跳转
+- [x] Checklist 4: 创始人单独介绍页面已创建，能够正确展示详细信息
+- [x] Checklist 5: 路由配置正确，`/company/leadership/{slug}/` 能够访问到对应创始人页面
+- [x] Checklist 6: 页面样式与现有网站保持一致
+- [x] Checklist 7: 页面响应式设计正常，支持移动端和桌面端

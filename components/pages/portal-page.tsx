@@ -23,15 +23,15 @@ export default function PortalPage({ portal }: PortalPageProps) {
           { label: "联系我们", href: "/contact/", variant: "outline" },
         ]}
         aside={
-          <div className="glass-card p-6 text-slate-950">
-            <p className="text-xs uppercase tracking-[0.22em] text-blue-700">Portal brief</p>
+          <div className="glass-card p-5 text-slate-950 sm:p-6">
+            <p className="text-xs uppercase tracking-[0.16em] text-blue-700 sm:tracking-[0.22em]">Portal brief</p>
             <p className="mt-4 text-base leading-8 text-slate-600">{portal.summary}</p>
           </div>
         }
       />
 
       <section className="section-space">
-        <div className="site-shell grid gap-8 lg:grid-cols-[1.1fr_0.9fr]">
+        <div className="site-shell grid min-w-0 gap-8 lg:grid-cols-[minmax(0,1.1fr)_minmax(0,0.9fr)]">
           <Reveal>
             <SectionHeading
               kicker="How it works"
@@ -50,7 +50,7 @@ export default function PortalPage({ portal }: PortalPageProps) {
       </Reveal>
 
       <section className="section-space">
-        <div className="site-shell grid gap-8 lg:grid-cols-[0.9fr_1.1fr]">
+        <div className="site-shell grid min-w-0 gap-8 lg:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)]">
           <Reveal>
             <SectionHeading
               kicker="FAQ"

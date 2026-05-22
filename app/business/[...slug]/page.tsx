@@ -76,7 +76,8 @@ type BusinessLegacyEntry = {
 
 const businessLegacyEntries: BusinessLegacyEntry[] = [
   { path: "index.html", kind: "services-home" },
-  { path: "services/index.html", kind: "services-home" },
+  { path: "c/need.html", kind: "portal", portalType: "contact", portalSlug: "request" },
+  { path: "services", kind: "services-home" },
   { path: "services/b", kind: "service", serviceSlug: "enterprise" },
   {
     path: "services/b/order.html",
@@ -140,6 +141,7 @@ const businessLegacyEntries: BusinessLegacyEntry[] = [
     secondaryLabel: "返回合作伙伴页",
   },
   { path: "services/c", kind: "customer-home" },
+  { path: "services/c/need.html", kind: "portal", portalType: "contact", portalSlug: "request" },
   { path: "services/c/order.html", kind: "portal", portalType: "customer", portalSlug: "orders" },
   { path: "services/c/subscription.html", kind: "portal", portalType: "customer", portalSlug: "subscriptions" },
   { path: "services/c/wo.html", kind: "portal", portalType: "ticket", portalSlug: "new" },
@@ -222,11 +224,11 @@ const businessLegacyEntries: BusinessLegacyEntry[] = [
   { path: "services/g/dns-query.html", kind: "tool", toolSlug: "dns-query" },
   { path: "services/g/sjdm.html", kind: "tool", toolSlug: "random-picker" },
   { path: "services/g/uuid.html", kind: "tool", toolSlug: "uuid" },
-  { path: "services/g/gemini/index.html", kind: "gemini" },
-  { path: "product/index.html", kind: "products-home" },
-  { path: "product/software/index.html", kind: "product", productSlug: "software" },
+  { path: "services/g/gemini", kind: "gemini" },
+  { path: "product", kind: "products-home" },
+  { path: "product/software", kind: "product", productSlug: "software" },
   {
-    path: "product/software/educheck/index.html",
+    path: "product/software/educheck",
     kind: "info",
     title: "教育检查与软件交付方案",
     description: "教育检查类产品现已纳入软件与应用能力带，更适合结合业务场景、平台交付和后续维护一起规划。",
@@ -243,8 +245,8 @@ const businessLegacyEntries: BusinessLegacyEntry[] = [
     secondaryHref: "/contact/request/",
     secondaryLabel: "发起项目沟通",
   },
-  { path: "product/hardware/index.html", kind: "product", productSlug: "hardware" },
-  { path: "product/cloud/index.html", kind: "product", productSlug: "cloud" },
+  { path: "product/hardware", kind: "product", productSlug: "hardware" },
+  { path: "product/cloud", kind: "product", productSlug: "cloud" },
 ];
 
 function findEntry(path: string) {

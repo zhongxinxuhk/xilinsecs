@@ -80,6 +80,35 @@ export type NewsRecord = SeoRecord & {
   body: string[];
 };
 
+export type EducationEntry = {
+  institution: string;
+  major: string;
+  period: string;
+  details?: string[];
+};
+
+export type ProjectEntry = {
+  company: string;
+  role: string;
+  period: string;
+  description: string;
+};
+
+export type WorkEntry = {
+  company: string;
+  role: string;
+  period: string;
+  details: string[];
+};
+
+export type SkillSet = {
+  certifications: string[];
+  security: string[];
+  cloud: string[];
+  ai: string[];
+  other: string[];
+};
+
 export type TeamMember = {
   slug: string;
   name: string;
@@ -87,6 +116,11 @@ export type TeamMember = {
   bio: string;
   image: string;
   focus: string[];
+  education?: EducationEntry[];
+  projects?: ProjectEntry[];
+  workExperience?: WorkEntry[];
+  skills?: SkillSet;
+  awards?: string[];
 };
 
 export type RoleRecord = SeoRecord & {

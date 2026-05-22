@@ -1,12 +1,10 @@
 import { notFound } from "next/navigation";
 import { buildMetadata } from "@/lib/metadata";
-import { getCustomerPortalBySlug } from "@/lib/site-data";
+import { customerPortals, getCustomerPortalBySlug } from "@/lib/site-data";
 import PortalPage from "@/components/pages/portal-page";
 
-const customerSlugs = ["orders", "subscriptions", "profile"];
-
 export function generateStaticParams() {
-  return customerSlugs.map((slug) => ({ slug }));
+  return customerPortals.map((portal) => ({ slug: portal.slug }));
 }
 
 export function generateMetadata({ params }: { params: { slug: string } }) {

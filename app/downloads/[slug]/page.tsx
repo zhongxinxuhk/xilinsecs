@@ -1,6 +1,6 @@
 import { notFound } from "next/navigation";
 import { buildMetadata } from "@/lib/metadata";
-import { getDownloadBySlug } from "@/lib/site-data";
+import { downloads, getDownloadBySlug } from "@/lib/site-data";
 import PageHero from "@/components/sections/page-hero";
 import SectionHeading from "@/components/sections/section-heading";
 import CheckList from "@/components/sections/check-list";
@@ -8,10 +8,8 @@ import PinCard from "@/components/sections/pin-card";
 import Reveal from "@/components/sections/reveal";
 import SmartLink from "@/components/ui/smart-link";
 
-const downloadSlugs = ["ioa-secure-office", "cross-border-office"];
-
 export function generateStaticParams() {
-  return downloadSlugs.map((slug) => ({ slug }));
+  return downloads.map((item) => ({ slug: item.slug }));
 }
 
 export function generateMetadata({ params }: { params: { slug: string } }) {

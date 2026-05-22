@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>海口希灵赛斯网络科技有限公司</title>
+    <description>专业的信息化解决方案供应商，提供私有云建设、信息安全咨询、网站建设等服务</description>
+    <link>https://www.sec.hn.cn</link>
+    <language>zh-CN</language>
+    <lastBuildDate>Mon, 30 Dec 2025 12:00:00 +0800</lastBuildDate>
+    <pubDate>Mon, 30 Dec 2025 12:00:00 +0800</pubDate>
+    <ttl>60</ttl>
+    <atom:link href="https://www.sec.hn.cn/rss.xml" rel="self" type="application/rss+xml" />
+
+    <item>
+      <title>新增AI大语言模型索引文件支持</title>
+      <description>我们新增了llms.txt文件，为大语言模型提供结构化的内容索引，帮助AI更好地理解和引用我们网站的信息，提升AI交互体验。</description>
+      <link>https://www.sec.hn.cn/llms.txt</link>
+      <guid isPermaLink="true">https://www.sec.hn.cn/llms.txt</guid>
+      <pubDate>Sun, 21 Sep 2025 12:00:00 +0800</pubDate>
+    </item>
+
+    <item>
+      <title>代理商OA协作系统上线</title>
+      <description>全新的代理商OA协作系统正式上线，提供订单管理、结算查询等一站式业务协作服务</description>
+      <link>https://www.sec.hn.cn/business/p/oa.html</link>
+      <guid isPermaLink="true">https://www.sec.hn.cn/business/p/oa.html</guid>
+      <pubDate>Sat, 13 Sep 2025 12:00:00 +0800</pubDate>
+    </item>
+
+    <item>
+      <title>代理商管理系统功能完善</title>
+      <description>新增代理商订单查询、信息维护、注册及营收结算等功能页面，完善代理商管理体系</description>
+      <link>https://www.sec.hn.cn/business/p/</link>
+      <guid isPermaLink="true">https://www.sec.hn.cn/business/p/</guid>
+      <pubDate>Sat, 13 Sep 2025 12:00:00 +0800</pubDate>
+    </item>
+
+    <item>
+      <title>2025年第二季度财务报告页面上线</title>
+      <description>我们发布了2025年第二季度财务报告页面，展示公司财务状况</description>
+      <link>https://www.sec.hn.cn/leadership/pages/2025/finance_q2.html</link>
+      <guid isPermaLink="true">https://www.sec.hn.cn/leadership/pages/2025/finance_q2.html</guid>
+      <pubDate>Thu, 11 Sep 2025 12:00:00 +0800</pubDate>
+    </item>
+
+    <item>
+      <title> Gemini AI工具上线</title>
+      <description>我们推出了基于Gemini的AI工具，提供智能化的信息处理服务</description>
+      <link>https://www.sec.hn.cn/business/g/gemini/gemini.html</link>
+      <guid isPermaLink="true">https://www.sec.hn.cn/business/g/gemini/gemini.html</guid>
+      <pubDate>Fri, 05 Sep 2025 12:00:00 +0800</pubDate>
+    </item>
+
+    <item>
+      <title>隐私政策更新</title>
+      <description>我们更新了隐私政策，更好地保护用户个人信息</description>
+      <link>https://www.sec.hn.cn/legal/privacy/</link>
+      <guid isPermaLink="true">https://www.sec.hn.cn/legal/privacy/</guid>
+      <pubDate>Fri, 05 Sep 2025 12:00:00 +0800</pubDate>
+    </item>
+
+    <item>
+      <title>企业服务页面更新</title>
+      <description>我们更新了企业服务页面，提供更多定制化解决方案</description>
+      <link>https://www.sec.hn.cn/business/index.html</link>
+      <guid isPermaLink="true">https://www.sec.hn.cn/business/index.html</guid>
+      <pubDate>Thu, 04 Sep 2025 12:00:00 +0800</pubDate>
+    </item>
+
+    <item>
+      <title>加入我们 - 团队招聘信息更新</title>
+      <description>我们正在寻找优秀的人才加入我们的团队</description>
+      <link>https://www.sec.hn.cn/careers/cn/work-at-xsec.html</link>
+      <guid isPermaLink="true">https://www.sec.hn.cn/careers/cn/work-at-xsec.html</guid>
+      <pubDate>Wed, 03 Sep 2025 12:00:00 +0800</pubDate>
+    </item>
+
+    <item>
+      <title>HTC iHAIKOU网站建设项目完成</title>
+      <description>我们成功完成了HTC iHAIKOU网站建设项目</description>
+      <link>https://www.sec.hn.cn/business/htc-ihaikou.html</link>
+      <guid isPermaLink="true">https://www.sec.hn.cn/business/htc-ihaikou.html</guid>
+      <pubDate>Tue, 02 Sep 2025 12:00:00 +0800</pubDate>
+    </item>
+
+    <item>
+      <title>新增DNS over HTTPS查询工具</title>
+      <description>我们新增了基于DOH协议的安全DNS查询工具，支持IPv4/IPv6查询和地理位置信息显示</description>
+      <link>https://www.sec.hn.cn/business/g/dns-query.html</link>
+      <guid isPermaLink="true">https://www.sec.hn.cn/business/g/dns-query.html</guid>
+      <pubDate>Thu, 25 Sep 2025 12:00:00 +0800</pubDate>
+    </item>
+
+    <item>
+      <title>网站地图全面更新</title>
+      <description>我们全面更新了网站地图，添加了所有新页面，包括教育检查产品、分支流程页面、代理商管理等新功能页面</description>
+      <link>https://www.sec.hn.cn/sitemap.xml</link>
+      <guid isPermaLink="true">https://www.sec.hn.cn/sitemap.xml</guid>
+      <pubDate>Mon, 30 Dec 2025 12:00:00 +0800</pubDate>
+    </item>
+
+    <item>
+      <title>AI大语言模型索引文件增强</title>
+      <description>我们更新了llms.txt文件，为AI模型提供更多网站内容索引，覆盖更多页面和功能</description>
+      <link>https://www.sec.hn.cn/llms.txt</link>
+      <guid isPermaLink="true">https://www.sec.hn.cn/llms.txt</guid>
+      <pubDate>Mon, 30 Dec 2025 12:00:00 +0800</pubDate>
+    </item>
+
+    <item>
+      <title>新增教育检查产品页面</title>
+      <description>我们发布了教育检查产品页面，为教育行业提供专业的考勤和管理解决方案</description>
+      <link>https://www.sec.hn.cn/business/product/software/educheck/index.html</link>
+      <guid isPermaLink="true">https://www.sec.hn.cn/business/product/software/educheck/index.html</guid>
+      <pubDate>Mon, 30 Dec 2025 12:00:00 +0800</pubDate>
+    </item>
+
+    <item>
+      <title>新增 CloudFlare Zero Trust 跨境办公页面</title>
+      <description>我们发布了 CloudFlare Zero Trust 跨境办公解决方案页面，提供零信任网络访问客户端下载和团队加入指南，帮助员工安全便捷地实现跨境办公</description>
+      <link>https://www.sec.hn.cn/source/ssrc/cf-sec-hn-cn/index.html</link>
+      <guid isPermaLink="true">https://www.sec.hn.cn/source/ssrc/cf-sec-hn-cn/index.html</guid>
+      <pubDate>Sun, 29 Mar 2026 12:00:00 +0800</pubDate>
+    </item>
+  </channel>
+</rss>

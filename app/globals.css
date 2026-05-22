@@ -20,12 +20,18 @@
 }
 
 html {
+  max-width: 100%;
+  overflow-x: hidden;
+  overflow-x: clip;
   scroll-behavior: smooth;
 }
 
 body {
   margin: 0;
+  max-width: 100%;
   min-height: 100vh;
+  overflow-x: hidden;
+  overflow-x: clip;
   background:
     radial-gradient(circle at 12% 16%, rgba(255, 164, 84, 0.34), transparent 24%),
     radial-gradient(circle at 86% 14%, rgba(76, 143, 255, 0.3), transparent 22%),
@@ -68,27 +74,61 @@ a {
   text-decoration: none;
 }
 
+img,
+picture,
+svg,
+video,
+canvas,
+iframe {
+  max-width: 100%;
+}
+
+iframe {
+  display: block;
+}
+
+main,
+section,
+article,
+div {
+  min-width: 0;
+}
+
+:where(h1, h2, h3, h4, h5, h6, p, li, summary, a, button) {
+  overflow-wrap: anywhere;
+}
+
+:where(input, textarea, select, button) {
+  min-width: 0;
+  font: inherit;
+}
+
 ::selection {
   background: rgba(37, 99, 235, 0.18);
 }
 
 @layer components {
   .site-shell {
-    @apply mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8;
+    @apply mx-auto w-full min-w-0 max-w-7xl px-4 sm:px-6 lg:px-8;
+  }
+
+  .responsive-text {
+    overflow-wrap: anywhere;
+    word-break: break-word;
   }
 
   .section-space {
-    @apply py-16 md:py-24;
+    @apply py-12 sm:py-16 md:py-24;
   }
 
   .section-panel {
-    @apply rounded-[32px] border border-white/80 shadow-glass backdrop-blur-xl;
+    @apply min-w-0 max-w-full rounded-[32px] border border-white/80 shadow-glass backdrop-blur-xl;
     background:
       linear-gradient(180deg, rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.76));
   }
 
   .section-kicker {
-    @apply inline-flex items-center gap-2 rounded-full border px-3 py-1 text-xs font-semibold uppercase tracking-[0.24em];
+    @apply inline-flex max-w-full flex-wrap items-center gap-2 rounded-full border px-3 py-1 text-xs font-semibold uppercase leading-5 tracking-[0.18em];
     border-color: rgba(107, 167, 255, 0.4);
     background: linear-gradient(135deg, rgba(255, 255, 255, 0.88), rgba(244, 249, 255, 0.78));
     color: #215ca8;
@@ -105,13 +145,13 @@ a {
   }
 
   .glass-card {
-    @apply rounded-[28px] border border-white/80 shadow-soft backdrop-blur-xl;
+    @apply min-w-0 max-w-full rounded-[28px] border border-white/80 shadow-soft backdrop-blur-xl;
     background:
       linear-gradient(180deg, rgba(255, 255, 255, 0.88), rgba(255, 255, 255, 0.72));
   }
 
   .rainbow-panel {
-    @apply rounded-[32px] border border-white/80 shadow-glass backdrop-blur-xl;
+    @apply min-w-0 max-w-full rounded-[32px] border border-white/80 shadow-glass backdrop-blur-xl;
     background:
       radial-gradient(circle at top left, rgba(255, 170, 95, 0.24), transparent 24%),
       radial-gradient(circle at top right, rgba(92, 153, 255, 0.22), transparent 22%),
@@ -121,7 +161,7 @@ a {
   }
 
   .ink-panel {
-    @apply rounded-[32px] border border-white/80 text-slate-950 shadow-glass backdrop-blur-xl;
+    @apply min-w-0 max-w-full rounded-[32px] border border-white/80 text-slate-950 shadow-glass backdrop-blur-xl;
     background:
       radial-gradient(circle at top left, rgba(255, 170, 95, 0.22), transparent 24%),
       radial-gradient(circle at top right, rgba(92, 153, 255, 0.18), transparent 20%),
@@ -130,16 +170,16 @@ a {
   }
 
   .soft-output-panel {
-    @apply rounded-[24px] border border-slate-200/90 text-slate-700 shadow-inner backdrop-blur;
+    @apply min-w-0 max-w-full overflow-x-auto rounded-[24px] border border-slate-200/90 text-slate-700 shadow-inner backdrop-blur;
     background: rgba(255, 255, 255, 0.82);
   }
 
   .eyebrow {
-    @apply text-xs font-semibold uppercase tracking-[0.22em] text-slate-500;
+    @apply text-xs font-semibold uppercase tracking-[0.18em] text-slate-500;
   }
 
   .editorial-copy {
-    @apply text-base leading-8 text-slate-600 md:text-lg;
+    @apply min-w-0 text-base leading-8 text-slate-600 md:text-lg;
   }
 
   .mesh-surface {
@@ -148,6 +188,24 @@ a {
       radial-gradient(circle at top right, rgba(92, 153, 255, 0.18), transparent 24%),
       radial-gradient(circle at bottom right, rgba(84, 211, 177, 0.14), transparent 20%),
       linear-gradient(135deg, rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.76));
+  }
+}
+
+@media (max-width: 640px) {
+  .section-panel,
+  .rainbow-panel,
+  .ink-panel {
+    border-radius: 1.5rem;
+  }
+
+  .glass-card,
+  .soft-output-panel {
+    border-radius: 1.375rem;
+  }
+
+  .section-kicker,
+  .eyebrow {
+    letter-spacing: 0.12em;
   }
 }
 

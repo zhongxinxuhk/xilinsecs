@@ -1,7 +1,7 @@
 import Image from "next/image";
 import { notFound } from "next/navigation";
 import { buildMetadata } from "@/lib/metadata";
-import { getProjectBySlug } from "@/lib/site-data";
+import { getProjectBySlug, projects } from "@/lib/site-data";
 import PageHero from "@/components/sections/page-hero";
 import SectionHeading from "@/components/sections/section-heading";
 import CheckList from "@/components/sections/check-list";
@@ -9,15 +9,8 @@ import CtaBanner from "@/components/sections/cta-banner";
 import Reveal from "@/components/sections/reveal";
 import JsonLd from "@/components/seo/json-ld";
 
-const projectSlugs = [
-  "ihaikou-platform",
-  "vmware-recovery",
-  "xinchuang-adaptation",
-  "service-entry-rebuild",
-];
-
 export function generateStaticParams() {
-  return projectSlugs.map((slug) => ({ slug }));
+  return projects.map((project) => ({ slug: project.slug }));
 }
 
 export function generateMetadata({ params }: { params: { slug: string } }) {

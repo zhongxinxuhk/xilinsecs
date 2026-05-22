@@ -36,8 +36,8 @@ window.siteConfig = {
                 title: "联系我们",
                 items: [
                     { text: "客服咨询", href: "https://work.weixin.qq.com/kfid/kfc5c60f929a2e703af", target: "_blank" },
-                    { text: "商务合作", href: "/business/c/need.html", target: "_blank" },
-                    { text: "客户服务", href: "/business/c/", target: "_blank" }
+                    { text: "商务合作", href: "/business/services/c/need.html", target: "_blank" },
+                    { text: "客户服务", href: "/business/services/c/", target: "_blank" }
                 ]
             },
             {
@@ -143,6 +143,9 @@ const footerStyle = `
     font-size: 13px;
     color: #8e8e93;
 }
+.footer-bottom p {
+    overflow-wrap: anywhere;
+}
 .footer-extra-links {
     display: flex;
     justify-content: center;
@@ -153,7 +156,9 @@ const footerStyle = `
 .footer-extra-links a {
     display: inline-flex;
     align-items: center;
+    justify-content: center;
     gap: 6px;
+    max-width: 100%;
     padding: 6px 12px;
     background: rgba(255, 255, 255, 0.08);
     border-radius: 6px;
@@ -260,8 +265,19 @@ const footerStyle = `
 }
 @media (max-width:768px){
     .footer .row{grid-template-columns:1fr;}
-    .footer .col{min-width:auto;}
+    .footer .col{min-width:0;}
+    .footer-brand{grid-column:auto; max-width:none;}
     .footer .footer-section h4::after{display:block;}
+    .footer-extra-links{gap:10px;}
+    .footer-bottom p{overflow-wrap:anywhere;}
+    .footer-bottom p > span{display:inline-block; margin:2px 0;}
+    .footer-extra-links a{max-width:100%; justify-content:center;}
+}
+@media (max-width:520px){
+    .footer{padding:32px 14px 18px;}
+    .footer-bottom{font-size:12px;}
+    .footer-extra-links{flex-direction:column; align-items:stretch;}
+    .footer-ip-info{align-items:center;}
 }
 @media (max-width:1200px){
     .footer .row{grid-template-columns:repeat(3, minmax(0, 1fr));}
@@ -269,6 +285,14 @@ const footerStyle = `
 }
 @media (max-width:900px){
     .footer .row{grid-template-columns:repeat(2, minmax(0, 1fr));}
+}
+@media (max-width:768px){
+    .footer{padding:32px 14px 18px;}
+    .footer .row{grid-template-columns:1fr;}
+}
+@media (max-width:480px){
+    .footer-extra-links{display:grid; grid-template-columns:1fr;}
+    .footer-ip-info{justify-content:flex-start; text-align:left;}
 }
 /* 亮证弹窗样式 */
 .license-modal-overlay {
@@ -429,6 +453,22 @@ const footerStyle = `
 }
 `;
 
+function ensureCompatStyles() {
+    const href = "/source/compat.css";
+    const hasCompat = Array.from(document.querySelectorAll('link[rel="stylesheet"]')).some(link => {
+        const attr = link.getAttribute('href') || '';
+        return attr === href || attr.endsWith('/source/compat.css') || attr.endsWith('source/compat.css');
+    });
+    if (hasCompat) return;
+
+    const compatLink = document.createElement('link');
+    compatLink.rel = 'stylesheet';
+    compatLink.href = href;
+    document.head.appendChild(compatLink);
+}
+
+ensureCompatStyles();
+
 const styleTag = document.createElement('style');
 styleTag.innerHTML = footerStyle;
 document.head.appendChild(styleTag);
@@ -447,14 +487,20 @@ function renderFooter(containerId = "site-footer") {
     let siteType = '';
     let icpNumber = '';
     let icpLink = '';
+    let mpsNumber = '';
+    let mpsLink = '';
     if(domesticDomains.includes(hostname)){
         siteType="中国站 - 已支持IPv6"; 
         icpNumber="琼ICP备2025060601号-1";
         icpLink="https://beian.miit.gov.cn/";
+        mpsNumber="琼公网安备46010002001548号";
+        mpsLink="https://beian.mps.gov.cn/#/query/webSearch?code=46010002001548";
     } else if(internationalDomains.includes(hostname)){
         siteType="国际站 - 已支持IPv6"; 
         icpNumber="琼ICP备2025060601号-2";
         icpLink="https://beian.miit.gov.cn/";
+        mpsNumber="琼公网安备46010002001548号";
+        mpsLink="https://beian.mps.gov.cn/#/query/webSearch?code=46010002001548";
     } else {
         siteType="非官方站点"; 
         icpNumber="非官方站点";
@@ -463,6 +509,8 @@ function renderFooter(containerId = "site-footer") {
     cfg.siteType = siteType;
     cfg.icpNumber = icpNumber;
     cfg.icpLink = icpLink;
+    cfg.mpsNumber = mpsNumber;
+    cfg.mpsLink = mpsLink;
 
     // 渲染 HTML
     const footerHTML = `
@@ -493,7 +541,7 @@ function renderFooter(containerId = "site-footer") {
                     <a href="${cfg.extra.license.verifyUrl}" target="_blank" rel="noopener noreferrer"><i class="fas fa-certificate"></i> ${cfg.extra.license.buttonText}</a>
                     <a href="https://www.12377.cn/" target="_blank" rel="noopener noreferrer"><i class="fas fa-exclamation-triangle"></i> 互联网违法信息举报</a>
                 </p>
-                <p><span class="footer-icp">${cfg.icpLink ? `<a href="${cfg.icpLink}" target="_blank" rel="noopener noreferrer">${cfg.icpNumber}</a>` : cfg.icpNumber}</span> | <span class="footer-site-type">${cfg.siteType}</span></p>
+                <p><span class="footer-icp">${cfg.icpLink ? `<a href="${cfg.icpLink}" target="_blank" rel="noopener noreferrer">${cfg.icpNumber}</a>` : cfg.icpNumber}</span>${cfg.mpsNumber ? ` | <span class="footer-mps"><a href="${cfg.mpsLink}" target="_blank" rel="noopener noreferrer">${cfg.mpsNumber}</a></span>` : ""} | <span class="footer-site-type">${cfg.siteType}</span></p>
                 <p class="footer-ip-info"></p>
             </div>
         </div>

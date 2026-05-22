@@ -7,9 +7,9 @@ type FaqListProps = {
 
 export default function FaqList({ items }: FaqListProps) {
   return (
-    <div className="grid gap-4">
+    <div className="grid min-w-0 gap-4">
       {items.map((item) => (
-        <details key={item.question} className="glass-card group p-6">
+        <details key={item.question} className="glass-card group p-5 sm:p-6">
           <summary className="cursor-pointer list-none text-base font-semibold text-slate-950">
             {item.question}
           </summary>

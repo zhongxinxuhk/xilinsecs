@@ -1,22 +1,14 @@
 import { notFound } from "next/navigation";
 import { buildMetadata } from "@/lib/metadata";
-import { getNewsBySlug } from "@/lib/site-data";
+import { getNewsBySlug, newsItems } from "@/lib/site-data";
 import PageHero from "@/components/sections/page-hero";
 import CtaBanner from "@/components/sections/cta-banner";
 import Reveal from "@/components/sections/reveal";
 import JsonLd from "@/components/seo/json-ld";
 import { formatDate } from "@/lib/utils";
 
-const routes = [
-  { year: "2025", slug: "technology-import-export" },
-  { year: "2025", slug: "partner-platform-launch" },
-  { year: "2025", slug: "public-service-center-launch" },
-  { year: "2025", slug: "customer-service-center-refresh" },
-  { year: "2025", slug: "finance-q2-brief" },
-];
-
 export function generateStaticParams() {
-  return routes;
+  return newsItems.map((item) => ({ year: item.year, slug: item.slug }));
 }
 
 export function generateMetadata({ params }: { params: { year: string; slug: string } }) {

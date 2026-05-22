@@ -1,12 +1,10 @@
 import { notFound } from "next/navigation";
 import { buildMetadata } from "@/lib/metadata";
-import { getCustomerTicketPortalBySlug } from "@/lib/site-data";
+import { customerTicketPortals, getCustomerTicketPortalBySlug } from "@/lib/site-data";
 import PortalPage from "@/components/pages/portal-page";
 
-const ticketSlugs = ["new", "status"];
-
 export function generateStaticParams() {
-  return ticketSlugs.map((slug) => ({ slug }));
+  return customerTicketPortals.map((portal) => ({ slug: portal.slug }));
 }
 
 export function generateMetadata({ params }: { params: { slug: string } }) {

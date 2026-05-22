@@ -1,6 +1,6 @@
 import { notFound } from "next/navigation";
 import { buildMetadata } from "@/lib/metadata";
-import { getToolBySlug } from "@/lib/site-data";
+import { getToolBySlug, tools } from "@/lib/site-data";
 import PageHero from "@/components/sections/page-hero";
 import SectionHeading from "@/components/sections/section-heading";
 import CheckList from "@/components/sections/check-list";
@@ -11,10 +11,8 @@ import Md5Tool from "@/components/tools/md5-tool";
 import RandomPickerTool from "@/components/tools/random-picker-tool";
 import UuidTool from "@/components/tools/uuid-tool";
 
-const toolSlugs = ["base64", "dns-query", "md5-check", "random-picker", "uuid"];
-
 export function generateStaticParams() {
-  return toolSlugs.map((slug) => ({ slug }));
+  return tools.map((tool) => ({ slug: tool.slug }));
 }
 
 export function generateMetadata({ params }: { params: { slug: string } }) {

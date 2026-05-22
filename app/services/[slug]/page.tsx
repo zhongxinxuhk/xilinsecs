@@ -1,6 +1,6 @@
 import { notFound } from "next/navigation";
 import { buildMetadata } from "@/lib/metadata";
-import { getServiceBySlug, projects } from "@/lib/site-data";
+import { getServiceBySlug, projects, services } from "@/lib/site-data";
 import PageHero from "@/components/sections/page-hero";
 import SectionHeading from "@/components/sections/section-heading";
 import CheckList from "@/components/sections/check-list";
@@ -9,7 +9,7 @@ import CtaBanner from "@/components/sections/cta-banner";
 import Reveal from "@/components/sections/reveal";
 
 export function generateStaticParams() {
-  return ["enterprise", "customer", "partners", "public"].map((slug) => ({ slug }));
+  return services.map((service) => ({ slug: service.slug }));
 }
 
 export function generateMetadata({ params }: { params: { slug: string } }) {

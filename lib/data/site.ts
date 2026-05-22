@@ -30,6 +30,8 @@ export const siteConfig = {
   wecomLink: "https://work.weixin.qq.com/kfid/kfc5c60f929a2e703af",
   icpLink: "https://beian.miit.gov.cn/",
   icpText: "琼ICP备2025060601号-1",
+  mpsLink: "https://beian.mps.gov.cn/#/query/webSearch?code=46010002001548",
+  mpsText: "琼公网安备46010002001548号",
   copyright: "© 2025—2026 sec.hn.cn 版权所有",
   ipv6Text: "本站支持IPv6",
   verifyLink:
