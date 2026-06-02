@@ -23,6 +23,7 @@ import TimelineList from "@/components/sections/timeline-list";
 import Reveal from "@/components/sections/reveal";
 import { ButtonLink } from "@/components/ui/button";
 import AnimatedCounter from "@/components/interactive/animated-counter";
+import GsapShowcasePager from "@/components/interactive/gsap-showcase-pager";
 import JsonLd from "@/components/seo/json-ld";
 
 const coreCapabilities = [
@@ -304,71 +305,35 @@ export default function HomePage() {
       <section className="section-space pt-0">
         <div className="site-shell">
           <Reveal className="rainbow-panel overflow-hidden px-6 py-10 text-slate-950 dark:text-slate-50 sm:px-8 md:px-10">
-            <div className="grid gap-8 lg:grid-cols-[0.88fr_1.12fr]">
-              <div className="glass-card p-6">
-                <h2 className="heading-display text-3xl font-semibold text-slate-950 dark:text-slate-50 md:text-4xl">定制专属方案</h2>
+            <div className="grid gap-6 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
+              <div className="max-w-2xl">
+                <div className="section-kicker">交付方式</div>
+                <h2 className="heading-display mt-4 text-3xl font-semibold text-slate-950 dark:text-slate-50 md:text-4xl">定制专属方案</h2>
                 <p className="mt-4 text-base leading-8 text-slate-600 dark:text-slate-400">
-                  我们为每个客户提供量身定制的解决方案，满足您的独特需求，助力业务发展。
+                  从需求梳理、方案设计到现场实施，我们把每个环节拆成清晰节点，保证业务目标、成本边界和交付节奏始终可控。
                 </p>
-                <div className="mt-8 space-y-4">
-                  {deliveryFeatures.map((feature) => {
-                    const Icon = feature.icon;
-                    return (
-                      <div
-                        key={feature.title}
-                        className="flex items-start gap-4 rounded-[22px] border border-white/80 bg-white/70 p-4 shadow-soft transition hover:-translate-x-0.5 dark:border-slate-700/50 dark:bg-slate-800/70"
-                      >
-                        <div className="flex h-12 w-12 flex-none items-center justify-center rounded-2xl bg-blue-100 text-blue-700 dark:bg-blue-900/50 dark:text-blue-300">
-                          <Icon className="h-5 w-5" />
-                        </div>
-                        <div>
-                          <h3 className="text-lg font-semibold text-slate-950 dark:text-slate-50">{feature.title}</h3>
-                          <p className="mt-2 text-sm leading-7 text-slate-600 dark:text-slate-400">{feature.description}</p>
-                        </div>
-                      </div>
-                    );
-                  })}
-                </div>
                 <ButtonLink href={siteConfig.wecomLink} className="mt-8">
                   立即咨询
                   <ArrowRight className="ml-2 h-4 w-4" />
                 </ButtonLink>
               </div>
 
-              <div>
-                <div className="max-w-3xl">
-                  <div className="section-kicker">项目案例</div>
-                  <h2 className="heading-display mt-4 text-3xl font-semibold tracking-tight text-slate-950 dark:text-slate-50 md:text-4xl">
-                    精选项目案例
-                  </h2>
-                  <p className="mt-4 text-base leading-8 text-slate-600 dark:text-slate-400 md:text-lg">我们为客户创造的商业价值</p>
-                </div>
-
-                <div className="mt-8 grid gap-5 xl:grid-cols-2">
-                  {featuredProjects.map((project) => (
-                    <article key={project.title} className="glass-card overflow-hidden transition hover:-translate-y-1 hover:shadow-glass">
-                      <div className="relative h-56 overflow-hidden">
-                        <Image src={project.image} alt={project.title} fill className="object-cover transition duration-500 hover:scale-105" />
-                        <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-white/95 to-transparent p-4 text-xs font-semibold tracking-[0.18em] text-blue-700 dark:from-slate-900/95">
-                          {project.date}
-                        </div>
+              <div className="grid gap-4 sm:grid-cols-3">
+                {deliveryFeatures.map((feature) => {
+                  const Icon = feature.icon;
+                  return (
+                    <article
+                      key={feature.title}
+                      className="rounded-[24px] border border-white/80 bg-white/70 p-5 shadow-soft backdrop-blur transition hover:-translate-y-1 hover:bg-white/90 dark:border-slate-700/50 dark:bg-slate-800/70"
+                    >
+                      <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-slate-950 text-white dark:bg-blue-500 dark:text-slate-950">
+                        <Icon className="h-5 w-5" />
                       </div>
-                      <div className="space-y-4 p-6">
-                        <p className="text-sm text-slate-500 dark:text-slate-400">
-                          负责人 <span className="font-semibold text-slate-800 dark:text-slate-200">{project.author}</span>
-                        </p>
-                        <div>
-                          <h3 className="text-xl font-semibold text-slate-950 dark:text-slate-50">{project.title}</h3>
-                          <p className="mt-3 text-sm leading-7 text-slate-600 dark:text-slate-400">{project.description}</p>
-                        </div>
-                        <ButtonLink href={project.href} variant="outline">
-                          查看详情
-                          <ArrowRight className="ml-2 h-4 w-4" />
-                        </ButtonLink>
-                      </div>
+                      <h3 className="mt-5 text-lg font-semibold text-slate-950 dark:text-slate-50">{feature.title}</h3>
+                      <p className="mt-2 text-sm leading-7 text-slate-600 dark:text-slate-400">{feature.description}</p>
                     </article>
-                  ))}
-                </div>
+                  );
+                })}
               </div>
             </div>
           </Reveal>
@@ -378,34 +343,44 @@ export default function HomePage() {
       <section className="section-space pt-0">
         <div className="site-shell">
           <Reveal>
-            <SectionHeading
-              kicker="近期动态"
-              title="关注我们的最新进展"
-              description="把原站近期动态里的重点内容完整回填到首页，方便直接查看。"
+            <GsapShowcasePager
+              kicker="项目案例"
+              title="精选项目案例"
+              description="把核心交付现场做成可翻页的沉浸式展台，客户可以更快理解我们解决问题的方式。"
+              items={featuredProjects.map((project) => ({
+                title: project.title,
+                description: project.description,
+                image: project.image,
+                href: project.href,
+                ctaLabel: "查看详情",
+                eyebrow: project.date,
+                meta: `负责人 ${project.author}`,
+                tags: ["现场交付", "信息化", "客户价值"],
+              }))}
             />
           </Reveal>
-          <div className="mt-8 grid gap-5 md:grid-cols-2 xl:grid-cols-4">
-            {latestNews.map((item, i) => (
-              <Reveal key={item.title}>
-                <article className="glass-card overflow-hidden transition hover:-translate-y-1 hover:shadow-glass" style={{ animationDelay: `${i * 100}ms` }}>
-                  <div className="relative h-48 overflow-hidden">
-                    <Image src={item.image} alt={item.title} fill className="object-cover transition duration-500 hover:scale-105" />
-                  </div>
-                  <div className="space-y-4 p-6">
-                    <p className="text-xs font-semibold uppercase tracking-[0.18em] text-blue-700 dark:text-blue-400">{item.date}</p>
-                    <div>
-                      <h3 className="text-xl font-semibold text-slate-950 dark:text-slate-50">{item.title}</h3>
-                      <p className="mt-3 text-sm leading-7 text-slate-600 dark:text-slate-400">{item.summary}</p>
-                    </div>
-                    <ButtonLink href={item.href} variant="ghost" className="group px-0">
-                      阅读更多
-                      <ArrowRight className="ml-2 h-4 w-4 transition group-hover:translate-x-0.5" />
-                    </ButtonLink>
-                  </div>
-                </article>
-              </Reveal>
-            ))}
-          </div>
+        </div>
+      </section>
+
+      <section className="section-space pt-0">
+        <div className="site-shell">
+          <Reveal>
+            <GsapShowcasePager
+              kicker="近期动态"
+              title="关注我们的最新进展"
+              description="将企业动态改为节奏更清晰的翻页展示，保留信息密度，也让重点新闻更有发布感。"
+              tone="emerald"
+              items={latestNews.map((item) => ({
+                title: item.title,
+                description: item.summary,
+                image: item.image,
+                href: item.href,
+                ctaLabel: "阅读更多",
+                eyebrow: item.date,
+                tags: ["企业动态", "服务升级", "平台建设"],
+              }))}
+            />
+          </Reveal>
         </div>
       </section>
 
