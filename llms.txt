@@ -67,7 +67,9 @@
 - [工作在XSEC](careers/cn/work-at-xsec.html)
 
 ### 法律信息
-- [隐私政策](legal/privacy/index.html)
+- [使用条款](terms/index.html)
+- [隐私政策](privacy/index.html)
+- [合规声明](compliance/index.html)
 
 ## 最新动态
 - [近期新闻](leadership/indexnews/js/newsConfig.js)

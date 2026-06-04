@@ -410,13 +410,54 @@ export default function HomePage() {
       </section>
 
       <section className="section-space pt-0">
-        <div className="site-shell grid gap-8 lg:grid-cols-[0.9fr_1.1fr]">
-          <Reveal>
+        <div className="site-shell grid gap-8 lg:grid-cols-[0.85fr_1.15fr] lg:items-start">
+          <Reveal className="lg:sticky lg:top-28">
             <SectionHeading
               kicker="发展历程"
               title="发展历程"
-              description="首页原有的时间线内容已按阶段回填。"
+              description="从团队成立到长期服务合作，我们把每一次关键节点都沉淀为下一次交付的经验。"
             />
+            <div className="mt-8 grid gap-4 sm:grid-cols-3 lg:grid-cols-1">
+              <article className="glass-card p-5">
+                <div className="flex items-center gap-3">
+                  <div className="flex h-11 w-11 flex-none items-center justify-center rounded-2xl bg-blue-600 text-white shadow-soft">
+                    <Timer className="h-5 w-5" />
+                  </div>
+                  <div>
+                    <p className="text-2xl font-semibold text-slate-950 dark:text-white">{timeline[0]?.year}</p>
+                    <p className="mt-1 text-sm text-slate-600 dark:text-slate-400">创立起点</p>
+                  </div>
+                </div>
+              </article>
+              <article className="glass-card p-5">
+                <div className="flex items-center gap-3">
+                  <div className="flex h-11 w-11 flex-none items-center justify-center rounded-2xl bg-emerald-600 text-white shadow-soft">
+                    <TrendingUp className="h-5 w-5" />
+                  </div>
+                  <div>
+                    <p className="text-2xl font-semibold text-slate-950 dark:text-white">{timeline.length} 个</p>
+                    <p className="mt-1 text-sm text-slate-600 dark:text-slate-400">关键里程碑</p>
+                  </div>
+                </div>
+              </article>
+              <article className="glass-card p-5">
+                <div className="flex items-center gap-3">
+                  <div className="flex h-11 w-11 flex-none items-center justify-center rounded-2xl bg-slate-950 text-white shadow-soft dark:bg-slate-100 dark:text-slate-950">
+                    <HeartHandshake className="h-5 w-5" />
+                  </div>
+                  <div>
+                    <p className="text-2xl font-semibold text-slate-950 dark:text-white">持续服务</p>
+                    <p className="mt-1 text-sm text-slate-600 dark:text-slate-400">合作与交付同步推进</p>
+                  </div>
+                </div>
+              </article>
+            </div>
+            <div className="mt-6">
+              <ButtonLink href="/company/timeline/" variant="outline" className="w-full justify-between gap-3 sm:w-auto">
+                查看完整历程
+                <ArrowRight className="h-4 w-4" />
+              </ButtonLink>
+            </div>
           </Reveal>
           <Reveal>
             <TimelineList items={timeline} />

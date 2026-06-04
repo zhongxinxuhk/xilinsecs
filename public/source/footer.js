@@ -13,7 +13,9 @@ window.siteConfig = {
                     { text: "企业简介", href: "/leadership/me/" },
                     { text: "职业机会", href: "/careers/cn/" },
                     { text: "领导团队", href: "/leadership/me/lead/" },
-                    { text: "隐私政策", href: "/legal/privacy/" }
+                    { text: "使用条款", href: "/terms/" },
+                    { text: "隐私政策", href: "/privacy/" },
+                    { text: "合规声明", href: "/compliance/" }
                 ]
             },
             {
@@ -21,6 +23,7 @@ window.siteConfig = {
                 items: [
                     { text: "IOA保密办公", href: "/source/ztsm/" },
                     { text: "ZTNA跨境办公", href: "/source/ssrc/cf-sec-hn-cn/" },
+                    { text: "零信任跨境专线「试点先行」", href: "https://zero.xinnew.top" },
                     { text: "MD5在线校验", href: "/business/services/g/md5check.html" },
                     { text: "软件资产S3", href: "https://user-ocloud.ihep.ac.cn/share/15328d44-91cc-40ce-9e17-022ff934be16?pwd=340854" },
                 ]
@@ -44,6 +47,8 @@ window.siteConfig = {
                 title: "社交媒体",
                 items: [
                     { text: "抖音", href: "https://v.douyin.com/9N7akmvVn1Q/", target: "_blank" },
+                    { text: "CSDN", href: "https://blog.csdn.net/qq_73252299?type=blog", target: "_blank" },
+                    { text: "Gitee", href: "https://gitee.com/root-xx_edc-ctf", target: "_blank" }
                 ]
             },
             {
@@ -51,6 +56,8 @@ window.siteConfig = {
                 items: [
                     { text: "海软计小智", href: "https://hncst-jxz.sec.hn.cn/" },
                     { text: "民选甄企", href: "https://community.sec.hn.cn/" },
+                    { text: "智学通AI智慧教育项目", href: "https://agents.sec.hn.cn/chat/a6b4a2a88f63df4e" },
+                    { text: "数据跨境合规审查系统", href: "https://cdcrs.sec.hn.cn/login" },
                     { text: "订阅格式转换", href: "https://zjdyzh.xinnew.top/" }
                 ]
             }
@@ -71,11 +78,17 @@ const footerStyle = `
 .footer {
     background: linear-gradient(135deg, #1d1d1f 0%, #111 100%);
     color: #f5f5f7;
-    padding: 40px 20px 20px;
+    padding: 40px 0 20px;
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
     position: relative;
     overflow: hidden;
     transition: all 0.3s ease;
+}
+.footer > .container {
+    width: min(1728px, calc(100% - 96px));
+    max-width: none;
+    margin: 0 auto;
+    padding: 0;
 }
 .footer::before {
     content: "";
@@ -172,15 +185,15 @@ const footerStyle = `
 }
 .footer .row {
     display: grid;
-    grid-template-columns: minmax(220px, 1.3fr) repeat(3, minmax(150px, 1fr));
-    gap: 24px;
+    grid-template-columns: minmax(300px, 1.55fr) repeat(6, minmax(120px, 1fr));
+    gap: 28px 42px;
     align-items: start;
 }
 .footer .col {
     min-width: 0;
 }
 .footer-brand {
-    max-width: 320px;
+    max-width: 480px;
 }
 .footer .footer-section h4 {
     position: relative;
@@ -264,6 +277,7 @@ const footerStyle = `
     100% { transform: scale(0.9); opacity:0.6; }
 }
 @media (max-width:768px){
+    .footer > .container{width:calc(100% - 28px);}
     .footer .row{grid-template-columns:1fr;}
     .footer .col{min-width:0;}
     .footer-brand{grid-column:auto; max-width:none;}
@@ -274,7 +288,7 @@ const footerStyle = `
     .footer-extra-links a{max-width:100%; justify-content:center;}
 }
 @media (max-width:520px){
-    .footer{padding:32px 14px 18px;}
+    .footer{padding:32px 0 18px;}
     .footer-bottom{font-size:12px;}
     .footer-extra-links{flex-direction:column; align-items:stretch;}
     .footer-ip-info{align-items:center;}

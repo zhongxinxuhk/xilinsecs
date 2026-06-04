@@ -21,9 +21,12 @@ export const siteConfig = {
   seoDescription:
     "专业的信息化解决方案供应商，提供私有云建设、信息安全咨询、网站建设等服务，致力于为客户提供专业、高效的数字化解决方案。",
   tagline: "让信息化建设，不再有难题。",
+  registeredAddress:
+    "海南省海口市龙华区金宇街道南海大道豪苑路1号海口中关村信息谷创新中心2025-ZC-1115",
+  mailingAddress: "海南省琼海市海南软件学院大学生创业基地1/2层",
   address:
     "海南省海口市龙华区金宇街道南海大道豪苑路1号海口中关村信息谷创新中心2025-ZC-1115",
-  email: "xuzhongxin@sec.hn.cn",
+  email: "chenziyi@sec.hn.cn",
   supportEmail: "chenziyi@sec.hn.cn",
   heroImage: "/source/index_imgs/20260322-044041.webp",
   logo: "/source/imgs/logo.png",
@@ -121,7 +124,9 @@ export const footerGroups: Array<{ title: string; links: LinkItem[] }> = [
       { label: "企业简介", href: "/about/" },
       { label: "职业机会", href: "/careers/" },
       { label: "领导团队", href: "/company/leadership/" },
-      { label: "隐私政策", href: "/legal/privacy/" },
+      { label: "使用条款", href: "/terms/" },
+      { label: "隐私政策", href: "/privacy/" },
+      { label: "合规声明", href: "/compliance/" },
     ],
   },
   {
@@ -129,6 +134,7 @@ export const footerGroups: Array<{ title: string; links: LinkItem[] }> = [
     links: [
       { label: "IOA保密办公", href: "/downloads/ioa-secure-office/" },
       { label: "ZTNA跨境办公", href: "/downloads/cross-border-office/" },
+      { label: "零信任跨境专线「试点先行」", href: "https://zero.xinnew.top", external: true },
       { label: "MD5在线校验", href: "/tools/md5-check/" },
       {
         label: "软件资产S3",
@@ -158,13 +164,19 @@ export const footerGroups: Array<{ title: string; links: LinkItem[] }> = [
   },
   {
     title: "社交媒体",
-    links: [{ label: "抖音", href: "https://v.douyin.com/9N7akmvVn1Q/", external: true }],
+    links: [
+      { label: "抖音", href: "https://v.douyin.com/9N7akmvVn1Q/", external: true },
+      { label: "CSDN", href: "https://blog.csdn.net/qq_73252299?type=blog", external: true },
+      { label: "Gitee", href: "https://gitee.com/root-xx_edc-ctf", external: true },
+    ],
   },
   {
     title: "友情链接",
     links: [
       { label: "海软计小智", href: "https://hncst-jxz.sec.hn.cn/", external: true },
       { label: "民选甄企", href: "https://community.sec.hn.cn/", external: true },
+      { label: "智学通AI智慧教育项目", href: "https://agents.sec.hn.cn/chat/a6b4a2a88f63df4e", external: true },
+      { label: "数据跨境合规审查系统", href: "https://cdcrs.sec.hn.cn/login", external: true },
       {
         label: "订阅格式转换",
         href: "https://zjdyzh.xinnew.top/",

@@ -14,6 +14,9 @@
 - https://www.sec.hn.cn/news/
 - https://www.sec.hn.cn/tools/
 - https://www.sec.hn.cn/downloads/
+- https://www.sec.hn.cn/terms/
+- https://www.sec.hn.cn/privacy/
+- https://www.sec.hn.cn/compliance/
 - https://www.sec.hn.cn/careers/
 - https://www.sec.hn.cn/legal/privacy/
 

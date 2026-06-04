@@ -98,9 +98,9 @@ export const teamMembers: TeamMember[] = [
     focus: ["前端开发", "性能优化", "工程化"],
   },
   {
-    slug: "peng-qianhui",
-    name: "彭芊惠",
-    title: "新媒体运营",
+    slug: "lin-xiaoyuan",
+    name: "林小源",
+    title: "首席财务官",
     bio: "负责品牌传播、内容策划与外部渠道运营，支撑企业形象展示和内容触达。",
     image: "/source/index_imgs/touxiang/pengqianhui_index_01.webp",
     focus: ["内容运营", "品牌传播", "案例整理"],

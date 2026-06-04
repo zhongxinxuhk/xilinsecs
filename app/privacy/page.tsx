@@ -7,7 +7,7 @@ const document = getLegalDocument("privacy");
 export const metadata = buildMetadata({
   title: document.navLabel,
   description: document.metaDescription,
-  path: "/legal/privacy/",
+  path: document.href,
 });
 
 export default function PrivacyPage() {
