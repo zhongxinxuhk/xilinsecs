@@ -11,26 +11,19 @@ type CtaBannerProps = {
 
 export default function CtaBanner({ title, description, primary, secondary, aside }: CtaBannerProps) {
   return (
-    <section className="site-shell">
-      <div className="relative overflow-hidden rounded-3xl border border-blue-500/30 bg-gradient-to-br from-blue-700 via-blue-600 to-cyan-600 px-6 py-10 text-white shadow-[0_24px_70px_rgba(37,99,235,0.25)] sm:px-10 md:py-14">
-        <div className="pointer-events-none absolute -right-16 -top-20 h-64 w-64 rounded-full bg-emerald-300/20 blur-3xl" />
-        <div className="relative grid gap-8 lg:grid-cols-[1.2fr_0.8fr] lg:items-end">
-          <div>
-            <p className="text-xs font-semibold uppercase tracking-[0.16em] text-blue-100">联系我们</p>
-            <h2 className="heading-display mt-4 text-3xl font-semibold md:text-4xl">{title}</h2>
-            <p className="mt-4 max-w-2xl text-base leading-8 text-blue-50/90">{description}</p>
-            <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
-              <ButtonLink href={primary.href} size="lg" className="border-white bg-white text-blue-700 shadow-none hover:border-blue-50 hover:bg-blue-50">
-                {primary.label}
-              </ButtonLink>
-              {secondary ? (
-                <ButtonLink href={secondary.href} size="lg" className="border-white/40 bg-white/10 text-white shadow-none hover:border-white/70 hover:bg-white/20">
-                  {secondary.label}
-                </ButtonLink>
-              ) : null}
-            </div>
-          </div>
-          {aside ? <div>{aside}</div> : null}
+    <section className="relative overflow-hidden border-y border-blue-500/25 bg-gradient-to-r from-blue-700 via-blue-600 to-cyan-600 text-white">
+      <div className="pointer-events-none absolute inset-0 bg-grid opacity-20" />
+      <div className="pointer-events-none absolute -right-20 -top-32 h-96 w-96 rounded-full bg-emerald-300/20 blur-3xl" />
+      <div className="site-shell relative grid min-h-[360px] items-center gap-10 py-16 lg:grid-cols-[1.2fr_.8fr]">
+        <div>
+          <p className="text-xs font-semibold uppercase tracking-[.18em] text-blue-100">开始合作</p>
+          <h2 className="heading-display mt-5 max-w-4xl text-4xl font-semibold sm:text-5xl lg:text-6xl">{title}</h2>
+          <p className="mt-5 max-w-2xl text-base leading-8 text-blue-50/90">{description}</p>
+        </div>
+        <div className="flex flex-col gap-3 lg:items-end">
+          <ButtonLink href={primary.href} size="lg" className="w-full border-white bg-white text-blue-700 shadow-none hover:border-blue-50 hover:bg-blue-50 sm:w-auto">{primary.label}</ButtonLink>
+          {secondary ? <ButtonLink href={secondary.href} size="lg" className="w-full border-white/40 bg-white/10 text-white shadow-none hover:border-white/70 hover:bg-white/20 sm:w-auto">{secondary.label}</ButtonLink> : null}
+          {aside ? <div className="mt-4">{aside}</div> : null}
         </div>
       </div>
     </section>

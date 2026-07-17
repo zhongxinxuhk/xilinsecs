@@ -2,12 +2,7 @@ import Image from "next/image";
 import type { ReactNode } from "react";
 import { ButtonLink } from "@/components/ui/button";
 
-type HeroAction = {
-  label: string;
-  href: string;
-  variant?: "solid" | "outline";
-};
-
+type HeroAction = { label: string; href: string; variant?: "solid" | "outline" };
 type PageHeroProps = {
   kicker: string;
   title: string;
@@ -19,35 +14,39 @@ type PageHeroProps = {
 
 export default function PageHero({ kicker, title, description, actions = [], aside, image }: PageHeroProps) {
   return (
-    <section className="site-shell">
-      <div className="section-panel relative overflow-hidden px-5 py-12 sm:px-8 sm:py-16 md:px-12 md:py-20">
-        <div className="absolute inset-0 bg-grid opacity-30" />
-        {image ? (
-          <div className="absolute inset-y-0 right-0 hidden w-[42%] overflow-hidden lg:block">
-            <div className="absolute inset-0 z-10 bg-gradient-to-l from-sky-50/5 via-sky-50/65 to-white" />
-            <Image src={image} alt={title} fill className="object-cover opacity-75 saturate-[1.08]" priority />
+    <section className="section-panel">
+      <div className="site-shell relative min-h-[620px] py-20 sm:py-24 lg:py-0">
+        <div className="pointer-events-none absolute inset-0 bg-grid opacity-45 [mask-image:linear-gradient(to_right,black,transparent_78%)]" />
+        <div className="relative grid min-h-[620px] items-stretch lg:grid-cols-[1.08fr_.92fr]">
+          <div className="flex flex-col justify-center py-8 pr-0 lg:border-r lg:border-blue-100 lg:pr-16">
+            <div className="max-w-4xl">
+              <div className="section-kicker">{kicker}</div>
+              <h1 className="heading-display responsive-text mt-7 text-5xl font-semibold leading-[.94] text-slate-950 sm:text-6xl lg:text-7xl 2xl:text-8xl">
+                {title}
+              </h1>
+              <p className="mt-7 max-w-2xl text-base leading-8 text-slate-600 md:text-lg">{description}</p>
+              {actions.length ? (
+                <div className="mt-9 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
+                  {actions.map((action) => (
+                    <ButtonLink key={action.href} href={action.href} variant={action.variant ?? "solid"} size="lg" className="w-full sm:w-auto">
+                      {action.label}
+                    </ButtonLink>
+                  ))}
+                </div>
+              ) : null}
+            </div>
           </div>
-        ) : null}
 
-        <div className="relative grid min-w-0 gap-8 lg:grid-cols-[minmax(0,1.2fr)_minmax(0,0.8fr)] lg:gap-10">
-          <div className="min-w-0 max-w-3xl">
-            <div className="section-kicker">{kicker}</div>
-            <h1 className="heading-display responsive-text mt-6 text-4xl font-semibold tracking-[-0.04em] text-slate-950 sm:text-5xl md:text-6xl lg:text-7xl">
-              {title}
-            </h1>
-            <p className="responsive-text mt-6 max-w-2xl text-base leading-8 text-slate-600 md:text-lg">{description}</p>
-            {actions.length ? (
-              <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
-                {actions.map((action) => (
-                  <ButtonLink key={action.href} href={action.href} variant={action.variant ?? "solid"} size="lg" className="w-full sm:w-auto">
-                    {action.label}
-                  </ButtonLink>
-                ))}
-              </div>
+          <div className="relative min-h-[320px] border-t border-blue-100 lg:min-h-0 lg:border-t-0">
+            {image ? (
+              <>
+                <Image src={image} alt={title} fill className="object-cover saturate-[1.04]" priority />
+                <div className="absolute inset-0 bg-gradient-to-r from-white via-white/30 to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-t from-blue-950/15 via-transparent to-cyan-50/25" />
+              </>
             ) : null}
+            {aside ? <div className="absolute inset-x-6 bottom-6 z-10 sm:inset-x-10 sm:bottom-10">{aside}</div> : null}
           </div>
-
-          {aside ? <div className="relative z-10 min-w-0 self-end">{aside}</div> : null}
         </div>
       </div>
     </section>

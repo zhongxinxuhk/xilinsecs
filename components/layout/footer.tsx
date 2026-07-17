@@ -1,106 +1,39 @@
 import { footerGroups, siteConfig } from "@/lib/site-data";
 import SmartLink from "@/components/ui/smart-link";
-import { Building2, Mail, MapPin } from "lucide-react";
-
-const contactItems = [
-  {
-    label: "注册地址",
-    value: siteConfig.registeredAddress,
-    icon: Building2,
-  },
-  {
-    label: "通讯地址",
-    value: siteConfig.mailingAddress,
-    icon: MapPin,
-  },
-  {
-    label: "联系邮箱",
-    value: siteConfig.email,
-    href: `mailto:${siteConfig.email}`,
-    icon: Mail,
-  },
-];
+import { Mail, MapPin } from "lucide-react";
 
 export default function Footer() {
   return (
-    <footer id="site-footer" className="mt-20 border-t border-zinc-200 bg-zinc-50 text-zinc-700">
-      <div className="site-shell py-10 sm:py-12 lg:py-14">
-        <div className="grid min-w-0 gap-10 lg:grid-cols-[minmax(0,430px)_1fr] xl:grid-cols-[minmax(0,480px)_1fr] xl:gap-16 2xl:gap-20">
-          <div className="min-w-0">
-            <div className="max-w-xl">
-              <p className="text-xs font-semibold uppercase tracking-[0.24em] text-zinc-500 sm:tracking-[0.32em]">HK XSEC</p>
-              <h2 className="heading-display mt-3 text-3xl font-semibold text-zinc-950 sm:text-4xl">{siteConfig.shortName}</h2>
-              <p className="mt-4 text-sm leading-7 text-zinc-600">{siteConfig.description}</p>
-            </div>
-
-            <div className="mt-6 grid gap-3">
-              {contactItems.map((item) => {
-                const Icon = item.icon;
-                const content = (
-                  <>
-                    <span className="flex h-9 w-9 flex-none items-center justify-center rounded-lg border border-zinc-200 bg-white text-zinc-700">
-                      <Icon className="h-4 w-4" />
-                    </span>
-                    <span className="min-w-0">
-                      <span className="block text-xs font-medium text-zinc-500">{item.label}</span>
-                      <span className="mt-1 block break-words text-sm leading-6 text-zinc-700">{item.value}</span>
-                    </span>
-                  </>
-                );
-
-                return item.href ? (
-                  <a
-                    key={item.label}
-                    href={item.href}
-                    className="flex min-w-0 items-start gap-3 rounded-lg border border-zinc-200 bg-white p-3 transition hover:border-zinc-400 hover:bg-zinc-50 hover:text-zinc-950"
-                  >
-                    {content}
-                  </a>
-                ) : (
-                  <div key={item.label} className="flex min-w-0 items-start gap-3 rounded-lg border border-zinc-200 bg-white p-3">
-                    {content}
-                  </div>
-                );
-              })}
+    <footer id="site-footer" className="border-t border-blue-100 bg-[#f7faff] text-slate-700">
+      <div className="site-shell">
+        <div className="grid border-l border-blue-100 lg:grid-cols-[.8fr_1.2fr]">
+          <div className="border-b border-r border-blue-100 p-8 sm:p-10 lg:p-12">
+            <p className="text-xs font-bold uppercase tracking-[.2em] text-blue-600">HK XSEC</p>
+            <h2 className="heading-display mt-5 text-3xl font-semibold text-slate-950 sm:text-4xl">{siteConfig.shortName}</h2>
+            <p className="mt-4 max-w-xl text-sm leading-7 text-slate-600">{siteConfig.description}</p>
+            <div className="mt-8 space-y-4 text-sm text-slate-600">
+              <p className="flex gap-3"><MapPin className="mt-1 h-4 w-4 flex-none text-blue-600" /><span>{siteConfig.registeredAddress}</span></p>
+              <a href={`mailto:${siteConfig.email}`} className="flex gap-3 transition hover:text-blue-700"><Mail className="mt-1 h-4 w-4 flex-none text-cyan-600" /><span>{siteConfig.email}</span></a>
             </div>
           </div>
-
-          <div className="grid min-w-0 grid-cols-2 gap-x-6 gap-y-8 sm:grid-cols-3 xl:grid-cols-6">
+          <div className="grid grid-cols-2 sm:grid-cols-3 xl:grid-cols-6">
             {footerGroups.map((group) => (
-              <div key={group.title} className="min-w-0">
-                <h3 className="text-sm font-semibold tracking-[0.08em] text-zinc-950 sm:tracking-[0.14em]">{group.title}</h3>
-                <ul className="mt-4 space-y-3 text-sm leading-6 text-zinc-600">
-                  {group.links.map((link) => (
-                    <li key={link.href} className="min-w-0">
-                      <SmartLink href={link.href} className="inline-flex max-w-full break-words transition hover:text-zinc-950">
-                        {link.label}
-                      </SmartLink>
-                    </li>
-                  ))}
+              <div key={group.title} className="border-b border-r border-blue-100 p-6 sm:p-8">
+                <h3 className="text-sm font-semibold text-slate-950">{group.title}</h3>
+                <ul className="mt-5 space-y-3 text-sm leading-6 text-slate-500">
+                  {group.links.map((link) => <li key={link.href}><SmartLink href={link.href} className="transition hover:text-blue-700">{link.label}</SmartLink></li>)}
                 </ul>
               </div>
             ))}
           </div>
         </div>
-
-        <div className="mt-10 flex min-w-0 flex-col gap-5 border-t border-zinc-200 pt-6 text-sm text-zinc-500 md:mt-12 md:flex-row md:items-start md:justify-between">
-          <div className="min-w-0 space-y-2">
-            <p>{siteConfig.copyright}</p>
-            <p>{siteConfig.ipv6Text}</p>
-          </div>
-          <div className="flex min-w-0 flex-wrap gap-x-4 gap-y-3 md:max-w-3xl md:justify-end md:text-right">
-            <SmartLink href={siteConfig.icpLink} className="max-w-full break-words transition hover:text-zinc-950">
-              {siteConfig.icpText}
-            </SmartLink>
-            <SmartLink href={siteConfig.mpsLink} className="max-w-full break-words transition hover:text-zinc-950">
-              {siteConfig.mpsText}
-            </SmartLink>
-            <SmartLink href={siteConfig.verifyLink} className="max-w-full break-words transition hover:text-zinc-950">
-              查验证件
-            </SmartLink>
-            <SmartLink href="https://www.12377.cn/" className="max-w-full break-words transition hover:text-zinc-950">
-              互联网违法信息举报
-            </SmartLink>
+        <div className="flex flex-col gap-4 border-x border-b border-blue-100 px-8 py-6 text-xs text-slate-500 md:flex-row md:items-center md:justify-between">
+          <div className="flex flex-wrap gap-x-5 gap-y-2"><span>{siteConfig.copyright}</span><span>{siteConfig.ipv6Text}</span></div>
+          <div className="flex flex-wrap gap-x-5 gap-y-2 md:justify-end">
+            <SmartLink href={siteConfig.icpLink} className="hover:text-blue-700">{siteConfig.icpText}</SmartLink>
+            <SmartLink href={siteConfig.mpsLink} className="hover:text-blue-700">{siteConfig.mpsText}</SmartLink>
+            <SmartLink href={siteConfig.verifyLink} className="hover:text-blue-700">查验证件</SmartLink>
+            <SmartLink href="https://www.12377.cn/" className="hover:text-blue-700">互联网违法信息举报</SmartLink>
           </div>
         </div>
       </div>

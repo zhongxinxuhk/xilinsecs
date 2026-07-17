@@ -62,7 +62,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <ReadingProgress />
         <div className="relative flex min-h-screen flex-col">
           <Header />
-          <main className="flex-1 pt-24 md:pt-28">{children}</main>
+          <main className="flex-1 pt-[72px]">{children}</main>
           <Footer />
         </div>
         <BackToTop />
