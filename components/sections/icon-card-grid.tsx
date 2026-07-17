@@ -24,61 +24,32 @@ const columnClasses = {
   four: "md:grid-cols-2 xl:grid-cols-4",
 };
 
-export default function IconCardGrid({
-  items,
-  columns = "three",
-  tone = "light",
-}: IconCardGridProps) {
+export default function IconCardGrid({ items, columns = "three" }: IconCardGridProps) {
   return (
     <div className={cn("grid min-w-0 gap-5", columnClasses[columns])}>
       {items.map((item) => {
         const Icon = item.icon;
-        const isDark = tone === "dark";
-
         return (
-          <article
-            key={item.title}
-            className={cn(
-              "min-w-0 rounded-[24px] border p-5 transition duration-300 sm:rounded-[28px] sm:p-6",
-              isDark
-                ? "border-white/10 bg-white/5 text-white hover:-translate-y-1 hover:bg-white/8"
-                : "glass-card hover:-translate-y-1"
-            )}
-          >
-            <div
-              className={cn(
-                "inline-flex h-12 w-12 items-center justify-center rounded-2xl",
-                isDark ? "bg-cyan-400/12 text-cyan-200" : "bg-slate-950 text-white"
-              )}
-            >
+          <article key={item.title} className="glass-card min-w-0 p-6 transition-colors duration-200">
+            <div className="inline-flex h-10 w-10 items-center justify-center rounded-lg border border-zinc-200 bg-zinc-50 text-zinc-800">
               <Icon className="h-5 w-5" />
             </div>
-            <h3 className={cn("responsive-text mt-5 text-xl font-semibold", isDark ? "text-white" : "text-slate-950 dark:text-slate-50")}>
-              {item.title}
-            </h3>
-            <p className={cn("responsive-text mt-3 text-sm leading-7", isDark ? "text-slate-300" : "text-slate-600 dark:text-slate-400")}>
-              {item.description}
-            </p>
+            <h3 className="mt-5 text-xl font-semibold text-zinc-950">{item.title}</h3>
+            <p className="mt-3 text-sm leading-7 text-zinc-600">{item.description}</p>
             {item.bullets?.length ? (
-              <ul className={cn("mt-5 space-y-2 text-sm", isDark ? "text-slate-200" : "text-slate-700 dark:text-slate-300")}>
+              <ul className="mt-5 space-y-2.5 text-sm leading-6 text-zinc-700">
                 {item.bullets.map((bullet) => (
-                  <li key={bullet} className="flex min-w-0 gap-2">
-                    <span className={cn("mt-1 h-2 w-2 flex-none rounded-full", isDark ? "bg-cyan-300" : "bg-blue-600")} />
-                    <span className="responsive-text min-w-0 flex-1">{bullet}</span>
+                  <li key={bullet} className="flex gap-3">
+                    <span className="mt-2.5 h-1 w-1 flex-none rounded-full bg-zinc-400" />
+                    <span>{bullet}</span>
                   </li>
                 ))}
               </ul>
             ) : null}
             {item.href ? (
-              <SmartLink
-                href={item.href}
-                className={cn(
-                  "mt-6 inline-flex max-w-full items-center text-sm font-semibold",
-                  isDark ? "text-cyan-200" : "text-blue-700"
-                )}
-              >
-                <span className="min-w-0">{item.label ?? "查看详情"}</span>
-                <ArrowUpRight className="ml-2 h-4 w-4 flex-none" />
+              <SmartLink href={item.href} className="mt-6 inline-flex items-center text-sm font-medium text-zinc-950 hover:text-zinc-600">
+                {item.label ?? "查看详情"}
+                <ArrowUpRight className="ml-1.5 h-4 w-4" />
               </SmartLink>
             ) : null}
           </article>

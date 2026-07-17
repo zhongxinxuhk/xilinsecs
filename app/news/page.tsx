@@ -15,9 +15,9 @@ export default function NewsPage() {
   return (
     <>
       <PageHero
-        kicker="Newsroom"
-        title="平台发布、服务升级与经营信息，都放进同一条动态时间线。"
-        description="新的动态页不再只是零散公告，而是围绕品牌站、服务入口和业务进展组织内容。"
+        kicker="企业动态"
+        title="了解公司的最新进展。"
+        description="关注产品发布、服务升级、合作进展与企业信息。"
         image="/leadership/indexnews/images/news/post6.webp"
         actions={[
           { label: "查看关于我们", href: "/about/" },
@@ -29,7 +29,7 @@ export default function NewsPage() {
         <div className="site-shell">
           <Reveal>
             <SectionHeading
-              kicker="All updates"
+              kicker="全部动态"
               title="全部动态"
               description="包括平台发布、服务升级和经营信息摘要。"
             />

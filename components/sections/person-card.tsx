@@ -21,9 +21,9 @@ export default function PersonCard({ person }: PersonCardProps) {
         <Image src={person.image} alt={person.name} fill className="object-cover" />
       </div>
       <div className="min-w-0 flex-1">
-        <h3 className="text-xl font-semibold text-slate-950 dark:text-slate-50">{person.name}</h3>
+        <h3 className="text-xl font-semibold text-slate-950">{person.name}</h3>
         <p className="mt-1 text-sm font-medium uppercase tracking-[0.12em] text-blue-700 sm:tracking-[0.16em]">{person.title}</p>
-        <p className="mt-4 text-sm leading-7 text-slate-600 dark:text-slate-400">{person.bio}</p>
+        <p className="mt-4 text-sm leading-7 text-slate-600">{person.bio}</p>
         {isFounder && (
           <p className="mt-2 text-xs text-blue-600">点击查看详细介绍</p>
         )}

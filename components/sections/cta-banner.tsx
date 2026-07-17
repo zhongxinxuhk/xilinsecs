@@ -12,24 +12,24 @@ type CtaBannerProps = {
 export default function CtaBanner({ title, description, primary, secondary, aside }: CtaBannerProps) {
   return (
     <section className="site-shell">
-      <div className="rainbow-panel overflow-hidden px-5 py-10 text-slate-950 dark:text-slate-50 sm:px-8 md:px-10">
-        <div className="grid min-w-0 gap-8 lg:grid-cols-[minmax(0,1.2fr)_minmax(0,0.8fr)]">
-          <div className="min-w-0">
-            <p className="text-sm uppercase tracking-[0.18em] text-blue-700">联系我们</p>
-            <h2 className="heading-display mt-4 text-3xl font-semibold text-slate-950 dark:text-slate-50 md:text-4xl">{title}</h2>
-            <p className="mt-4 max-w-2xl text-base leading-8 text-slate-600 dark:text-slate-400">{description}</p>
+      <div className="overflow-hidden rounded-3xl border border-zinc-200 bg-zinc-950 px-6 py-10 text-white sm:px-10 md:py-14">
+        <div className="grid gap-8 lg:grid-cols-[1.2fr_0.8fr] lg:items-end">
+          <div>
+            <p className="text-xs font-semibold uppercase tracking-[0.16em] text-zinc-400">联系我们</p>
+            <h2 className="heading-display mt-4 text-3xl font-semibold md:text-4xl">{title}</h2>
+            <p className="mt-4 max-w-2xl text-base leading-8 text-zinc-400">{description}</p>
             <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
-              <ButtonLink href={primary.href} size="lg" className="w-full sm:w-auto">
+              <ButtonLink href={primary.href} size="lg" className="border-white bg-white text-black hover:border-zinc-200 hover:bg-zinc-200">
                 {primary.label}
               </ButtonLink>
               {secondary ? (
-                <ButtonLink href={secondary.href} size="lg" variant="outline" className="w-full sm:w-auto">
+                <ButtonLink href={secondary.href} size="lg" className="border-zinc-700 bg-zinc-900 text-white hover:border-zinc-500 hover:bg-zinc-800">
                   {secondary.label}
                 </ButtonLink>
               ) : null}
             </div>
           </div>
-          {aside ? <div className="min-w-0 self-end">{aside}</div> : null}
+          {aside ? <div>{aside}</div> : null}
         </div>
       </div>
     </section>

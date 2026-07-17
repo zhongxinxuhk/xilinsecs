@@ -51,7 +51,7 @@ export default function ToolDetailPage({ params }: { params: { slug: string } })
   return (
     <>
       <PageHero
-        kicker="Public utility"
+        kicker="公共工具"
         title={tool.title}
         description={tool.description}
         image={tool.heroImage}

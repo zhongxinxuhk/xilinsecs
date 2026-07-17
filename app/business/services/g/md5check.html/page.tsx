@@ -23,7 +23,7 @@ export default function LegacyMd5ToolPage() {
   return (
     <>
       <PageHero
-        kicker="Public utility"
+        kicker="公共工具"
         title={tool.title}
         description={tool.description}
         image={tool.heroImage}

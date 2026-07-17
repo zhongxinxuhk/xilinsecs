@@ -15,9 +15,9 @@ export default function ServicesPage() {
   return (
     <>
       <PageHero
-        kicker="Services"
-        title="服务不是一列旧目录，而是围绕角色和任务组织的入口。"
-        description="新的服务结构把企业、客户、伙伴和公共服务分成四条路径。每条路径对应不同目标，但都共享统一的品牌和交付标准。"
+        kicker="服务能力"
+        title="覆盖建设、交付与运营的企业技术服务。"
+        description="面向企业客户、现有客户与合作伙伴，提供从方案咨询到持续支持的专业服务。"
         image="/source/index_imgs/index_cplb01.webp"
         actions={[
           { label: "联系团队", href: "/contact/" },
@@ -29,9 +29,9 @@ export default function ServicesPage() {
         <div className="site-shell">
           <Reveal>
             <SectionHeading
-              kicker="Four lanes"
-              title="四类服务路径"
-              description="每条路径都对应明确角色和动作，不再让用户依赖旧文件名和分散入口。"
+              kicker="服务体系"
+              title="四类服务"
+              description="根据不同业务角色与需求，快速找到对应服务。"
             />
           </Reveal>
           <div className="mt-8">
@@ -55,9 +55,9 @@ export default function ServicesPage() {
         <div className="site-shell grid gap-8 lg:grid-cols-[0.95fr_1.05fr]">
           <Reveal>
             <SectionHeading
-              kicker="Related products"
+              kicker="产品能力"
               title="服务和产品能力一起工作"
-              description="客户看见的是服务路径，真正交付时仍然会落到基础设施、软件或设备这些产品能力上。"
+              description="基础设施、软件与设备能力为各类服务提供实施支撑。"
             />
           </Reveal>
           <Reveal>

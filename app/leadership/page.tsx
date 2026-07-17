@@ -15,7 +15,7 @@ export default function LegacyLeadershipNewsPage() {
   return (
     <>
       <PageHero
-        kicker="Newsroom"
+        kicker="企业动态"
         title="平台发布、服务升级与经营信息，都放进同一条动态时间线。"
         description="新的动态页不再只是零散公告，而是围绕品牌站、服务入口和业务进展组织内容。"
         image="/leadership/indexnews/images/news/post6.webp"
@@ -29,7 +29,7 @@ export default function LegacyLeadershipNewsPage() {
         <div className="site-shell">
           <Reveal>
             <SectionHeading
-              kicker="All updates"
+              kicker="全部动态"
               title="全部动态"
               description="包括平台发布、服务升级和经营信息摘要。"
             />

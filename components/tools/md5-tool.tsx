@@ -63,7 +63,7 @@ export default function Md5Tool() {
       </section>
 
       <aside className="glass-card p-6">
-        <div className="text-xs font-semibold uppercase tracking-[0.18em] text-blue-700">Digest</div>
+        <div className="text-xs font-semibold uppercase tracking-[0.18em] text-blue-700">摘要值</div>
         <h3 className="mt-4 text-2xl font-semibold text-slate-950">校验结果</h3>
         <div className="mt-5 space-y-3 text-sm text-slate-700">
           <div>文件名：{fileName || "未选择文件"}</div>

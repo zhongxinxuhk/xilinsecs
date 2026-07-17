@@ -417,8 +417,8 @@ function renderServicesHome() {
   return (
     <>
       <PageHero
-        kicker="Services"
-        title="业务范围不再是一组旧目录，而是一套按角色和任务组织的入口。"
+        kicker="服务能力"
+        title="面向不同业务角色提供清晰、专业的技术服务。"
         description="企业、客户、伙伴与公共服务共享同一套品牌和交付标准，但每条路径对应的任务、入口和后续动作都清晰拆开。"
         image="/source/index_imgs/index_cplb01.webp"
         actions={[
@@ -431,9 +431,9 @@ function renderServicesHome() {
         <div className="site-shell">
           <Reveal>
             <SectionHeading
-              kicker="Four lanes"
+              kicker="服务体系"
               title="四类服务路径"
-              description="用更直观的结构承接企业项目、客户服务、伙伴协作与公共工具，不再让用户记旧文件名。"
+              description="根据业务角色与需求，快速进入对应服务。"
             />
           </Reveal>
           <div className="mt-8">
@@ -457,7 +457,7 @@ function renderServicesHome() {
         <div className="site-shell">
           <Reveal>
             <SectionHeading
-              kicker="Products"
+              kicker="产品能力"
               title="交付最终会落到这些产品能力上"
               description="服务路径解决“从哪里进入”，产品能力解决“项目最后如何被实现和维护”。"
             />
@@ -549,7 +549,7 @@ function renderCustomerHome() {
   return (
     <>
       <PageHero
-        kicker="Customer service"
+        kicker="客户服务"
         title="客户服务中心"
         description="把需求提交、订单与订阅查询、客户资料和工单流程集中到一个清晰入口里，减少来回跳转和重复沟通。"
         image="/source/index_imgs/wx.jpg"
@@ -558,9 +558,9 @@ function renderCustomerHome() {
           { label: "联系团队", href: "/contact/", variant: "outline" },
         ]}
         aside={
-          <div className="glass-card p-6 text-slate-950 dark:text-slate-50">
-            <p className="text-xs uppercase tracking-[0.22em] text-blue-700">Service scope</p>
-            <p className="mt-4 text-base leading-8 text-slate-600 dark:text-slate-400">
+          <div className="glass-card p-6 text-slate-950">
+            <p className="text-xs uppercase tracking-[0.22em] text-blue-700">服务范围</p>
+            <p className="mt-4 text-base leading-8 text-slate-600">
               适合现有客户和潜在客户快速进入正确入口，也方便团队把需求、查询和售后动作统一收口。
             </p>
           </div>
@@ -571,7 +571,7 @@ function renderCustomerHome() {
         <div className="site-shell">
           <Reveal>
             <SectionHeading
-              kicker="Primary actions"
+              kicker="联系方式"
               title="常用服务入口"
               description="无论是新需求还是已有项目查询，都可以从这里快速进入对应流程。"
             />
@@ -579,9 +579,9 @@ function renderCustomerHome() {
           <div className="mt-8 grid gap-5 xl:grid-cols-3">
             {serviceCards.map((card) => (
               <Reveal key={card.href}>
-                <article className="glass-card flex h-full flex-col p-6 text-slate-950 dark:text-slate-50">
+                <article className="glass-card flex h-full flex-col p-6 text-slate-950">
                   <h3 className="text-xl font-semibold">{card.title}</h3>
-                  <p className="mt-3 flex-1 text-sm leading-7 text-slate-600 dark:text-slate-400">{card.summary}</p>
+                  <p className="mt-3 flex-1 text-sm leading-7 text-slate-600">{card.summary}</p>
                   <SmartLink
                     href={card.href}
                     className="mt-6 inline-flex h-11 items-center justify-center rounded-full bg-blue-600 px-5 text-sm font-semibold text-white transition hover:bg-blue-500"
@@ -599,7 +599,7 @@ function renderCustomerHome() {
         <div className="site-shell">
           <Reveal>
             <SectionHeading
-              kicker="Downloads"
+              kicker="下载中心"
               title="办公与接入下载"
               description="如果你同时需要办公接入或下载说明，也可以直接从这里进入。"
             />
@@ -623,7 +623,7 @@ function renderPartnersHome() {
   return (
     <>
       <PageHero
-        kicker="Partner ecosystem"
+        kicker="合作伙伴"
         title="把伙伴合作从分散页面升级为一套连续可用的工作路径。"
         description={partnerService?.description ?? "围绕伙伴合作、资料维护、订单查询和工作台建立统一入口。"}
         image="/source/index_imgs/zb/rz.jpg"
@@ -637,7 +637,7 @@ function renderPartnersHome() {
         <div className="site-shell grid gap-8 lg:grid-cols-[0.95fr_1.05fr]">
           <Reveal>
             <SectionHeading
-              kicker="Modes"
+              kicker="合作方式"
               title="三种常见合作方式"
               description="合作不一定要从完整框架协议开始，也可以先从单个项目、区域协同或联合交付试运行。"
             />
@@ -646,8 +646,8 @@ function renderPartnersHome() {
             {partnershipModes.map((mode) => (
               <Reveal key={mode.title}>
                 <article className="glass-card p-6">
-                  <h3 className="text-xl font-semibold text-slate-950 dark:text-slate-50">{mode.title}</h3>
-                  <p className="mt-3 text-sm leading-7 text-slate-600 dark:text-slate-400">{mode.description}</p>
+                  <h3 className="text-xl font-semibold text-slate-950">{mode.title}</h3>
+                  <p className="mt-3 text-sm leading-7 text-slate-600">{mode.description}</p>
                 </article>
               </Reveal>
             ))}
@@ -659,7 +659,7 @@ function renderPartnersHome() {
         <div className="site-shell">
           <Reveal>
             <SectionHeading
-              kicker="Portals"
+              kicker="服务入口"
               title="伙伴入口"
               description="把最常用的伙伴动作集中到同一层路径下，减少记忆成本。"
             />
@@ -669,8 +669,8 @@ function renderPartnersHome() {
               <Reveal key={portal.slug}>
                 <article className="glass-card flex h-full flex-col p-6">
                   <div className="text-xs font-semibold uppercase tracking-[0.18em] text-blue-700">{portal.audience}</div>
-                  <h3 className="mt-4 text-xl font-semibold text-slate-950 dark:text-slate-50">{portal.title}</h3>
-                  <p className="mt-3 flex-1 text-sm leading-7 text-slate-600 dark:text-slate-400">{portal.summary}</p>
+                  <h3 className="mt-4 text-xl font-semibold text-slate-950">{portal.title}</h3>
+                  <p className="mt-3 flex-1 text-sm leading-7 text-slate-600">{portal.summary}</p>
                   <SmartLink href={portal.href} className="mt-6 text-sm font-semibold text-blue-700">
                     打开入口
                   </SmartLink>
@@ -688,9 +688,9 @@ function renderPublicHome() {
   return (
     <>
       <PageHero
-        kicker="Public utilities"
+        kicker="公共工具"
         title="公共服务中心"
-        description="把工具、下载和开放访问入口统一放进同一层可维护结构里，减少对旧静态页和零散入口的依赖。"
+        description="提供常用在线工具、软件下载与开放服务入口。"
         image="/leadership/indexnews/images/news/post3_news.webp"
         actions={[
           { label: "打开工具中心", href: "/tools/" },
@@ -702,7 +702,7 @@ function renderPublicHome() {
         <div className="site-shell">
           <Reveal>
             <SectionHeading
-              kicker="Utilities"
+              kicker="在线工具"
               title="常用公共工具"
               description="面向开发、运维和常见办公场景的轻量工具集合。"
             />
@@ -728,7 +728,7 @@ function renderPublicHome() {
         <div className="site-shell">
           <Reveal>
             <SectionHeading
-              kicker="Downloads"
+              kicker="下载中心"
               title="下载与接入"
               description="办公接入和跨境办公说明也统一纳入公共服务层。"
             />
@@ -750,7 +750,7 @@ function renderProductsHome() {
   return (
     <>
       <PageHero
-        kicker="Products"
+        kicker="产品能力"
         title="产品能力是交付落地的另一面。"
         description="服务路径决定用户如何找到我们，产品能力决定项目最终如何被实现、维护和持续扩展。"
         image="/source/index_imgs/ihaikou_index01.webp"
@@ -764,7 +764,7 @@ function renderProductsHome() {
         <div className="site-shell">
           <Reveal>
             <SectionHeading
-              kicker="Catalog"
+              kicker="产品目录"
               title="三类产品能力"
               description="围绕基础设施、软件系统和设备交付组织产品目录，方便客户快速理解每条能力带的边界。"
             />
@@ -805,9 +805,9 @@ function renderEnterpriseService() {
           { label: "查看相关案例", href: "/projects/", variant: "outline" },
         ]}
         aside={
-          <div className="glass-card p-6 text-slate-950 dark:text-slate-50">
-            <p className="text-xs uppercase tracking-[0.22em] text-blue-700">Scope</p>
-            <p className="mt-4 text-base leading-8 text-slate-600 dark:text-slate-400">{service.summary}</p>
+          <div className="glass-card p-6 text-slate-950">
+            <p className="text-xs uppercase tracking-[0.22em] text-blue-700">服务范围</p>
+            <p className="mt-4 text-base leading-8 text-slate-600">{service.summary}</p>
           </div>
         }
       />
@@ -837,7 +837,7 @@ function renderEnterpriseService() {
         <div className="site-shell">
           <Reveal>
             <SectionHeading
-              kicker="Related work"
+              kicker="相关案例"
               title="相关案例"
               description="这些项目更能体现企业服务路径的交付方式。"
             />
@@ -862,7 +862,7 @@ function renderProductDetail(productSlug: string) {
   return (
     <>
       <PageHero
-        kicker="Product capability"
+        kicker="产品能力"
         title={product.title}
         description={product.description}
         image={product.heroImage}
@@ -916,7 +916,7 @@ function renderToolShell(toolSlug: string) {
   return (
     <>
       <PageHero
-        kicker="Public utility"
+        kicker="公共工具"
         title={tool.title}
         description={tool.description}
         image={tool.heroImage}
@@ -959,9 +959,9 @@ function renderProjectDetail(projectSlug: string) {
           { label: "返回案例列表", href: "/projects/", variant: "outline" },
         ]}
         aside={
-          <div className="glass-card p-6 text-slate-950 dark:text-slate-50">
-            <p className="text-xs uppercase tracking-[0.22em] text-blue-700">Client</p>
-            <p className="mt-3 text-lg font-semibold text-slate-950 dark:text-slate-50">{project.client}</p>
+          <div className="glass-card p-6 text-slate-950">
+            <p className="text-xs uppercase tracking-[0.22em] text-blue-700">客户</p>
+            <p className="mt-3 text-lg font-semibold text-slate-950">{project.client}</p>
             <div className="mt-5 flex flex-wrap gap-2">
               {project.tags?.map((tag) => (
                 <span key={tag} className="rounded-full bg-blue-50 px-3 py-1 text-xs uppercase tracking-[0.16em] text-blue-700">
@@ -978,7 +978,7 @@ function renderProjectDetail(projectSlug: string) {
           <Reveal>
             <div className="glass-card p-6">
               <SectionHeading title="项目概览" description={project.summary} />
-              <div className="mt-6 space-y-4 text-sm leading-8 text-slate-700 dark:text-slate-300">
+              <div className="mt-6 space-y-4 text-sm leading-8 text-slate-700">
                 {project.overview.map((paragraph) => (
                   <p key={paragraph}>{paragraph}</p>
                 ))}
@@ -1000,7 +1000,7 @@ function renderProjectDetail(projectSlug: string) {
         <div className="site-shell">
           <Reveal>
             <SectionHeading
-              kicker="Project gallery"
+              kicker="项目画面"
               title="项目画面"
               description="保留原项目中的关键界面或环境截图，帮助快速理解交付结果。"
             />
@@ -1043,7 +1043,7 @@ function renderNewsDetail(year: string, newsSlug: string) {
         <div className="site-shell max-w-4xl">
           <Reveal>
             <article className="glass-card p-8">
-              <div className="space-y-5 text-base leading-8 text-slate-700 dark:text-slate-300">
+              <div className="space-y-5 text-base leading-8 text-slate-700">
                 {item.body.map((paragraph) => (
                   <p key={paragraph}>{paragraph}</p>
                 ))}
@@ -1062,7 +1062,7 @@ function renderInfoPage(entry: BusinessLegacyEntry) {
       <PageHero
         kicker={entry.kicker ?? "Legacy support"}
         title={entry.title ?? "服务说明"}
-        description={entry.description ?? "该页面已重构为新的入口结构。"}
+        description={entry.description ?? "查看相关业务与服务信息。"}
         image={entry.image ?? "/source/index_imgs/index_01.jpg"}
         actions={[
           { label: entry.primaryLabel ?? "继续", href: entry.primaryHref ?? "/contact/" },
@@ -1079,7 +1079,7 @@ function renderInfoPage(entry: BusinessLegacyEntry) {
           <div className="site-shell grid gap-8 lg:grid-cols-[0.95fr_1.05fr]">
             <Reveal>
               <SectionHeading
-                kicker="What to do next"
+                kicker="下一步"
                 title="下一步建议"
                 description="为了让你更快进入正确流程，这里整理了几个关键点。"
               />
@@ -1111,7 +1111,7 @@ function renderGeminiGateway() {
   return (
     <>
       <PageHero
-        kicker="Developer gateway"
+        kicker="开发者服务"
         title="Gemini API 镜像网关"
         description="为受限网络环境下的开发者提供更稳定的 Gemini API 接入说明，适合调试、迁移和日常集成场景。"
         image="/business/services/g/gemini/01.png"
@@ -1120,12 +1120,12 @@ function renderGeminiGateway() {
           { label: "联系支持中心", href: "/contact/", variant: "outline" },
         ]}
         aside={
-          <div className="glass-card p-6 text-slate-950 dark:text-slate-50">
-            <p className="text-xs uppercase tracking-[0.22em] text-blue-700">Endpoint</p>
+          <div className="glass-card p-6 text-slate-950">
+            <p className="text-xs uppercase tracking-[0.22em] text-blue-700">接口地址</p>
             <div className="mt-4 rounded-[24px] border border-blue-100 bg-blue-50/80 p-4 font-mono text-sm text-blue-900">
               https://gemini.xinnew.top/
             </div>
-            <p className="mt-4 text-sm leading-7 text-slate-600 dark:text-slate-400">
+            <p className="mt-4 text-sm leading-7 text-slate-600">
               支持 IPv4 / IPv6 双栈，适合开发测试、受限网络环境下的 API 联调和迁移场景。
             </p>
           </div>
@@ -1171,7 +1171,7 @@ function renderGeminiGateway() {
                 </SmartLink>
                 <SmartLink
                   href="/contact/"
-                  className="inline-flex h-11 items-center justify-center rounded-full border border-slate-300 bg-white px-5 text-sm font-semibold text-slate-900 dark:text-slate-100"
+                  className="inline-flex h-11 items-center justify-center rounded-full border border-slate-300 bg-white px-5 text-sm font-semibold text-slate-900"
                 >
                   联系团队
                 </SmartLink>

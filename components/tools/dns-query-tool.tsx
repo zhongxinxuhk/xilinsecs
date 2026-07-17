@@ -142,7 +142,7 @@ export default function DnsQueryTool() {
       </section>
 
       <aside className="glass-card p-6">
-        <p className="text-xs font-semibold uppercase tracking-[0.18em] text-blue-700">Geo insight</p>
+        <p className="text-xs font-semibold uppercase tracking-[0.18em] text-blue-700">地理信息</p>
         <h3 className="mt-4 text-2xl font-semibold text-slate-950">地址附加信息</h3>
         <p className="mt-3 text-sm leading-7 text-slate-600">
           如果查询结果中包含 A 记录，会尝试读取 IP 所在地区信息作为辅助参考。

@@ -76,23 +76,16 @@ export default function SearchDialog() {
         .slice(0, 8)
     : [];
 
-  const categoryColors: Record<string, string> = {
-    "产品": "bg-blue-100 text-blue-700 dark:bg-blue-900/40 dark:text-blue-300",
-    "服务": "bg-cyan-100 text-cyan-700 dark:bg-cyan-900/40 dark:text-cyan-300",
-    "项目": "bg-emerald-100 text-emerald-700 dark:bg-emerald-900/40 dark:text-emerald-300",
-    "工具": "bg-amber-100 text-amber-700 dark:bg-amber-900/40 dark:text-amber-300",
-    "下载": "bg-purple-100 text-purple-700 dark:bg-purple-900/40 dark:text-purple-300",
-    "动态": "bg-rose-100 text-rose-700 dark:bg-rose-900/40 dark:text-rose-300",
-  };
+  const categoryColors: Record<string, string> = {};
 
   if (!open) return null;
 
   return (
     <div className="fixed inset-0 z-[60] flex items-start justify-center pt-[15vh]">
-      <div className="fixed inset-0 bg-slate-900/30 backdrop-blur-sm dark:bg-black/50" onClick={() => setOpen(false)} />
+      <div className="fixed inset-0 bg-black/25" onClick={() => setOpen(false)} />
       <div className="relative mx-4 w-full max-w-xl animate-scale-in">
-        <div className="overflow-hidden rounded-2xl border border-white/30 bg-white/95 shadow-glass backdrop-blur-xl dark:border-slate-700/30 dark:bg-slate-900/95">
-          <div className="flex items-center gap-3 border-b border-slate-100 px-4 py-3 dark:border-slate-800">
+        <div className="overflow-hidden rounded-2xl border border-zinc-200 bg-white shadow-[0_20px_60px_rgba(0,0,0,0.14)]">
+          <div className="flex items-center gap-3 border-b border-slate-100 px-4 py-3">
             <Search className="h-5 w-5 flex-none text-slate-400" />
             <input
               ref={inputRef}
@@ -100,15 +93,15 @@ export default function SearchDialog() {
               value={query}
               onChange={(e) => setQuery(e.target.value)}
               placeholder="搜索产品、服务、工具、项目..."
-              className="flex-1 bg-transparent text-base text-slate-900 outline-none placeholder:text-slate-400 dark:text-slate-100 dark:placeholder:text-slate-500"
+              className="flex-1 bg-transparent text-base text-slate-900 outline-none placeholder:text-slate-400"
             />
-            <kbd className="hidden rounded-md border border-slate-200 px-2 py-0.5 text-xs text-slate-400 dark:border-slate-700 dark:text-slate-500 sm:inline-block">
+            <kbd className="hidden rounded-md border border-slate-200 px-2 py-0.5 text-xs text-slate-400 sm:inline-block">
               ESC
             </kbd>
             <button
               type="button"
               onClick={() => setOpen(false)}
-              className="rounded-lg p-1 text-slate-400 transition hover:text-slate-600 dark:hover:text-slate-300 sm:hidden"
+              className="rounded-lg p-1 text-slate-400 transition hover:text-slate-600 sm:hidden"
             >
               <X className="h-5 w-5" />
             </button>
@@ -121,21 +114,21 @@ export default function SearchDialog() {
                     <SmartLink
                       href={item.href}
                       onClick={() => setOpen(false)}
-                      className="flex items-center gap-3 rounded-xl px-3 py-3 transition hover:bg-slate-50 dark:hover:bg-slate-800/60"
+                      className="flex items-center gap-3 rounded-xl px-3 py-3 transition hover:bg-slate-50"
                     >
-                      <span className="flex h-8 w-8 flex-none items-center justify-center rounded-lg bg-slate-100 text-lg dark:bg-slate-800">
+                      <span className="flex h-8 w-8 flex-none items-center justify-center rounded-lg bg-slate-100 text-lg">
                         {item.icon}
                       </span>
                       <div className="min-w-0 flex-1">
                         <div className="flex items-center gap-2">
-                          <span className="truncate text-sm font-medium text-slate-900 dark:text-slate-100">
+                          <span className="truncate text-sm font-medium text-slate-900">
                             {item.label}
                           </span>
-                          <span className={`flex-none rounded-md px-1.5 py-0.5 text-[10px] font-medium ${categoryColors[item.category] || "bg-slate-100 text-slate-600 dark:bg-slate-800 dark:text-slate-400"}`}>
+                          <span className={`flex-none rounded-md px-1.5 py-0.5 text-[10px] font-medium ${categoryColors[item.category] || "bg-zinc-100 text-zinc-600"}`}>
                             {item.category}
                           </span>
                         </div>
-                        <p className="mt-0.5 truncate text-xs text-slate-500 dark:text-slate-400">
+                        <p className="mt-0.5 truncate text-xs text-slate-500">
                           {item.description}
                         </p>
                       </div>
@@ -144,11 +137,11 @@ export default function SearchDialog() {
                 ))}
               </ul>
             ) : query.length >= 1 ? (
-              <div className="px-4 py-12 text-center text-sm text-slate-500 dark:text-slate-400">
+              <div className="px-4 py-12 text-center text-sm text-slate-500">
                 未找到与 &quot;{query}&quot; 相关的结果
               </div>
             ) : (
-              <div className="px-4 py-8 text-center text-sm text-slate-400 dark:text-slate-500">
+              <div className="px-4 py-8 text-center text-sm text-slate-400">
                 输入关键词搜索产品、服务、工具和项目...
               </div>
             )}

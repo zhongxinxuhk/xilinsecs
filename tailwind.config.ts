@@ -1,7 +1,6 @@
 import type { Config } from "tailwindcss";
 
 const config: Config = {
-  darkMode: "class",
   content: [
     "./app/**/*.{js,ts,jsx,tsx,mdx}",
     "./components/**/*.{js,ts,jsx,tsx,mdx}",
@@ -22,8 +21,8 @@ const config: Config = {
         cardForeground: "hsl(var(--card-foreground))",
       },
       boxShadow: {
-        soft: "0 18px 60px rgba(9, 20, 46, 0.12)",
-        glass: "0 20px 70px rgba(15, 23, 42, 0.16)",
+        soft: "0 2px 12px rgba(0, 0, 0, 0.06)",
+        glass: "0 8px 30px rgba(0, 0, 0, 0.08)",
       },
       backgroundImage: {
         "hero-grid":

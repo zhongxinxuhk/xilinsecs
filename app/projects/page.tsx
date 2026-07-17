@@ -15,9 +15,9 @@ export default function ProjectsPage() {
   return (
     <>
       <PageHero
-        kicker="Projects"
-        title="案例不只是展示结果，也展示我们如何组织交付。"
-        description="这里收录的项目覆盖基础设施恢复、内容平台建设、系统适配和站点重构，重点展示问题、路径和最终结果。"
+        kicker="项目案例"
+        title="以可靠交付解决真实业务问题。"
+        description="项目覆盖基础设施恢复、内容平台建设与国产化系统适配。"
         image="/source/index_imgs/20260322-044041.webp"
         actions={[
           { label: "联系团队", href: "/contact/" },
@@ -29,9 +29,9 @@ export default function ProjectsPage() {
         <div className="site-shell">
           <Reveal>
             <SectionHeading
-              kicker="Case studies"
+              kicker="项目案例"
               title="全部案例"
-              description="每个案例都整理了背景、交付内容和可复用的方法。"
+              description="了解项目背景、实施内容与交付成果。"
             />
           </Reveal>
           <div className="mt-8 grid gap-5 md:grid-cols-2 xl:grid-cols-3">

@@ -46,7 +46,7 @@ export default function CompanyPage({ params }: { params: { slug: string } }) {
     return (
       <>
         <PageHero
-          kicker="Company timeline"
+          kicker="发展历程"
           title="发展历程"
           description="用关键时间节点记录团队从成立、合作到持续扩展服务边界的过程。"
           image="/source/index_imgs/index_01.jpg"
@@ -60,7 +60,7 @@ export default function CompanyPage({ params }: { params: { slug: string } }) {
           <div className="site-shell grid gap-8 lg:grid-cols-[0.9fr_1.1fr]">
             <Reveal>
               <SectionHeading
-                kicker="Milestones"
+                kicker="关键节点"
                 title="关键节点"
                 description="这些节点代表了团队如何逐步建立服务结构和合作关系。"
               />
@@ -75,7 +75,7 @@ export default function CompanyPage({ params }: { params: { slug: string } }) {
           <div className="site-shell">
             <Reveal>
               <SectionHeading
-                kicker="Related updates"
+                kicker="相关动态"
                 title="相关动态"
                 description="时间线之外，阶段性变化也会同步记录到企业动态中。"
               />
@@ -96,7 +96,7 @@ export default function CompanyPage({ params }: { params: { slug: string } }) {
   return (
     <>
       <PageHero
-        kicker="Leadership"
+        kicker="管理团队"
         title="管理团队"
         description="团队规模不大，但会尽量让方案、产品、开发、安全和内容能力形成稳定配合。"
         image="/source/index_imgs/touxiang/chenziyi_index_01.webp"
@@ -120,7 +120,7 @@ export default function CompanyPage({ params }: { params: { slug: string } }) {
         <div className="site-shell">
           <Reveal>
             <SectionHeading
-              kicker="Working principles"
+              kicker="团队原则"
               title="团队原则"
               description="这些原则决定了我们如何做方案、推进项目和处理风险。"
             />

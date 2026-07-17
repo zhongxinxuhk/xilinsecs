@@ -115,10 +115,10 @@ export default function GsapShowcasePager({
       <div className="grid gap-8 lg:grid-cols-[0.9fr_1.1fr] lg:items-end">
         <div className="min-w-0">
           <div className="section-kicker">{kicker}</div>
-          <h2 className="heading-display mt-4 text-3xl font-semibold tracking-tight text-slate-950 dark:text-slate-50 md:text-4xl">
+          <h2 className="heading-display mt-4 text-3xl font-semibold tracking-tight text-slate-950 md:text-4xl">
             {title}
           </h2>
-          <p className="mt-4 text-base leading-8 text-slate-600 dark:text-slate-400 md:text-lg">{description}</p>
+          <p className="mt-4 text-base leading-8 text-slate-600 md:text-lg">{description}</p>
         </div>
 
         <div className="flex min-w-0 items-center justify-start gap-3 lg:justify-end">
@@ -166,13 +166,13 @@ export default function GsapShowcasePager({
         </div>
 
         <div ref={copyRef} className="showcase-copy">
-          <p data-gsap-copy className="text-sm font-semibold uppercase tracking-[0.18em] text-blue-700 dark:text-blue-300">
+          <p data-gsap-copy className="text-sm font-semibold uppercase tracking-[0.18em] text-blue-700">
             {activeItem.eyebrow}
           </p>
-          <h3 data-gsap-copy className="heading-display mt-4 text-3xl font-semibold text-slate-950 dark:text-slate-50 md:text-4xl">
+          <h3 data-gsap-copy className="heading-display mt-4 text-3xl font-semibold text-slate-950 md:text-4xl">
             {activeItem.title}
           </h3>
-          <p data-gsap-copy className="mt-4 text-base leading-8 text-slate-600 dark:text-slate-300">{activeItem.description}</p>
+          <p data-gsap-copy className="mt-4 text-base leading-8 text-slate-600">{activeItem.description}</p>
 
           {activeItem.tags?.length ? (
             <div data-gsap-copy className="mt-6 flex flex-wrap gap-2">
@@ -202,8 +202,8 @@ export default function GsapShowcasePager({
             data-active={index === activeIndex}
             className={cn("showcase-thumb", index === activeIndex && "showcase-thumb-active")}
           >
-            <span className="text-xs font-semibold text-blue-700 dark:text-blue-300">{String(index + 1).padStart(2, "0")}</span>
-            <span className="mt-2 block text-left text-sm font-semibold text-slate-950 dark:text-slate-50">{item.title}</span>
+            <span className="text-xs font-semibold text-blue-700">{String(index + 1).padStart(2, "0")}</span>
+            <span className="mt-2 block text-left text-sm font-semibold text-slate-950">{item.title}</span>
           </button>
         ))}
       </div>

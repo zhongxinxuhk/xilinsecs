@@ -23,9 +23,9 @@ export default function PortalPage({ portal }: PortalPageProps) {
           { label: "联系我们", href: "/contact/", variant: "outline" },
         ]}
         aside={
-          <div className="glass-card p-5 text-slate-950 dark:text-slate-50 sm:p-6">
-            <p className="text-xs uppercase tracking-[0.16em] text-blue-700 sm:tracking-[0.22em]">Portal brief</p>
-            <p className="mt-4 text-base leading-8 text-slate-600 dark:text-slate-400">{portal.summary}</p>
+          <div className="glass-card p-5 text-slate-950 sm:p-6">
+            <p className="text-xs uppercase tracking-[0.16em] text-blue-700 sm:tracking-[0.22em]">入口信息</p>
+            <p className="mt-4 text-base leading-8 text-slate-600">{portal.summary}</p>
           </div>
         }
       />
@@ -34,9 +34,9 @@ export default function PortalPage({ portal }: PortalPageProps) {
         <div className="site-shell grid min-w-0 gap-8 lg:grid-cols-[minmax(0,1.1fr)_minmax(0,0.9fr)]">
           <Reveal>
             <SectionHeading
-              kicker="How it works"
+              kicker="使用流程"
               title="进入前先确认几个关键点"
-              description="这些入口沿用现有表单源或查询源，新页面主要负责统一体验和路径。"
+              description="请按以下步骤完成查询或提交。"
             />
           </Reveal>
           <Reveal>
@@ -46,7 +46,7 @@ export default function PortalPage({ portal }: PortalPageProps) {
       </section>
 
       <Reveal className="section-space pt-0">
-        <EmbedShell src={portal.embedUrl} title={portal.title} note="外部表单源保持不变，新的页面壳负责统一体验。" />
+        <EmbedShell src={portal.embedUrl} title={portal.title} note="提交的信息将由对应业务系统安全处理。" />
       </Reveal>
 
       <section className="section-space">

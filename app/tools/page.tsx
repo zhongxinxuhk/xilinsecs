@@ -15,9 +15,9 @@ export default function ToolsPage() {
   return (
     <>
       <PageHero
-        kicker="Tools"
-        title="把常用工具做成本地可运行、可维护的公共服务层。"
-        description="这些工具都从旧的独立 HTML 页面迁入 Next 结构中，摆脱外部 CDN 依赖，并统一了体验与 SEO。"
+        kicker="工具中心"
+        title="简单、快速、可靠的在线工具。"
+        description="面向开发、运维和日常办公场景，无需安装即可使用。"
         image="/leadership/indexnews/images/news/post3_news.webp"
         actions={[
           { label: "访问下载中心", href: "/downloads/" },
@@ -29,7 +29,7 @@ export default function ToolsPage() {
         <div className="site-shell">
           <Reveal>
             <SectionHeading
-              kicker="Utilities"
+              kicker="在线工具"
               title="全部工具"
               description="面向开发、运维和常见办公场景的轻量工具集合。"
             />

@@ -187,7 +187,7 @@ function renderInline(text: string) {
     nodes.push(
       <code
         key={`${match.index}-${match[1]}`}
-        className="rounded border border-slate-200 bg-slate-100 px-1.5 py-0.5 text-[0.92em] text-slate-800 dark:border-slate-700 dark:bg-slate-800 dark:text-slate-100"
+        className="rounded border border-slate-200 bg-slate-100 px-1.5 py-0.5 text-[0.92em] text-slate-800"
       >
         {match[1]}
       </code>
@@ -216,22 +216,22 @@ function renderBlock(block: MarkdownBlock) {
     case "heading":
       if (block.level === 2) {
         return (
-          <h2 id={block.id} className="scroll-mt-28 pt-6 text-2xl font-semibold leading-snug text-slate-950 dark:text-white">
+          <h2 id={block.id} className="scroll-mt-28 pt-6 text-2xl font-semibold leading-snug text-slate-950">
             {block.text}
           </h2>
         );
       }
       return (
-        <h3 id={block.id} className="scroll-mt-28 pt-3 text-lg font-semibold leading-snug text-slate-900 dark:text-slate-100">
+        <h3 id={block.id} className="scroll-mt-28 pt-3 text-lg font-semibold leading-snug text-slate-900">
           {block.text}
         </h3>
       );
     case "paragraph":
-      return <p className="text-sm leading-8 text-slate-700 dark:text-slate-300 sm:text-base">{renderParagraph(block.text)}</p>;
+      return <p className="text-sm leading-8 text-slate-700 sm:text-base">{renderParagraph(block.text)}</p>;
     case "list":
       if (block.ordered) {
         return (
-          <ol className="space-y-3 pl-5 text-sm leading-8 text-slate-700 dark:text-slate-300 sm:text-base">
+          <ol className="space-y-3 pl-5 text-sm leading-8 text-slate-700 sm:text-base">
             {block.items.map((item) => (
               <li key={item} className="list-decimal pl-1">
                 {renderInline(item)}
@@ -241,7 +241,7 @@ function renderBlock(block: MarkdownBlock) {
         );
       }
       return (
-        <ul className="space-y-3 pl-5 text-sm leading-8 text-slate-700 dark:text-slate-300 sm:text-base">
+        <ul className="space-y-3 pl-5 text-sm leading-8 text-slate-700 sm:text-base">
           {block.items.map((item) => (
             <li key={item} className="list-disc pl-1">
               {renderInline(item)}
@@ -251,13 +251,13 @@ function renderBlock(block: MarkdownBlock) {
       );
     case "checklist":
       return (
-        <ul className="space-y-3 text-sm leading-8 text-slate-700 dark:text-slate-300 sm:text-base">
+        <ul className="space-y-3 text-sm leading-8 text-slate-700 sm:text-base">
           {block.items.map((item) => (
             <li key={item.text} className="flex gap-3">
               {item.checked ? (
-                <CheckSquare className="mt-1.5 h-4 w-4 flex-none text-emerald-600 dark:text-emerald-400" aria-hidden="true" />
+                <CheckSquare className="mt-1.5 h-4 w-4 flex-none text-emerald-600" aria-hidden="true" />
               ) : (
-                <Square className="mt-1.5 h-4 w-4 flex-none text-slate-400 dark:text-slate-500" aria-hidden="true" />
+                <Square className="mt-1.5 h-4 w-4 flex-none text-slate-400" aria-hidden="true" />
               )}
               <span>{renderInline(item.text)}</span>
             </li>
@@ -266,12 +266,12 @@ function renderBlock(block: MarkdownBlock) {
       );
     case "table":
       return (
-        <div className="max-w-full overflow-x-auto rounded-xl border border-slate-200 bg-white/60 dark:border-slate-700 dark:bg-slate-900/40">
-          <table className="w-full min-w-[680px] border-collapse text-left text-sm text-slate-700 dark:text-slate-300">
-            <thead className="bg-slate-100 text-slate-950 dark:bg-slate-800 dark:text-white">
+        <div className="max-w-full overflow-x-auto rounded-xl border border-slate-200 bg-white/60">
+          <table className="w-full min-w-[680px] border-collapse text-left text-sm text-slate-700">
+            <thead className="bg-slate-100 text-slate-950">
               <tr>
                 {block.headers.map((header) => (
-                  <th key={header} className="border-b border-slate-200 px-4 py-3 font-semibold dark:border-slate-700">
+                  <th key={header} className="border-b border-slate-200 px-4 py-3 font-semibold">
                     {renderInline(header)}
                   </th>
                 ))}
@@ -279,7 +279,7 @@ function renderBlock(block: MarkdownBlock) {
             </thead>
             <tbody>
               {block.rows.map((row) => (
-                <tr key={row.join("|")} className="border-t border-slate-200 dark:border-slate-700">
+                <tr key={row.join("|")} className="border-t border-slate-200">
                   {row.map((cell, cellIndex) => (
                     <td key={`${cell}-${cellIndex}`} className="px-4 py-3 align-top leading-7">
                       {renderInline(cell)}
@@ -321,11 +321,11 @@ export default function LegalDocumentPage({ slug }: LegalDocumentPageProps) {
       <section className="section-space">
         <div className="site-shell grid gap-8 lg:grid-cols-[minmax(0,1fr)_280px] lg:items-start">
           <article className="glass-card min-w-0 p-5 sm:p-8 lg:p-10">
-            <div className="mb-8 flex items-start gap-3 border-b border-slate-200 pb-6 dark:border-slate-700">
-              <FileText className="mt-1 h-5 w-5 flex-none text-blue-600 dark:text-blue-400" aria-hidden="true" />
+            <div className="mb-8 flex items-start gap-3 border-b border-slate-200 pb-6">
+              <FileText className="mt-1 h-5 w-5 flex-none text-blue-600" aria-hidden="true" />
               <div>
-                <p className="text-sm font-semibold text-slate-950 dark:text-white">{document.navLabel}</p>
-                <p className="mt-1 text-sm leading-7 text-slate-600 dark:text-slate-400">
+                <p className="text-sm font-semibold text-slate-950">{document.navLabel}</p>
+                <p className="mt-1 text-sm leading-7 text-slate-600">
                   以下内容按原始法律文档完整呈现，发布或对外提供服务前请结合实际运营主体补充待完善信息。
                 </p>
               </div>
@@ -338,16 +338,16 @@ export default function LegalDocumentPage({ slug }: LegalDocumentPageProps) {
           </article>
 
           <aside className="glass-card sticky top-28 hidden p-5 lg:block">
-            <p className="text-sm font-semibold text-slate-950 dark:text-white">文档目录</p>
-            <nav className="mt-4 max-h-[calc(100vh-12rem)] space-y-2 overflow-y-auto pr-1 text-sm text-slate-600 dark:text-slate-400">
+            <p className="text-sm font-semibold text-slate-950">文档目录</p>
+            <nav className="mt-4 max-h-[calc(100vh-12rem)] space-y-2 overflow-y-auto pr-1 text-sm text-slate-600">
               {sectionHeadings.map((heading) => (
-                <a key={heading.id} href={`#${heading.id}`} className="block rounded-lg px-3 py-2 transition hover:bg-blue-50 hover:text-blue-700 dark:hover:bg-slate-800 dark:hover:text-blue-300">
+                <a key={heading.id} href={`#${heading.id}`} className="block rounded-lg px-3 py-2 transition hover:bg-blue-50 hover:text-blue-700">
                   {heading.text}
                 </a>
               ))}
             </nav>
-            <div className="mt-5 border-t border-slate-200 pt-5 dark:border-slate-700">
-              <p className="text-xs font-semibold uppercase tracking-[0.14em] text-slate-500 dark:text-slate-400">Legal</p>
+            <div className="mt-5 border-t border-slate-200 pt-5">
+              <p className="text-xs font-semibold uppercase tracking-[0.14em] text-slate-500">法律文件</p>
               <div className="mt-3 space-y-2 text-sm">
                 {legalDocumentList.map((item) => (
                   <SmartLink
@@ -356,7 +356,7 @@ export default function LegalDocumentPage({ slug }: LegalDocumentPageProps) {
                     className={`block rounded-lg px-3 py-2 transition ${
                       item.slug === slug
                         ? "bg-blue-600 text-white"
-                        : "text-slate-600 hover:bg-blue-50 hover:text-blue-700 dark:text-slate-400 dark:hover:bg-slate-800 dark:hover:text-blue-300"
+                        : "text-slate-600 hover:bg-blue-50 hover:text-blue-700"
                     }`}
                   >
                     {item.navLabel}

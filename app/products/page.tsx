@@ -16,9 +16,9 @@ export default function ProductsPage() {
   return (
     <>
       <PageHero
-        kicker="Products"
-        title="产品能力是交付落地的另一面。"
-        description="服务路径决定用户如何找到我们，产品能力决定项目最终如何被实现、维护和持续扩展。"
+        kicker="产品能力"
+        title="为业务构建稳定、可扩展的技术底座。"
+        description="覆盖 AI 接入、云与基础设施、软件应用以及硬件与安全设备。"
         image="/source/index_imgs/ihaikou_index01.webp"
         actions={[
           { label: "查看服务能力", href: "/services/" },

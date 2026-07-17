@@ -17,7 +17,7 @@ export default function CareersPage() {
   return (
     <>
       <PageHero
-        kicker="Careers"
+        kicker="加入我们"
         title="如果你喜欢把问题真正解决掉，我们会很欢迎你。"
         description="我们偏爱愿意跨角色协作、能把方案落实成结果的人。团队不大，但能看到项目从讨论、交付到长期维护的完整过程。"
         image="/source/index_imgs/touxiang/wangyueyang_index_01.webp"
@@ -31,7 +31,7 @@ export default function CareersPage() {
         <div className="site-shell">
           <Reveal>
             <SectionHeading
-              kicker="Values"
+              kicker="团队价值观"
               title="我们看重的工作方式"
               description="在这里，沟通、执行力和对真实问题的兴趣通常比华丽叙事更重要。"
             />
@@ -48,7 +48,7 @@ export default function CareersPage() {
         <div className="site-shell grid gap-8 lg:grid-cols-[0.95fr_1.05fr]">
           <Reveal>
             <SectionHeading
-              kicker="Team"
+              kicker="团队成员"
               title="你会和这些角色一起工作"
               description="团队成员覆盖产品、开发、安全、方案和内容能力，工作边界清晰，但协作很紧。"
             />
@@ -67,7 +67,7 @@ export default function CareersPage() {
         <div className="site-shell">
           <Reveal>
             <SectionHeading
-              kicker="Open roles"
+              kicker="招聘职位"
               title="当前开放职位"
               description="如果你想做更完整、更有上下文的项目，这些岗位会很合适。"
             />

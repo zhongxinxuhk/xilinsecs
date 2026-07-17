@@ -18,7 +18,7 @@ export default function LegacyLeadershipTeamPage() {
   return (
     <>
       <PageHero
-        kicker="Leadership"
+        kicker="管理团队"
         title="管理团队"
         description="团队规模不大，但会尽量让方案、产品、开发、安全和内容能力形成稳定配合。"
         image="/source/index_imgs/touxiang/chenziyi_index_01.webp"
@@ -42,7 +42,7 @@ export default function LegacyLeadershipTeamPage() {
         <div className="site-shell">
           <Reveal>
             <SectionHeading
-              kicker="Working principles"
+              kicker="团队原则"
               title="团队原则"
               description="这些原则决定了我们如何做方案、推进项目和处理风险。"
             />

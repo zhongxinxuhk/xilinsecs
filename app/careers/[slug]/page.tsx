@@ -46,7 +46,7 @@ export default function CareerSubPage({ params }: { params: { slug: string } }) 
     return (
       <>
         <PageHero
-          kicker="Career team"
+          kicker="团队成员"
           title="团队成员"
           description="认识你未来可能会一起工作的成员，以及他们关注的问题域。"
           image="/source/index_imgs/touxiang/chenziyi_index_01.webp"
@@ -75,7 +75,7 @@ export default function CareerSubPage({ params }: { params: { slug: string } }) 
     return (
       <>
         <PageHero
-          kicker="How we work"
+          kicker="工作方式"
           title="工作方式"
           description="这里更像一个需要跨角色解决问题的小团队，所以项目透明度、执行力和文档意识都很重要。"
           image="/source/index_imgs/index_01.jpg"
@@ -89,7 +89,7 @@ export default function CareerSubPage({ params }: { params: { slug: string } }) 
           <div className="site-shell">
             <Reveal>
               <SectionHeading
-                kicker="Culture"
+                kicker="团队文化"
                 title="我们更接近这样的工作环境"
                 description="不追求形式化包装，而是努力让每个人都能看到问题、方案和结果之间的关系。"
               />
@@ -108,7 +108,7 @@ export default function CareerSubPage({ params }: { params: { slug: string } }) 
   return (
     <>
       <PageHero
-        kicker="Open roles"
+        kicker="招聘职位"
         title="开放职位"
         description="这些岗位面向真实项目场景开放，欢迎通过邮件发送简历或作品。"
         image="/source/index_imgs/20260322-044041.webp"

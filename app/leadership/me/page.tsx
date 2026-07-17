@@ -19,7 +19,7 @@ export default function LegacyAboutPage() {
   return (
     <>
       <PageHero
-        kicker="About HK XSEC"
+        kicker="关于希灵赛斯"
         title="我们不是把项目做成一堆页面，而是把长期可维护性一起交付。"
         description={`${siteConfig.shortName} 关注的是基础设施、软件系统、安全能力和服务运营入口如何彼此支撑。我们希望客户拿到的不是一次性成果，而是一套更容易继续演进的结构。`}
         image="/source/index_imgs/index_01.jpg"
@@ -33,7 +33,7 @@ export default function LegacyAboutPage() {
         <div className="site-shell">
           <Reveal>
             <SectionHeading
-              kicker="Pillars"
+              kicker="核心能力"
               title="公司能力由五条支柱构成"
               description="我们把技术、内容、运营和安全放在一条连续的建设链上，而不是让不同团队彼此脱节。"
             />
@@ -50,7 +50,7 @@ export default function LegacyAboutPage() {
         <div className="site-shell grid gap-8 lg:grid-cols-[0.95fr_1.05fr]">
           <Reveal>
             <SectionHeading
-              kicker="People"
+              kicker="团队成员"
               title="一支更偏执行型的小团队"
               description="团队成员覆盖产品、开发、方案、安全与内容能力，结构不大，但强调跨角色协同和快速落地。"
             />
@@ -69,7 +69,7 @@ export default function LegacyAboutPage() {
         <div className="site-shell grid gap-8 lg:grid-cols-[0.9fr_1.1fr]">
           <Reveal>
             <SectionHeading
-              kicker="Timeline"
+              kicker="发展历程"
               title="发展历程"
               description="从公司创立、校企合作到长期技术服务与安全运营合作，团队正沿着更清晰的业务边界持续扩展。"
             />

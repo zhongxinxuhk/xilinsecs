@@ -30,7 +30,7 @@ export default function ProductDetailPage({ params }: { params: { slug: string }
   return (
     <>
       <PageHero
-        kicker="Product capability"
+        kicker="产品能力"
         title={product.title}
         description={product.description}
         image={product.heroImage}
@@ -44,7 +44,7 @@ export default function ProductDetailPage({ params }: { params: { slug: string }
         <div className="site-shell grid gap-8 lg:grid-cols-2">
           <Reveal>
             <div className="glass-card p-6">
-              <SectionHeading title="能力组成" description="该产品能力下最常出现的模块和交付项。" />
+              <SectionHeading title="能力组成" description="主要模块与交付内容。" />
               <div className="mt-6">
                 <CheckList items={product.features} />
               </div>
@@ -52,7 +52,7 @@ export default function ProductDetailPage({ params }: { params: { slug: string }
           </Reveal>
           <Reveal>
             <div className="glass-card p-6">
-              <SectionHeading title="典型场景" description="这些通常是客户真正需要解决的问题。" />
+              <SectionHeading title="典型场景" description="适用的典型业务场景。" />
               <div className="mt-6">
                 <CheckList items={product.scenarios} />
               </div>

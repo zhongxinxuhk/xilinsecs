@@ -56,7 +56,7 @@ export default function ProjectDetailPage({ params }: { params: { slug: string }
         ]}
         aside={
           <div className="glass-card p-6 text-slate-950">
-            <p className="text-xs uppercase tracking-[0.22em] text-blue-700">Client</p>
+            <p className="text-xs uppercase tracking-[0.22em] text-blue-700">客户</p>
             <p className="mt-3 text-lg font-semibold text-slate-950">{project.client}</p>
             <div className="mt-5 flex flex-wrap gap-2">
               {project.tags?.map((tag) => (
@@ -83,7 +83,7 @@ export default function ProjectDetailPage({ params }: { params: { slug: string }
           </Reveal>
           <Reveal>
             <div className="glass-card p-6">
-              <SectionHeading title="项目亮点" description="这些内容最能体现项目的执行价值。" />
+              <SectionHeading title="项目亮点" description="关键成果、服务范围与技术方案。" />
               <div className="mt-6">
                 <CheckList items={[...project.highlights, ...project.services, ...project.stack]} />
               </div>
@@ -98,7 +98,7 @@ export default function ProjectDetailPage({ params }: { params: { slug: string }
             <SectionHeading
               kicker="项目画面"
               title="项目画面"
-              description="保留原项目中的关键界面或环境截图，便于快速理解交付结果。"
+              description="项目关键界面与实施环境。"
             />
           </Reveal>
           <div className="mt-8 grid gap-5 md:grid-cols-2">

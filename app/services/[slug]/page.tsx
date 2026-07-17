@@ -41,7 +41,7 @@ export default function ServiceDetailPage({ params }: { params: { slug: string }
         ]}
         aside={
           <div className="glass-card p-6 text-slate-950">
-            <p className="text-xs uppercase tracking-[0.22em] text-blue-700">Scope</p>
+            <p className="text-xs uppercase tracking-[0.22em] text-blue-700">服务范围</p>
             <p className="mt-4 text-base leading-8 text-slate-600">{service.summary}</p>
           </div>
         }
@@ -51,7 +51,7 @@ export default function ServiceDetailPage({ params }: { params: { slug: string }
         <div className="site-shell grid gap-8 lg:grid-cols-2">
           <Reveal>
             <div className="glass-card p-6">
-              <SectionHeading title="核心能力" description="这是该路径下最常见的交付内容。" />
+              <SectionHeading title="核心能力" description="主要服务范围与交付内容。" />
               <div className="mt-6">
                 <CheckList items={service.capabilities} />
               </div>
@@ -59,7 +59,7 @@ export default function ServiceDetailPage({ params }: { params: { slug: string }
           </Reveal>
           <Reveal>
             <div className="glass-card p-6">
-              <SectionHeading title="交付结果" description="除了实施本身，我们也会关注上线后的可维护性。" />
+              <SectionHeading title="交付结果" description="交付物、业务成果与后续维护支持。" />
               <div className="mt-6">
                 <CheckList items={[...service.deliverables, ...service.outcomes]} />
               </div>
@@ -72,7 +72,7 @@ export default function ServiceDetailPage({ params }: { params: { slug: string }
         <div className="site-shell">
           <Reveal>
             <SectionHeading
-              kicker="Related work"
+              kicker="相关案例"
               title="相关案例"
               description="这些项目更能体现这条服务路径的交付方式。"
             />

@@ -23,14 +23,14 @@ const contactItems = [
 
 export default function Footer() {
   return (
-    <footer id="site-footer" className="mt-20 border-t border-white/10 bg-slate-950 text-slate-200">
-      <div className="mx-auto w-full min-w-0 max-w-[108rem] px-4 py-10 sm:px-6 sm:py-12 lg:px-10 lg:py-14 2xl:px-12">
+    <footer id="site-footer" className="mt-20 border-t border-zinc-200 bg-zinc-50 text-zinc-700">
+      <div className="site-shell py-10 sm:py-12 lg:py-14">
         <div className="grid min-w-0 gap-10 lg:grid-cols-[minmax(0,430px)_1fr] xl:grid-cols-[minmax(0,480px)_1fr] xl:gap-16 2xl:gap-20">
           <div className="min-w-0">
             <div className="max-w-xl">
-              <p className="text-xs font-semibold uppercase tracking-[0.24em] text-cyan-300 sm:tracking-[0.32em]">HK XSEC</p>
-              <h2 className="heading-display mt-3 text-3xl font-semibold text-white sm:text-4xl">{siteConfig.shortName}</h2>
-              <p className="mt-4 text-sm leading-7 text-slate-400">{siteConfig.description}</p>
+              <p className="text-xs font-semibold uppercase tracking-[0.24em] text-zinc-500 sm:tracking-[0.32em]">HK XSEC</p>
+              <h2 className="heading-display mt-3 text-3xl font-semibold text-zinc-950 sm:text-4xl">{siteConfig.shortName}</h2>
+              <p className="mt-4 text-sm leading-7 text-zinc-600">{siteConfig.description}</p>
             </div>
 
             <div className="mt-6 grid gap-3">
@@ -38,12 +38,12 @@ export default function Footer() {
                 const Icon = item.icon;
                 const content = (
                   <>
-                    <span className="flex h-9 w-9 flex-none items-center justify-center rounded-lg border border-white/10 bg-white/[0.06] text-cyan-200">
+                    <span className="flex h-9 w-9 flex-none items-center justify-center rounded-lg border border-zinc-200 bg-white text-zinc-700">
                       <Icon className="h-4 w-4" />
                     </span>
                     <span className="min-w-0">
-                      <span className="block text-xs font-medium text-slate-500">{item.label}</span>
-                      <span className="mt-1 block break-words text-sm leading-6 text-slate-300">{item.value}</span>
+                      <span className="block text-xs font-medium text-zinc-500">{item.label}</span>
+                      <span className="mt-1 block break-words text-sm leading-6 text-zinc-700">{item.value}</span>
                     </span>
                   </>
                 );
@@ -52,12 +52,12 @@ export default function Footer() {
                   <a
                     key={item.label}
                     href={item.href}
-                    className="flex min-w-0 items-start gap-3 rounded-lg border border-white/10 bg-white/[0.035] p-3 transition hover:border-cyan-300/40 hover:bg-white/[0.06] hover:text-white"
+                    className="flex min-w-0 items-start gap-3 rounded-lg border border-zinc-200 bg-white p-3 transition hover:border-zinc-400 hover:bg-zinc-50 hover:text-zinc-950"
                   >
                     {content}
                   </a>
                 ) : (
-                  <div key={item.label} className="flex min-w-0 items-start gap-3 rounded-lg border border-white/10 bg-white/[0.035] p-3">
+                  <div key={item.label} className="flex min-w-0 items-start gap-3 rounded-lg border border-zinc-200 bg-white p-3">
                     {content}
                   </div>
                 );
@@ -68,11 +68,11 @@ export default function Footer() {
           <div className="grid min-w-0 grid-cols-2 gap-x-6 gap-y-8 sm:grid-cols-3 xl:grid-cols-6">
             {footerGroups.map((group) => (
               <div key={group.title} className="min-w-0">
-                <h3 className="text-sm font-semibold tracking-[0.08em] text-white sm:tracking-[0.14em]">{group.title}</h3>
-                <ul className="mt-4 space-y-3 text-sm leading-6 text-slate-400">
+                <h3 className="text-sm font-semibold tracking-[0.08em] text-zinc-950 sm:tracking-[0.14em]">{group.title}</h3>
+                <ul className="mt-4 space-y-3 text-sm leading-6 text-zinc-600">
                   {group.links.map((link) => (
                     <li key={link.href} className="min-w-0">
-                      <SmartLink href={link.href} className="inline-flex max-w-full break-words transition hover:text-white">
+                      <SmartLink href={link.href} className="inline-flex max-w-full break-words transition hover:text-zinc-950">
                         {link.label}
                       </SmartLink>
                     </li>
@@ -83,22 +83,22 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="mt-10 flex min-w-0 flex-col gap-5 border-t border-white/10 pt-6 text-sm text-slate-500 md:mt-12 md:flex-row md:items-start md:justify-between">
+        <div className="mt-10 flex min-w-0 flex-col gap-5 border-t border-zinc-200 pt-6 text-sm text-zinc-500 md:mt-12 md:flex-row md:items-start md:justify-between">
           <div className="min-w-0 space-y-2">
             <p>{siteConfig.copyright}</p>
             <p>{siteConfig.ipv6Text}</p>
           </div>
           <div className="flex min-w-0 flex-wrap gap-x-4 gap-y-3 md:max-w-3xl md:justify-end md:text-right">
-            <SmartLink href={siteConfig.icpLink} className="max-w-full break-words transition hover:text-white">
+            <SmartLink href={siteConfig.icpLink} className="max-w-full break-words transition hover:text-zinc-950">
               {siteConfig.icpText}
             </SmartLink>
-            <SmartLink href={siteConfig.mpsLink} className="max-w-full break-words transition hover:text-white">
+            <SmartLink href={siteConfig.mpsLink} className="max-w-full break-words transition hover:text-zinc-950">
               {siteConfig.mpsText}
             </SmartLink>
-            <SmartLink href={siteConfig.verifyLink} className="max-w-full break-words transition hover:text-white">
+            <SmartLink href={siteConfig.verifyLink} className="max-w-full break-words transition hover:text-zinc-950">
               查验证件
             </SmartLink>
-            <SmartLink href="https://www.12377.cn/" className="max-w-full break-words transition hover:text-white">
+            <SmartLink href="https://www.12377.cn/" className="max-w-full break-words transition hover:text-zinc-950">
               互联网违法信息举报
             </SmartLink>
           </div>

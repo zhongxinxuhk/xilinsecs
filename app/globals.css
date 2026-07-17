@@ -17,20 +17,6 @@
   --surface-alpha: 0.92;
 }
 
-.dark {
-  --background: 222 47% 8%;
-  --foreground: 210 40% 98%;
-  --muted: 217 33% 17%;
-  --border: 217 33% 22%;
-  --primary: 213 94% 68%;
-  --primary-foreground: 222 47% 8%;
-  --accent: 160 60% 45%;
-  --accent-foreground: 0 0% 100%;
-  --card: 222 47% 11%;
-  --card-foreground: 210 40% 98%;
-  --surface: 15 23 42;
-  --surface-alpha: 0.92;
-}
 
 * {
   box-sizing: border-box;
@@ -88,30 +74,8 @@ body::after {
   filter: blur(40px);
 }
 
-.dark body {
-  background:
-    radial-gradient(ellipse 80% 60% at 15% 10%, rgba(56, 189, 248, 0.06), transparent 50%),
-    radial-gradient(ellipse 60% 50% at 85% 5%, rgba(251, 146, 60, 0.05), transparent 45%),
-    radial-gradient(ellipse 50% 55% at 78% 70%, rgba(52, 211, 153, 0.05), transparent 45%),
-    radial-gradient(ellipse 45% 50% at 22% 78%, rgba(139, 92, 246, 0.04), transparent 42%),
-    linear-gradient(135deg, #0f172a 0%, #1e293b 28%, #0f172a 54%, #1a1f2e 76%, #0f172a 100%);
-  color: hsl(var(--foreground));
-}
 
-.dark body::before {
-  opacity: 0.10;
-  background-image:
-    linear-gradient(to right, rgba(148, 163, 184, 0.05) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(148, 163, 184, 0.05) 1px, transparent 1px);
-}
 
-.dark body::after {
-  opacity: 0.35;
-  background:
-    radial-gradient(ellipse 70% 45% at 12% 18%, rgba(56, 189, 248, 0.05), transparent 40%),
-    radial-gradient(ellipse 50% 40% at 82% 12%, rgba(251, 146, 60, 0.04), transparent 36%),
-    radial-gradient(ellipse 45% 45% at 72% 68%, rgba(52, 211, 153, 0.04), transparent 38%);
-}
 
 a {
   color: inherit;
@@ -151,9 +115,6 @@ div {
   background: rgba(0, 110, 255, 0.15);
 }
 
-.dark ::selection {
-  background: rgba(96, 165, 250, 0.30);
-}
 
 :focus-visible {
   outline: 2px solid hsl(var(--primary));
@@ -406,4 +367,82 @@ div {
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
   }
+}
+
+/* 2026 light visual system */
+:root {
+  --background: 0 0% 100%;
+  --foreground: 0 0% 4%;
+  --muted: 0 0% 96%;
+  --border: 0 0% 90%;
+  --primary: 0 0% 4%;
+  --primary-foreground: 0 0% 100%;
+  --card: 0 0% 100%;
+  --card-foreground: 0 0% 4%;
+}
+
+body {
+  background: #fff;
+  color: #18181b;
+  font-family: "Avenir Next", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+}
+
+body::before {
+  opacity: .45;
+  background-image: radial-gradient(#d4d4d8 .7px, transparent .7px);
+  background-size: 22px 22px;
+  mask-image: linear-gradient(to bottom, black, transparent 70%);
+}
+
+body::after { display: none; }
+
+@layer components {
+  .site-shell { @apply max-w-7xl px-4 sm:px-6 lg:px-8; }
+  .section-space { @apply py-14 sm:py-20 md:py-24; }
+
+  .section-panel,
+  .rainbow-panel,
+  .ink-panel {
+    @apply rounded-3xl border border-zinc-200 bg-white text-zinc-950 shadow-[0_1px_2px_rgba(0,0,0,0.04)];
+    background: linear-gradient(180deg, #fff 0%, #fafafa 100%);
+  }
+
+  .glass-card {
+    @apply rounded-2xl border border-zinc-200 bg-white shadow-none;
+    background: #fff;
+  }
+
+  .glass-card:hover { border-color: #a1a1aa; }
+
+  .section-kicker {
+    @apply rounded-md border-0 bg-zinc-100 px-2.5 py-1 text-[11px] font-medium tracking-[0.14em] text-zinc-600;
+  }
+
+  .heading-display {
+    font-family: "Avenir Next", "PingFang SC", "Hiragino Sans GB", sans-serif;
+    letter-spacing: -.035em;
+  }
+
+  .bg-grid {
+    background-image: linear-gradient(to right, rgba(0,0,0,.035) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(0,0,0,.035) 1px, transparent 1px);
+    background-size: 32px 32px;
+    mask-image: linear-gradient(to bottom right, black, transparent 76%);
+  }
+
+  .soft-output-panel { @apply rounded-xl border border-zinc-200 bg-zinc-50 text-zinc-800 shadow-none; }
+
+  .showcase-pager,
+  .showcase-pager-emerald {
+    @apply rounded-3xl border border-zinc-200 bg-white shadow-none;
+    background: #fff;
+  }
+
+  .showcase-media { @apply rounded-2xl border-zinc-200 bg-zinc-100 shadow-none; }
+  .showcase-copy { @apply rounded-2xl border-zinc-200 bg-white shadow-none; }
+  .showcase-nav-button,
+  .showcase-count { @apply border-zinc-200 bg-white text-zinc-700 shadow-none; }
+  .showcase-tag { @apply border-zinc-200 bg-zinc-50 text-zinc-600; }
+  .showcase-thumb { @apply rounded-xl border-zinc-200 bg-white shadow-none; }
+  .showcase-thumb-active { @apply border-zinc-950 bg-zinc-50 text-zinc-950 ring-0; }
 }

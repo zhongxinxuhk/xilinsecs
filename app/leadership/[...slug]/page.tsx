@@ -74,7 +74,7 @@ function renderNewsHome() {
   return (
     <>
       <PageHero
-        kicker="Newsroom"
+        kicker="企业动态"
         title="平台发布、服务升级与经营信息，都放进同一条动态时间线。"
         description="新的动态页不再只是零散公告，而是围绕品牌站、服务入口和业务进展组织内容。"
         image="/leadership/indexnews/images/news/post6.webp"
@@ -88,7 +88,7 @@ function renderNewsHome() {
         <div className="site-shell">
           <Reveal>
             <SectionHeading
-              kicker="All updates"
+              kicker="全部动态"
               title="全部动态"
               description="包括平台发布、服务升级和经营信息摘要。"
             />
@@ -110,7 +110,7 @@ function renderTimeline() {
   return (
     <>
       <PageHero
-        kicker="Company timeline"
+        kicker="发展历程"
         title="发展历程"
         description="用关键时间节点记录团队从成立、合作到持续扩展服务边界的过程。"
         image="/source/index_imgs/index_01.jpg"
@@ -124,7 +124,7 @@ function renderTimeline() {
         <div className="site-shell grid gap-8 lg:grid-cols-[0.9fr_1.1fr]">
           <Reveal>
             <SectionHeading
-              kicker="Milestones"
+              kicker="关键节点"
               title="关键节点"
               description="这些节点代表了团队如何逐步建立服务结构和合作关系。"
             />
@@ -142,7 +142,7 @@ function renderTeam() {
   return (
     <>
       <PageHero
-        kicker="Leadership team"
+        kicker="管理团队"
         title="团队成员"
         description="认识你未来可能会一起协作的成员，以及他们各自关注的问题域。"
         image="/source/index_imgs/touxiang/chenziyi_index_01.webp"
@@ -166,7 +166,7 @@ function renderTeam() {
         <div className="site-shell">
           <Reveal>
             <SectionHeading
-              kicker="Working principles"
+              kicker="团队原则"
               title="团队原则"
               description="这些原则决定了我们如何做方案、推进项目和处理风险。"
             />

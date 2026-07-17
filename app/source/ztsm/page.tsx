@@ -24,7 +24,7 @@ export default function LegacySecureOfficePage() {
   return (
     <>
       <PageHero
-        kicker="Download detail"
+        kicker="下载详情"
         title={item.title}
         description={item.description}
         image={item.heroImage}

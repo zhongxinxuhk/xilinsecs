@@ -115,7 +115,7 @@ export const projects: ProjectRecord[] = [
     ],
     highlights: [
       "主站、工具、下载与流程入口统一到新体系",
-      "旧内联脚本改为可维护的 React/Next 组件",
+      "核心功能采用模块化前端组件实现",
       "部署结构更适合持续演进",
     ],
     gallery: [

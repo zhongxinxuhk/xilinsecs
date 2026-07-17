@@ -94,7 +94,7 @@ export default function RandomPickerTool() {
       </section>
 
       <aside className="glass-card p-6">
-        <div className="text-xs font-semibold uppercase tracking-[0.18em] text-blue-700">Roster preview</div>
+        <div className="text-xs font-semibold uppercase tracking-[0.18em] text-blue-700">名单预览</div>
         <h3 className="mt-4 text-2xl font-semibold text-slate-950">名单与结果</h3>
         <div className="mt-5 text-sm text-slate-600">
           当前导入 {entries.length} 条候选项。

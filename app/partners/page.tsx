@@ -17,8 +17,8 @@ export default function PartnersPage() {
   return (
     <>
       <PageHero
-        kicker="Partner ecosystem"
-        title="把伙伴合作从分散页面升级为一套连续可用的工作路径。"
+        kicker="合作伙伴"
+        title="携手伙伴，共同创造长期价值。"
         description={partnerService?.description ?? "围绕伙伴合作、资料维护、订单查询和协同工作台建立统一入口。"}
         image="/source/index_imgs/zb/rz.jpg"
         actions={[
@@ -31,7 +31,7 @@ export default function PartnersPage() {
         <div className="site-shell grid gap-8 lg:grid-cols-[0.95fr_1.05fr]">
           <Reveal>
             <SectionHeading
-              kicker="Modes"
+              kicker="合作方式"
               title="三种常见合作方式"
               description="合作不一定要从完整框架协议开始，也可以先从单个项目、区域协同或联合交付试运行。"
             />
@@ -40,8 +40,8 @@ export default function PartnersPage() {
             {partnershipModes.map((mode) => (
               <Reveal key={mode.title}>
                 <article className="glass-card p-6">
-                  <h3 className="text-xl font-semibold text-slate-950 dark:text-slate-50">{mode.title}</h3>
-                  <p className="mt-3 text-sm leading-7 text-slate-600 dark:text-slate-400">{mode.description}</p>
+                  <h3 className="text-xl font-semibold text-slate-950">{mode.title}</h3>
+                  <p className="mt-3 text-sm leading-7 text-slate-600">{mode.description}</p>
                 </article>
               </Reveal>
             ))}
@@ -53,9 +53,9 @@ export default function PartnersPage() {
         <div className="site-shell">
           <Reveal>
             <SectionHeading
-              kicker="Portals"
+              kicker="服务入口"
               title="伙伴入口"
-              description="把最常用的伙伴动作集中到同一层路径下，减少记忆成本。"
+              description="快速访问申请、订单、资料与协同工作台。"
             />
           </Reveal>
           <div className="mt-8 grid gap-5 md:grid-cols-2 xl:grid-cols-4">
@@ -63,8 +63,8 @@ export default function PartnersPage() {
               <Reveal key={portal.slug}>
                 <article className="glass-card flex h-full flex-col p-6">
                   <div className="text-xs font-semibold uppercase tracking-[0.18em] text-blue-700">{portal.audience}</div>
-                  <h3 className="mt-4 text-xl font-semibold text-slate-950 dark:text-slate-50">{portal.title}</h3>
-                  <p className="mt-3 flex-1 text-sm leading-7 text-slate-600 dark:text-slate-400">{portal.summary}</p>
+                  <h3 className="mt-4 text-xl font-semibold text-slate-950">{portal.title}</h3>
+                  <p className="mt-3 flex-1 text-sm leading-7 text-slate-600">{portal.summary}</p>
                   <a href={portal.href} className="mt-6 text-sm font-semibold text-blue-700">
                     打开入口
                   </a>

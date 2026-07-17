@@ -7,7 +7,7 @@ import Reveal from "@/components/sections/reveal";
 
 export const metadata = buildMetadata({
   title: "下载中心",
-  description: "iOA 与跨境办公接入说明的品牌化下载中心。",
+  description: "iOA 与跨境办公客户端、安装指南和接入说明。",
   path: "/downloads/",
 });
 
@@ -15,9 +15,9 @@ export default function DownloadsPage() {
   return (
     <>
       <PageHero
-        kicker="Downloads"
-        title="把软件下载和接入说明做成真正可用的品牌化下载中心。"
-        description="下载页不再只是一个外链，而是同时提供平台说明、接入提示和后续沟通入口。"
+        kicker="下载中心"
+        title="办公软件与安全接入资源。"
+        description="获取 iOA、跨境办公客户端及对应平台的安装与接入指南。"
         image="/source/index_imgs/index_01.jpg"
         actions={[
           { label: "联系团队", href: "/contact/" },
@@ -29,7 +29,7 @@ export default function DownloadsPage() {
         <div className="site-shell">
           <Reveal>
             <SectionHeading
-              kicker="Resources"
+              kicker="资源下载"
               title="下载资源"
               description="面向员工、客户或授权伙伴的软件下载和接入说明。"
             />
