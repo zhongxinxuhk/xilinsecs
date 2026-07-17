@@ -124,7 +124,7 @@ div {
 
 @layer components {
   .site-shell {
-    @apply mx-auto w-full min-w-0 max-w-7xl px-4 sm:px-6 lg:px-8;
+    @apply mx-auto w-full min-w-0 max-w-none px-4 sm:px-6 lg:px-8 2xl:px-10;
   }
 
   .responsive-text {
@@ -397,7 +397,7 @@ body::before {
 body::after { display: none; }
 
 @layer components {
-  .site-shell { @apply max-w-7xl px-4 sm:px-6 lg:px-8; }
+  .site-shell { @apply max-w-none px-4 sm:px-6 lg:px-8 2xl:px-10; }
   .section-space { @apply py-14 sm:py-20 md:py-24; }
 
   .section-panel,
