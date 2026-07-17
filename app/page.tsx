@@ -159,7 +159,6 @@ const latestNews = [
 ];
 
 const statItems = [
-  { value: 5, suffix: "+", label: "年行业经验", icon: TrendingUp },
   { value: 50, suffix: "+", label: "服务客户", icon: HeartHandshake },
   { value: 100, suffix: "%", label: "项目交付率", icon: Timer },
   { value: 4, suffix: "", label: "核心业务线", icon: Sparkles },
@@ -209,7 +208,7 @@ export default function HomePage() {
       <section className="section-space !pb-0">
         <div className="site-shell">
           <Reveal>
-            <div className="glass-card grid grid-cols-2 gap-6 p-6 sm:gap-8 sm:p-8 md:gap-10 md:p-10 xl:grid-cols-4">
+            <div className="glass-card grid grid-cols-1 gap-6 p-6 sm:grid-cols-3 sm:gap-8 sm:p-8 md:gap-10 md:p-10">
               {statItems.map((item) => {
                 const Icon = item.icon;
                 return (
