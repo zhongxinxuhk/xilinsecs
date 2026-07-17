@@ -21,13 +21,14 @@ export const navigation: NavItem[] = [
     ],
   },
   {
-    label: "项目案例",
-    href: "/projects/",
-    description: "项目案例与交付成果",
+    label: "产品能力",
+    href: "/products/",
+    description: "产品能力、服务方案与交付成果",
     children: [
-      { label: "项目案例", href: "/projects/" },
+      { label: "产品能力", href: "/products/" },
+      { label: "希灵 AI · API 中转站", href: "https://cstk.sec.hn.cn" },
       { label: "服务能力", href: "/services/" },
-      { label: "产品目录", href: "/products/" },
+      { label: "项目案例", href: "/projects/" },
     ],
   },
   {

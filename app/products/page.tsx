@@ -4,10 +4,11 @@ import PageHero from "@/components/sections/page-hero";
 import SectionHeading from "@/components/sections/section-heading";
 import IconCardGrid from "@/components/sections/icon-card-grid";
 import Reveal from "@/components/sections/reveal";
+import XilingAiSpotlight from "@/components/sections/xiling-ai-spotlight";
 
 export const metadata = buildMetadata({
-  title: "产品目录",
-  description: "云与基础设施、软件与应用、硬件与安全设备的产品能力目录。",
+  title: "产品能力",
+  description: "希灵 AI API 中转站，以及云与基础设施、软件应用、硬件与安全设备产品能力。",
   path: "/products/",
 });
 
@@ -25,13 +26,15 @@ export default function ProductsPage() {
         ]}
       />
 
-      <section className="section-space">
+      <XilingAiSpotlight compact />
+
+      <section className="section-space pt-0">
         <div className="site-shell">
           <Reveal>
             <SectionHeading
-              kicker="Catalog"
-              title="三类产品能力"
-              description="围绕基础设施、软件系统和设备交付组织产品目录，方便客户快速理解每条能力带的边界。"
+              kicker="产品矩阵"
+              title="三类交付产品"
+              description="希灵 AI 提供面向开发者与企业的 API 接入能力；以下三类交付产品覆盖基础设施、软件系统与设备实施。"
             />
           </Reveal>
           <div className="mt-8">

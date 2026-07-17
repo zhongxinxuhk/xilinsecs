@@ -25,6 +25,7 @@ import { ButtonLink } from "@/components/ui/button";
 import AnimatedCounter from "@/components/interactive/animated-counter";
 import GsapShowcasePager from "@/components/interactive/gsap-showcase-pager";
 import JsonLd from "@/components/seo/json-ld";
+import XilingAiSpotlight from "@/components/sections/xiling-ai-spotlight";
 
 const coreCapabilities = [
   {
@@ -225,6 +226,8 @@ export default function HomePage() {
           </Reveal>
         </div>
       </section>
+
+      <XilingAiSpotlight compact />
 
       <section className="section-space">
         <div className="site-shell">
