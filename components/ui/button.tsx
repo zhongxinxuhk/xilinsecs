@@ -6,9 +6,9 @@ type ButtonVariant = "solid" | "outline" | "ghost";
 type ButtonSize = "sm" | "md" | "lg";
 
 const variantClasses: Record<ButtonVariant, string> = {
-  solid: "border border-black bg-black text-white hover:border-zinc-800 hover:bg-zinc-800",
-  outline: "border border-zinc-300 bg-white text-zinc-900 hover:border-zinc-900 hover:bg-zinc-50",
-  ghost: "bg-transparent text-zinc-600 hover:bg-zinc-100 hover:text-zinc-950",
+  solid: "border border-blue-600 bg-blue-600 text-white shadow-[0_10px_24px_rgba(37,99,235,0.20)] hover:border-blue-700 hover:bg-blue-700",
+  outline: "border border-blue-200 bg-white text-blue-700 hover:border-blue-400 hover:bg-blue-50",
+  ghost: "bg-transparent text-blue-700 hover:bg-blue-50 hover:text-blue-800",
 };
 
 const sizeClasses: Record<ButtonSize, string> = {
@@ -28,7 +28,7 @@ export function buttonStyles({
 }) {
   return cn(
     "inline-flex max-w-full items-center justify-center whitespace-normal rounded-lg text-center font-medium leading-tight transition-all duration-200",
-    "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-zinc-400/50",
+    "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-400/50",
     variantClasses[variant],
     sizeClasses[size],
     className

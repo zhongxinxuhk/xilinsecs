@@ -19,7 +19,7 @@ export default function NewsCard({ item }: NewsCardProps) {
         <Image src={item.heroImage} alt={item.title} fill className="object-cover transition duration-500 hover:scale-105" />
       </div>
       <div className="min-w-0 space-y-4 p-5 sm:p-6">
-        <p className="text-xs font-semibold uppercase tracking-[0.14em] text-zinc-500 sm:tracking-[0.18em]">{item.date}</p>
+        <p className="text-xs font-semibold uppercase tracking-[0.14em] text-blue-600 sm:tracking-[0.18em]">{item.date}</p>
         <div className="min-w-0">
           <h3 className="text-xl font-semibold text-slate-950">{item.title}</h3>
           <p className="mt-3 text-sm leading-7 text-slate-600">{item.summary}</p>

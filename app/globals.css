@@ -446,3 +446,76 @@ body::after { display: none; }
   .showcase-thumb { @apply rounded-xl border-zinc-200 bg-white shadow-none; }
   .showcase-thumb-active { @apply border-zinc-950 bg-zinc-50 text-zinc-950 ring-0; }
 }
+
+/* Vibrant light brand palette */
+:root {
+  --background: 210 50% 98%;
+  --foreground: 222 47% 13%;
+  --muted: 214 42% 95%;
+  --border: 214 32% 86%;
+  --primary: 217 91% 55%;
+  --primary-foreground: 0 0% 100%;
+  --accent: 168 76% 38%;
+  --accent-foreground: 0 0% 100%;
+  --card: 0 0% 100%;
+  --card-foreground: 222 47% 13%;
+  --brand-blue: #2563eb;
+  --brand-cyan: #0891b2;
+  --brand-mint: #0f9f7f;
+  --brand-coral: #e85d4a;
+  --brand-amber: #d97706;
+}
+
+body {
+  background:
+    radial-gradient(circle at 8% 5%, rgba(37, 99, 235, 0.09), transparent 28%),
+    radial-gradient(circle at 92% 8%, rgba(8, 145, 178, 0.08), transparent 25%),
+    linear-gradient(180deg, #f8fbff 0%, #ffffff 34%, #f7fbff 100%);
+  color: #172033;
+}
+
+body::before {
+  opacity: .30;
+  background-image: radial-gradient(rgba(37, 99, 235, .20) .7px, transparent .7px);
+}
+
+::selection { background: rgba(37, 99, 235, .18); }
+
+@layer components {
+  .section-panel {
+    border-color: rgba(147, 197, 253, .62);
+    background:
+      radial-gradient(circle at 8% 12%, rgba(37, 99, 235, .10), transparent 34%),
+      radial-gradient(circle at 88% 82%, rgba(15, 159, 127, .08), transparent 30%),
+      linear-gradient(135deg, #ffffff 0%, #f4f9ff 58%, #f2fbf8 100%);
+    box-shadow: 0 22px 70px rgba(37, 99, 235, .10);
+  }
+
+  .glass-card {
+    border-color: #dbe7f5;
+    background: linear-gradient(145deg, rgba(255,255,255,.98), rgba(247,250,255,.94));
+    box-shadow: 0 8px 28px rgba(37, 99, 235, .055);
+  }
+
+  .glass-card:hover {
+    border-color: #93c5fd;
+    box-shadow: 0 14px 38px rgba(37, 99, 235, .11);
+  }
+
+  .section-kicker {
+    border: 1px solid #bfdbfe;
+    background: #eff6ff;
+    color: #1d4ed8;
+  }
+
+  .bg-grid {
+    background-image: linear-gradient(to right, rgba(37,99,235,.055) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(37,99,235,.055) 1px, transparent 1px);
+  }
+
+  .soft-output-panel { border-color: #cfe0f5; background: #f4f8ff; color: #26364e; }
+  .showcase-pager,
+  .showcase-pager-emerald { border-color: #d5e5f7; background: linear-gradient(145deg, #fff, #f5f9ff); }
+  .showcase-tag { border-color: #bfdbfe; background: #eff6ff; color: #1d4ed8; }
+  .showcase-thumb-active { border-color: #2563eb; background: #eff6ff; color: #1e3a8a; }
+}

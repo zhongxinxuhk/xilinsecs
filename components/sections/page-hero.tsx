@@ -24,18 +24,18 @@ export default function PageHero({ kicker, title, description, actions = [], asi
         <div className="absolute inset-0 bg-grid opacity-30" />
         {image ? (
           <div className="absolute inset-y-0 right-0 hidden w-[42%] overflow-hidden lg:block">
-            <div className="absolute inset-0 z-10 bg-gradient-to-l from-white/10 via-white/70 to-white" />
-            <Image src={image} alt={title} fill className="object-cover opacity-70 grayscale-[18%]" priority />
+            <div className="absolute inset-0 z-10 bg-gradient-to-l from-sky-50/5 via-sky-50/65 to-white" />
+            <Image src={image} alt={title} fill className="object-cover opacity-75 saturate-[1.08]" priority />
           </div>
         ) : null}
 
         <div className="relative grid min-w-0 gap-8 lg:grid-cols-[minmax(0,1.2fr)_minmax(0,0.8fr)] lg:gap-10">
           <div className="min-w-0 max-w-3xl">
             <div className="section-kicker">{kicker}</div>
-            <h1 className="heading-display responsive-text mt-6 text-4xl font-semibold tracking-[-0.04em] text-zinc-950 sm:text-5xl md:text-6xl lg:text-7xl">
+            <h1 className="heading-display responsive-text mt-6 text-4xl font-semibold tracking-[-0.04em] text-slate-950 sm:text-5xl md:text-6xl lg:text-7xl">
               {title}
             </h1>
-            <p className="responsive-text mt-6 max-w-2xl text-base leading-8 text-zinc-600 md:text-lg">{description}</p>
+            <p className="responsive-text mt-6 max-w-2xl text-base leading-8 text-slate-600 md:text-lg">{description}</p>
             {actions.length ? (
               <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
                 {actions.map((action) => (

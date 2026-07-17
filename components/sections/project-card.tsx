@@ -21,11 +21,11 @@ export default function ProjectCard({ project }: ProjectCardProps) {
       </div>
       <div className="min-w-0 space-y-5 p-5 sm:p-6">
         <div className="flex min-w-0 flex-wrap gap-2">
-          <span className="max-w-full rounded-full bg-zinc-100 px-3 py-1 text-xs font-semibold uppercase tracking-[0.12em] text-zinc-700 sm:tracking-[0.16em]">
+          <span className="max-w-full rounded-full bg-blue-50 px-3 py-1 text-xs font-semibold uppercase tracking-[0.12em] text-blue-700 sm:tracking-[0.16em]">
             {project.category}
           </span>
           {project.tags?.map((tag) => (
-            <span key={tag} className="max-w-full rounded-full bg-zinc-100 px-3 py-1 text-xs text-zinc-600">
+            <span key={tag} className="max-w-full rounded-full bg-cyan-50 px-3 py-1 text-xs text-cyan-700">
               {tag}
             </span>
           ))}

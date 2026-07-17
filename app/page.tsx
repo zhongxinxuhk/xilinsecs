@@ -98,7 +98,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="section-space border-y border-zinc-200 bg-zinc-50">
+      <section className="section-space border-y border-blue-100 bg-gradient-to-br from-blue-50/80 via-white to-cyan-50/70">
         <div className="site-shell">
           <Reveal>
             <SectionHeading
@@ -134,7 +134,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="section-space border-y border-zinc-200 bg-zinc-50">
+      <section className="section-space border-y border-emerald-100 bg-gradient-to-br from-emerald-50/70 via-white to-sky-50/70">
         <div className="site-shell">
           <Reveal>
             <SectionHeading
