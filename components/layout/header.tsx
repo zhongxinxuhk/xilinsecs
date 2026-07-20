@@ -140,59 +140,93 @@ function ScrollShadow() {
 function NavItemComponent({ item }: { item: typeof navigation[number] }) {
   const wrapperRef = useRef<HTMLDivElement>(null);
   const dropdownRef = useRef<HTMLDivElement>(null);
+  const showTimeout = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const hideTimeout = useRef<ReturnType<typeof setTimeout> | null>(null);
+
+  const links = () =>
+    dropdownRef.current ? Array.from(dropdownRef.current.querySelectorAll<HTMLAnchorElement>("a")) : [];
+
+  const animateIn = () => {
+    const dropdown = dropdownRef.current;
+    if (!dropdown) return;
+    const anchors = links();
+    gsap.killTweensOf(dropdown);
+    gsap.killTweensOf(anchors);
+    gsap.fromTo(dropdown, { autoAlpha: 0, y: -6 }, { autoAlpha: 1, y: 0, duration: 0.3, ease: "power3.out" });
+    gsap.fromTo(anchors, { autoAlpha: 0, x: -6 }, { autoAlpha: 1, x: 0, duration: 0.3, ease: "power3.out", stagger: 0.04 });
+  };
+
+  const animateOut = () => {
+    const dropdown = dropdownRef.current;
+    if (!dropdown) return;
+    const anchors = links();
+    gsap.killTweensOf(dropdown);
+    gsap.killTweensOf(anchors);
+    gsap.to([dropdown, ...anchors], { autoAlpha: 0, duration: 0.18, ease: "power2.in", overwrite: true });
+  };
+
+  const handleEnter = () => {
+    if (hideTimeout.current) { clearTimeout(hideTimeout.current); hideTimeout.current = null; }
+    if (showTimeout.current) clearTimeout(showTimeout.current);
+    showTimeout.current = setTimeout(animateIn, 60);
+  };
+
+  const handleLeave = () => {
+    if (showTimeout.current) { clearTimeout(showTimeout.current); showTimeout.current = null; }
+    if (hideTimeout.current) clearTimeout(hideTimeout.current);
+    hideTimeout.current = setTimeout(animateOut, 80);
+  };
 
   useEffect(() => {
-    if (typeof window === "undefined") return;
-    const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    const wrapper = wrapperRef.current;
-    const dropdown = dropdownRef.current;
-    if (!wrapper || !dropdown || reduced) return;
-
-    const onEnter = () => {
-      gsap.fromTo(
-        dropdown,
-        { autoAlpha: 0, y: -8 },
-        { autoAlpha: 1, y: 0, duration: 0.35, ease: "power3.out" }
-      );
-      gsap.fromTo(
-        dropdown.querySelectorAll("a"),
-        { autoAlpha: 0, x: -8 },
-        { autoAlpha: 1, x: 0, duration: 0.4, ease: "power3.out", stagger: 0.04, delay: 0.04 }
-      );
+    return () => {
+      if (showTimeout.current) clearTimeout(showTimeout.current);
+      if (hideTimeout.current) clearTimeout(hideTimeout.current);
     };
-    wrapper.addEventListener("mouseenter", onEnter);
-    return () => wrapper.removeEventListener("mouseenter", onEnter);
   }, []);
 
+  if (!item.children) {
+    return (
+      <div ref={wrapperRef} className="relative">
+        <SmartLink
+          href={item.href}
+          className="flex h-[72px] items-center gap-1 px-4 text-sm font-medium text-slate-600 transition hover:text-blue-700"
+        >
+          {item.label}
+        </SmartLink>
+      </div>
+    );
+  }
+
   return (
-    <div ref={wrapperRef} className="group relative">
+    <div
+      ref={wrapperRef}
+      className="group relative"
+      onMouseEnter={handleEnter}
+      onMouseLeave={handleLeave}
+    >
       <SmartLink
         href={item.href}
         className="flex h-[72px] items-center gap-1 px-4 text-sm font-medium text-slate-600 transition hover:text-blue-700"
       >
         {item.label}
-        {item.children ? (
-          <ChevronDown className="h-3.5 w-3.5 transition group-hover:rotate-180" />
-        ) : null}
+        <ChevronDown className="h-3.5 w-3.5 transition group-hover:rotate-180" />
       </SmartLink>
-      {item.children ? (
-        <div
-          ref={dropdownRef}
-          className="absolute left-1/2 top-full w-64 -translate-x-1/2 pt-2 opacity-0 transition-opacity pointer-events-none group-hover:pointer-events-auto group-hover:opacity-100"
-        >
-          <div className="border border-blue-100 bg-white p-2 shadow-[0_20px_60px_rgba(37,99,235,.13)]">
-            {item.children.map((child) => (
-              <SmartLink
-                key={child.href}
-                href={child.href}
-                className="block truncate border-b border-blue-50 px-4 py-3 text-sm text-slate-600 transition last:border-0 hover:bg-blue-50 hover:text-blue-700"
-              >
-                {child.label}
-              </SmartLink>
-            ))}
-          </div>
+      <div
+        ref={dropdownRef}
+        className="invisible absolute left-1/2 top-full w-64 -translate-x-1/2 pt-2"
+      >
+        <div className="border border-blue-100 bg-white p-2 shadow-[0_20px_60px_rgba(37,99,235,.13)]">
+          {item.children.map((child) => (
+            <SmartLink
+              key={child.href}
+              href={child.href}
+              className="block truncate border-b border-blue-50 px-4 py-3 text-sm text-slate-600 transition last:border-0 hover:bg-blue-50 hover:text-blue-700"
+            >
+              {child.label}
+            </SmartLink>
+          ))}
         </div>
-      ) : null}
+      </div>
     </div>
   );
 }
