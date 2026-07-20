@@ -57,15 +57,15 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <head>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta name="theme-color" content="#ffffff" />
-        <script async src="https://www.googletagmanager.com/gtag/js?id=G-3N54HMHS4D" />
         <script
           dangerouslySetInnerHTML={{
             __html: `
-              window.dataLayer = window.dataLayer || [];
-              function gtag(){dataLayer.push(arguments);}
-              gtag('js', new Date());
-              gtag('config', 'G-3N54HMHS4D');
-            `,
+(function(w,d,s,l,i){var f=d.getElementsByTagName(s)[0],j=d.createElement(s);j.async=true;j.src='https://www.googletagmanager.com/gtag/js?id='+i;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','G-3N54HMHS4D');
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-3N54HMHS4D');
+            `.trim(),
           }}
         />
       </head>
