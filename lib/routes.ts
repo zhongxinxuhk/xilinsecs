@@ -61,6 +61,8 @@ export const staticRoutes = [
   "/contact/",
   "/services/",
   "/products/",
+  "/platform/",
+  "/status/",
   "/news/",
   "/company/timeline/",
   "/company/leadership/",

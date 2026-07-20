@@ -1,8 +1,9 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import { ChevronDown, Menu, Search, X } from "lucide-react";
+import { gsap } from "gsap";
 import { navigation, siteConfig } from "@/lib/site-data";
 import { buttonStyles } from "@/components/ui/button";
 import SmartLink from "@/components/ui/smart-link";
@@ -16,7 +17,8 @@ export default function Header() {
 
   return (
     <>
-      <header className="fixed inset-x-0 top-0 z-50 border-b border-blue-100 bg-white/90 backdrop-blur-xl">
+      <header className="fixed inset-x-0 top-0 z-50 border-b border-blue-100 bg-white/85 backdrop-blur-xl transition-shadow duration-500 data-[scrolled=true]:shadow-[0_18px_40px_-20px_rgba(37,99,235,0.4)]" data-scrolled={false}>
+        <ScrollShadow />
         <div className="site-shell flex h-[72px] items-center justify-between gap-5">
           <SmartLink href="/" className="flex min-w-0 items-center gap-3">
             <Image src={siteConfig.logo} alt={siteConfig.shortName} width={38} height={38} className="h-9 w-9 shrink-0" />
@@ -28,55 +30,169 @@ export default function Header() {
 
           <nav className="hidden items-center lg:flex">
             {navigation.map((item) => (
-              <div key={item.label} className="group relative">
-                <SmartLink href={item.href} className="flex h-[72px] items-center gap-1 px-4 text-sm font-medium text-slate-600 transition hover:text-blue-700">
-                  {item.label}
-                  {item.children ? <ChevronDown className="h-3.5 w-3.5 transition group-hover:rotate-180" /> : null}
-                </SmartLink>
-                {item.children ? (
-                  <div className="pointer-events-none absolute left-1/2 top-full w-64 -translate-x-1/2 pt-2 opacity-0 transition group-hover:pointer-events-auto group-hover:opacity-100">
-                    <div className="border border-blue-100 bg-white p-2 shadow-[0_20px_60px_rgba(37,99,235,.13)]">
-                      {item.children.map((child) => (
-                        <SmartLink key={child.href} href={child.href} className="block border-b border-blue-50 px-4 py-3 text-sm text-slate-600 transition last:border-0 hover:bg-blue-50 hover:text-blue-700">
-                          {child.label}
-                        </SmartLink>
-                      ))}
-                    </div>
-                  </div>
-                ) : null}
-              </div>
+              <NavItemComponent key={item.label} item={item} />
             ))}
           </nav>
 
           <div className="hidden items-center gap-2 lg:flex">
-            <button type="button" onClick={openSearch} className="flex h-10 w-10 items-center justify-center rounded-full border border-blue-100 bg-white text-slate-500 transition hover:bg-blue-50 hover:text-blue-700" aria-label="搜索 (Cmd+K)">
+            <button
+              type="button"
+              onClick={openSearch}
+              className="flex h-10 w-10 items-center justify-center rounded-full border border-blue-100 bg-white text-slate-500 transition hover:bg-blue-50 hover:text-blue-700"
+              aria-label="搜索 (Cmd+K)"
+            >
               <Search className="h-4 w-4" />
             </button>
             <SmartLink href="/news/" className="px-3 text-sm font-medium text-slate-600 hover:text-blue-700">企业动态</SmartLink>
+            <SmartLink href="/status/" className="inline-flex items-center gap-1.5 px-3 text-sm font-medium text-slate-600 hover:text-blue-700">
+              <span className="inline-block h-1.5 w-1.5 animate-[pulse_2.6s_ease-in-out_infinite] rounded-full bg-emerald-500" />
+              服务状态
+            </SmartLink>
             <SmartLink href={siteConfig.wecomLink} className={buttonStyles({ size: "md" })}>与客户经理对话</SmartLink>
           </div>
 
           <div className="flex items-center gap-2 lg:hidden">
-            <button type="button" onClick={openSearch} className="flex h-10 w-10 items-center justify-center rounded-full border border-blue-100 bg-white text-slate-500" aria-label="搜索"><Search className="h-4 w-4" /></button>
-            <button type="button" className="flex h-10 w-10 items-center justify-center rounded-full border border-blue-100 bg-white text-slate-700" aria-label={mobileOpen ? "关闭菜单" : "打开菜单"} onClick={() => setMobileOpen((value) => !value)}>
+            <button
+              type="button"
+              onClick={openSearch}
+              className="flex h-10 w-10 items-center justify-center rounded-full border border-blue-100 bg-white text-slate-500"
+              aria-label="搜索"
+            >
+              <Search className="h-4 w-4" />
+            </button>
+            <button
+              type="button"
+              className="flex h-10 w-10 items-center justify-center rounded-full border border-blue-100 bg-white text-slate-700"
+              aria-label={mobileOpen ? "关闭菜单" : "打开菜单"}
+              onClick={() => setMobileOpen((value) => !value)}
+            >
               {mobileOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
             </button>
           </div>
         </div>
 
-        <div className={cn("border-t border-blue-100 bg-white transition-[max-height,opacity] duration-300 lg:hidden", mobileOpen ? "max-h-[calc(100vh-72px)] overflow-y-auto opacity-100" : "max-h-0 overflow-hidden border-t-0 opacity-0")}>
+        <div
+          className={cn(
+            "border-t border-blue-100 bg-white transition-[max-height,opacity] duration-300 lg:hidden",
+            mobileOpen ? "max-h-[calc(100vh-72px)] overflow-y-auto opacity-100" : "max-h-0 overflow-hidden border-t-0 opacity-0"
+          )}
+        >
           <div className="site-shell py-4">
             {navigation.map((item) => (
               <div key={item.label} className="border-b border-blue-50 py-2 last:border-0">
-                <SmartLink href={item.href} className="block py-2 text-sm font-semibold text-slate-900" onClick={() => setMobileOpen(false)}>{item.label}</SmartLink>
-                {item.children ? <div className="grid grid-cols-2 gap-1 pb-2">{item.children.map((child) => <SmartLink key={child.href} href={child.href} className="py-2 text-sm text-slate-500" onClick={() => setMobileOpen(false)}>{child.label}</SmartLink>)}</div> : null}
+                <SmartLink
+                  href={item.href}
+                  className="block py-2 text-sm font-semibold text-slate-900"
+                  onClick={() => setMobileOpen(false)}
+                >
+                  {item.label}
+                </SmartLink>
+                {item.children ? (
+                  <div className="grid grid-cols-2 gap-1 pb-2">
+                    {item.children.map((child) => (
+                      <SmartLink
+                        key={child.href}
+                        href={child.href}
+                        className="py-2 text-sm text-slate-500"
+                        onClick={() => setMobileOpen(false)}
+                      >
+                        {child.label}
+                      </SmartLink>
+                    ))}
+                  </div>
+                ) : null}
               </div>
             ))}
-            <SmartLink href={siteConfig.wecomLink} className={cn(buttonStyles({ size: "md" }), "mt-4 w-full")} onClick={() => setMobileOpen(false)}>与客户经理对话</SmartLink>
+            <SmartLink
+              href={siteConfig.wecomLink}
+              className={cn(buttonStyles({ size: "md" }), "mt-4 w-full")}
+              onClick={() => setMobileOpen(false)}
+            >
+              与客户经理对话
+            </SmartLink>
           </div>
         </div>
       </header>
       <SearchDialog />
     </>
+  );
+}
+
+function ScrollShadow() {
+  const ref = useRef<HTMLDivElement>(null);
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+    const handler = () => {
+      const scrolled = window.scrollY > 12;
+      document.querySelectorAll("header[data-scrolled]").forEach((node) => {
+        node.setAttribute("data-scrolled", scrolled ? "true" : "false");
+      });
+      // header height hint for readers reading progress
+      if (ref.current) ref.current.style.opacity = scrolled ? "1" : "0";
+    };
+    handler();
+    window.addEventListener("scroll", handler, { passive: true });
+    return () => window.removeEventListener("scroll", handler);
+  }, []);
+  return <div ref={ref} aria-hidden className="pointer-events-none absolute inset-x-0 -bottom-px h-px bg-gradient-to-r from-blue-500/0 via-blue-500/50 to-cyan-500/0 opacity-0 transition-opacity duration-500" />;
+}
+
+function NavItemComponent({ item }: { item: typeof navigation[number] }) {
+  const wrapperRef = useRef<HTMLDivElement>(null);
+  const dropdownRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+    const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    const wrapper = wrapperRef.current;
+    const dropdown = dropdownRef.current;
+    if (!wrapper || !dropdown || reduced) return;
+
+    const onEnter = () => {
+      gsap.fromTo(
+        dropdown,
+        { autoAlpha: 0, y: -8 },
+        { autoAlpha: 1, y: 0, duration: 0.35, ease: "power3.out" }
+      );
+      gsap.fromTo(
+        dropdown.querySelectorAll("a"),
+        { autoAlpha: 0, x: -8 },
+        { autoAlpha: 1, x: 0, duration: 0.4, ease: "power3.out", stagger: 0.04, delay: 0.04 }
+      );
+    };
+    wrapper.addEventListener("mouseenter", onEnter);
+    return () => wrapper.removeEventListener("mouseenter", onEnter);
+  }, []);
+
+  return (
+    <div ref={wrapperRef} className="group relative">
+      <SmartLink
+        href={item.href}
+        className="flex h-[72px] items-center gap-1 px-4 text-sm font-medium text-slate-600 transition hover:text-blue-700"
+      >
+        {item.label}
+        {item.children ? (
+          <ChevronDown className="h-3.5 w-3.5 transition group-hover:rotate-180" />
+        ) : null}
+      </SmartLink>
+      {item.children ? (
+        <div
+          ref={dropdownRef}
+          className="absolute left-1/2 top-full w-64 -translate-x-1/2 pt-2 opacity-0 transition-opacity pointer-events-none group-hover:pointer-events-auto group-hover:opacity-100"
+        >
+          <div className="border border-blue-100 bg-white p-2 shadow-[0_20px_60px_rgba(37,99,235,.13)]">
+            {item.children.map((child) => (
+              <SmartLink
+                key={child.href}
+                href={child.href}
+                className="block truncate border-b border-blue-50 px-4 py-3 text-sm text-slate-600 transition last:border-0 hover:bg-blue-50 hover:text-blue-700"
+              >
+                {child.label}
+              </SmartLink>
+            ))}
+          </div>
+        </div>
+      ) : null}
+    </div>
   );
 }

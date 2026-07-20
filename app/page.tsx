@@ -33,10 +33,24 @@ export default function HomePage() {
 
       <section className="border-b border-blue-100 bg-white">
         <div className="site-shell grid grid-cols-2 divide-x divide-y divide-blue-100 sm:grid-cols-4 sm:divide-y-0">
-          {["私有云与基础设施", "信息安全服务", "软件与业务系统", "设备与实施交付"].map((item, index) => (
-            <div key={item} className="flex min-h-24 items-center gap-4 px-4 py-5 sm:px-6 lg:px-8">
-              <span className="text-xs font-semibold text-blue-500">0{index + 1}</span>
-              <span className="text-sm font-semibold text-slate-800">{item}</span>
+          {[
+            { label: "私有云与基础设施", hint: "VMware / 混合云 / 边缘节点" },
+            { label: "信息安全服务", hint: "漏洞扫描 / 安全咨询 / 态势感知" },
+            { label: "软件与业务系统", hint: "官网 / 业务门户 / 伙伴入口" },
+            { label: "设备与实施交付", hint: "设备选型 / 实施交付 / 长期运维" },
+          ].map((item, index) => (
+            <div
+              key={item.label}
+              className="group relative flex min-h-28 cursor-default flex-col justify-center gap-1 px-4 py-5 transition-colors duration-300 hover:bg-blue-50/50 sm:px-6 lg:px-8"
+            >
+              <span className="flex items-center gap-3">
+                <span className="text-xs font-semibold text-blue-500 transition-transform duration-500 group-hover:scale-110">0{index + 1}</span>
+                <span className="text-sm font-semibold text-slate-800 transition-colors duration-300 group-hover:text-blue-700">{item.label}</span>
+              </span>
+              <span className="overflow-hidden text-[11px] text-slate-500 opacity-0 transition-all duration-300 group-hover:max-h-6 group-hover:opacity-100">
+                {item.hint}
+              </span>
+              <span className="absolute inset-x-4 bottom-3 h-px scale-x-0 bg-gradient-to-r from-blue-500 to-cyan-500 transition-transform duration-500 group-hover:scale-x-100 sm:inset-x-6 lg:inset-x-8" />
             </div>
           ))}
         </div>
@@ -92,9 +106,26 @@ export default function HomePage() {
 
       <section className="section-space border-b border-blue-100 bg-gradient-to-br from-emerald-50/55 via-white to-blue-50/55">
         <div className="site-shell">
-          <div className="grid gap-12 lg:grid-cols-[.7fr_1.3fr]">
-            <Reveal><SectionHeading kicker="发展历程" title="持续建设，长期服务。" description="记录公司成立、业务合作与产品上线的重要节点。" /></Reveal>
-            <Reveal><TimelineList items={timeline} /></Reveal>
+          <div className="grid gap-12 lg:min-h-[600px] lg:grid-cols-[.7fr_1.3fr] lg:items-stretch">
+            <Reveal className="lg:flex lg:items-center lg:justify-center">
+              <div className="mx-auto max-w-xl text-center [&_h2]:justify-center">
+                <SectionHeading kicker="发展历程" title="持续建设，长期服务。" description="记录公司成立、业务合作与产品上线的重要节点。" />
+              </div>
+            </Reveal>
+            <Reveal className="min-h-0 lg:flex lg:items-center">
+              <div className="relative w-full">
+                <div className="pointer-events-none absolute inset-x-0 top-0 z-10 hidden h-12 bg-gradient-to-b from-white/95 to-transparent lg:block" />
+                <div
+                  className="timeline-scroll lg:max-h-[560px] lg:overflow-y-auto lg:overscroll-contain lg:px-5 lg:py-8"
+                  tabIndex={0}
+                  role="region"
+                  aria-label="公司发展历程，可上下滚动"
+                >
+                  <TimelineList items={timeline} />
+                </div>
+                <div className="pointer-events-none absolute inset-x-0 bottom-0 z-10 hidden h-12 bg-gradient-to-t from-blue-50/90 to-transparent lg:block" />
+              </div>
+            </Reveal>
           </div>
         </div>
       </section>

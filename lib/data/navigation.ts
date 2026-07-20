@@ -26,9 +26,18 @@ export const navigation: NavItem[] = [
     description: "产品能力、服务方案与交付成果",
     children: [
       { label: "产品能力", href: "/products/" },
-      { label: "希灵 AI · API 中转站", href: "https://cstk.sec.hn.cn" },
       { label: "服务能力", href: "/services/" },
       { label: "项目案例", href: "/projects/" },
+    ],
+  },
+  {
+    label: "希灵 AI",
+    href: "/platform/",
+    description: "希灵 AI 开放平台 · 一级菜单",
+    children: [
+      { label: "平台总览", href: "/platform/" },
+      { label: "访问平台", href: "https://platform.sec.hn.cn" },
+      { label: "SLA 服务状态", href: "/status/" },
     ],
   },
   {

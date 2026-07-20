@@ -3,13 +3,17 @@
 import { useEffect, useRef, useState } from "react";
 import { cn } from "@/lib/utils";
 
-export default function Reveal({
-  children,
-  className,
-}: {
+type RevealProps = {
   children: React.ReactNode;
   className?: string;
-}) {
+  delay?: number;
+};
+
+/**
+ * 旧版 Reveal：仅做 IO 触发的简单 fade-up。
+ * 与新版 RevealStack 不冲突；当只需要轻量入场时使用它，复杂场景请使用 RevealStack。
+ */
+export default function Reveal({ children, className, delay = 0 }: RevealProps) {
   const ref = useRef<HTMLDivElement | null>(null);
   const [visible, setVisible] = useState(false);
 
@@ -20,7 +24,7 @@ export default function Reveal({
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
-          setVisible(true);
+          window.setTimeout(() => setVisible(true), delay * 1000);
           observer.disconnect();
         }
       },
@@ -29,7 +33,7 @@ export default function Reveal({
 
     observer.observe(element);
     return () => observer.disconnect();
-  }, []);
+  }, [delay]);
 
   return (
     <div

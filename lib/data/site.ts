@@ -119,6 +119,14 @@ export const contactChannels = [
 
 export const footerGroups: Array<{ title: string; links: LinkItem[] }> = [
   {
+    title: "希灵 AI",
+    links: [
+      { label: "开放平台总览", href: "/platform/" },
+      { label: "SLA 服务状态", href: "/status/" },
+      { label: "访问平台", href: "https://platform.sec.hn.cn", external: true },
+    ],
+  },
+  {
     title: "关于我们",
     links: [
       { label: "企业简介", href: "/about/" },

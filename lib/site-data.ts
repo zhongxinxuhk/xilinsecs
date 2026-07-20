@@ -3,6 +3,7 @@ export * from "@/lib/data/downloads";
 export * from "@/lib/data/legal";
 export * from "@/lib/data/navigation";
 export * from "@/lib/data/news";
+export * from "@/lib/data/platform";
 export * from "@/lib/data/products";
 export * from "@/lib/data/projects";
 export * from "@/lib/data/services";
@@ -76,6 +77,8 @@ export const llmsSections = [
       "/contact/",
       "/services/",
       "/products/",
+      "/platform/",
+      "/status/",
       "/news/",
       "/tools/",
       "/downloads/",

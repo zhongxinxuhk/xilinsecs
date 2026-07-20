@@ -1,21 +1,17 @@
-import Link from "next/link";
+import { ButtonLink } from "@/components/ui/button";
 
 export default function NotFound() {
   return (
     <div className="site-shell py-28">
-      <div className="ink-panel overflow-hidden px-8 py-16 text-center">
-        <p className="text-xs uppercase tracking-[0.24em] text-blue-700">404</p>
-        <h1 className="heading-display mt-6 text-5xl font-semibold text-slate-950">页面未找到</h1>
+      <div className="rainbow-panel overflow-hidden px-8 py-16 text-center">
+        <div className="section-kicker mx-auto inline-flex">404 · 页面未找到</div>
+        <h1 className="heading-display mt-6 text-5xl font-semibold text-slate-950">这个页面已经走出站点了</h1>
         <p className="mx-auto mt-6 max-w-2xl text-base leading-8 text-slate-600">
-          未找到你访问的页面。你可以返回首页，或前往服务、案例与联系页面。
+          找不到你要访问的页面。可以回到首页，或前往服务、案例与联系页面找找方向。
         </p>
-        <div className="mt-8 flex flex-wrap justify-center gap-3">
-          <Link href="/" className="inline-flex h-12 items-center justify-center rounded-full bg-white px-6 text-sm font-semibold text-slate-950">
-            返回首页
-          </Link>
-          <Link href="/contact/" className="inline-flex h-12 items-center justify-center rounded-full border border-slate-300 bg-white px-6 text-sm font-semibold text-slate-900">
-            联系我们
-          </Link>
+        <div className="mt-10 flex flex-wrap justify-center gap-3">
+          <ButtonLink href="/" size="lg">返回首页</ButtonLink>
+          <ButtonLink href="/contact/" size="lg" variant="outline">联系我们</ButtonLink>
         </div>
       </div>
     </div>
