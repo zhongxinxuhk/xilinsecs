@@ -17,7 +17,7 @@ export default function Header() {
 
   return (
     <>
-      <header className="fixed inset-x-0 top-0 z-50 border-b border-blue-100 bg-white/85 backdrop-blur-xl transition-shadow duration-500 data-[scrolled=true]:shadow-[0_18px_40px_-20px_rgba(37,99,235,0.4)]" data-scrolled={false}>
+      <header className="fixed inset-x-0 top-0 z-50 border-b border-blue-100/50 bg-white/80 backdrop-blur-xl backdrop-saturate-150 transition-all duration-700 ease-[cubic-bezier(0.32,0.72,0,1)] data-[scrolled=true]:border-blue-200/60 data-[scrolled=true]:bg-white/90 data-[scrolled=true]:shadow-[0_8px_32px_rgba(37,99,235,0.08)]" data-scrolled={false}>
         <ScrollShadow />
         <div className="site-shell flex h-[72px] items-center justify-between gap-5">
           <SmartLink href="/" className="flex min-w-0 items-center gap-3">

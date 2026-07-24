@@ -49,6 +49,22 @@ const config: Config = {
           "0%": { opacity: "0", transform: "translateY(8px)" },
           "100%": { opacity: "1", transform: "translateY(0)" },
         },
+        "blur-reveal": {
+          "0%": { filter: "blur(8px)", opacity: "0", transform: "translateY(4px)" },
+          "100%": { filter: "blur(0)", opacity: "1", transform: "translateY(0)" },
+        },
+        "marquee-scroll": {
+          "0%": { transform: "translateX(0)" },
+          "100%": { transform: "translateX(-50%)" },
+        },
+        "beam-flow": {
+          "0%": { backgroundPosition: "0% 0%" },
+          "100%": { backgroundPosition: "0% 200%" },
+        },
+        "float": {
+          "0%, 100%": { transform: "translateY(0)" },
+          "50%": { transform: "translateY(-6px)" },
+        },
       },
       animation: {
         "fade-in-up": "fade-in-up 0.6s cubic-bezier(0.16, 1, 0.3, 1) both",
@@ -56,6 +72,9 @@ const config: Config = {
         "scale-in": "scale-in 0.4s cubic-bezier(0.16, 1, 0.3, 1) both",
         "slide-in-right": "slide-in-right 0.5s cubic-bezier(0.16, 1, 0.3, 1) both",
         "count-up": "count-up 0.4s ease-out both",
+        "blur-reveal": "blur-reveal 0.8s cubic-bezier(0.16, 1, 0.3, 1) both",
+        "marquee": "marquee-scroll 40s linear infinite",
+        "float": "float 4s ease-in-out infinite",
       },
     },
   },

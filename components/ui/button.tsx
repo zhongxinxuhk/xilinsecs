@@ -6,9 +6,9 @@ type ButtonVariant = "solid" | "outline" | "ghost";
 type ButtonSize = "sm" | "md" | "lg";
 
 const variantClasses: Record<ButtonVariant, string> = {
-  solid: "border border-blue-600 bg-blue-600 text-white shadow-[0_10px_24px_rgba(37,99,235,0.20)] hover:border-blue-700 hover:bg-blue-700",
-  outline: "border border-blue-200 bg-white text-blue-700 hover:border-blue-400 hover:bg-blue-50",
-  ghost: "bg-transparent text-blue-700 hover:bg-blue-50 hover:text-blue-800",
+  solid: "border border-blue-600/80 bg-gradient-to-br from-blue-600 to-blue-700 text-white shadow-[0_8px_28px_rgba(37,99,235,0.28)] transition-all duration-300 hover:from-blue-500 hover:to-blue-600 hover:shadow-[0_12px_36px_rgba(37,99,235,0.35)] hover:-translate-y-0.5",
+  outline: "border border-blue-200 bg-white/80 backdrop-blur-sm text-blue-700 shadow-[0_2px_8px_rgba(0,0,0,0.04)] transition-all duration-300 hover:border-blue-400 hover:bg-blue-50 hover:shadow-[0_6px_20px_rgba(37,99,235,0.1)] hover:-translate-y-0.5",
+  ghost: "bg-transparent text-blue-700 transition-all duration-300 hover:bg-blue-50/80 hover:text-blue-800",
 };
 
 const sizeClasses: Record<ButtonSize, string> = {

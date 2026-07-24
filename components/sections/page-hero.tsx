@@ -5,6 +5,7 @@ import type { ReactNode } from "react";
 import { useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { ButtonLink } from "@/components/ui/button";
+import HeroParticles from "@/components/sections/hero-particles";
 
 type HeroAction = { label: string; href: string; variant?: "solid" | "outline" };
 type PageHeroProps = {
@@ -75,7 +76,8 @@ export default function PageHero({
 
   return (
     <section ref={rootRef} className="section-panel relative overflow-hidden">
-      <div className="site-shell relative min-h-[620px] py-20 sm:py-24 lg:py-0">
+      <HeroParticles count={50} color="37, 99, 235" className="pointer-events-none absolute inset-0 z-0" />
+      <div className="site-shell relative min-h-[620px] py-20 sm:py-24 lg:py-0 z-[1]">
         <div className="pointer-events-none absolute inset-0 bg-grid opacity-45 [mask-image:linear-gradient(to_right,black,transparent_78%)]" />
         <div className="pointer-events-none absolute -left-32 top-20 h-72 w-72 rounded-full bg-blue-300/20 blur-3xl" aria-hidden />
         <div className="pointer-events-none absolute -right-20 -bottom-24 h-72 w-72 rounded-full bg-cyan-300/15 blur-3xl" aria-hidden />

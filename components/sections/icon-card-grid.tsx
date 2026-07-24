@@ -20,8 +20,9 @@ export default function IconCardGrid({ items, columns = "three" }: IconCardGridP
         const Icon = item.icon;
         const tone = tones[index % tones.length];
         return (
-          <article key={item.title} className="group relative border-b border-r border-blue-100 bg-white p-7 transition hover:bg-blue-50/35 sm:p-9">
-            <div className={cn("flex h-11 w-11 items-center justify-center rounded-full", tone.icon)}><Icon className="h-5 w-5" /></div>
+          <article key={item.title} className="group relative border-b border-r border-blue-100 bg-white p-7 transition-all duration-500 hover:bg-blue-50/30 hover:shadow-[0_12px_40px_rgba(37,99,235,0.08)] hover:-translate-y-0.5 sm:p-9">
+            <div className={cn("absolute inset-x-0 top-0 h-0.5 bg-gradient-to-r opacity-0 transition-opacity duration-500 group-hover:opacity-100", tone.line === "bg-blue-500" ? "from-blue-500 to-cyan-500" : tone.line === "bg-cyan-500" ? "from-cyan-500 to-emerald-500" : tone.line === "bg-emerald-500" ? "from-emerald-500 to-teal-500" : "from-amber-500 to-orange-500")} />
+            <div className={cn("flex h-11 w-11 items-center justify-center rounded-full transition-transform duration-500 group-hover:scale-110", tone.icon)}><Icon className="h-5 w-5" /></div>
             <h3 className="mt-8 text-2xl font-semibold tracking-[-.025em] text-slate-950">{item.title}</h3>
             <p className="mt-3 max-w-xl text-sm leading-7 text-slate-600">{item.description}</p>
             {item.bullets?.length ? (
