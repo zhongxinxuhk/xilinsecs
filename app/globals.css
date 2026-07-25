@@ -35,8 +35,11 @@ body {
     radial-gradient(circle at 12% 0%, rgba(37,99,235,.075), transparent 25rem),
     radial-gradient(circle at 92% 8%, rgba(8,145,178,.07), transparent 22rem),
     #fff;
-  font-family: "Avenir Next", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Avenir Next", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizeLegibility;
+  font-feature-settings: "kern" 1, "liga" 1;
 }
 body::before {
   content: "";
@@ -57,6 +60,26 @@ main, section, article, div { min-width: 0; }
 :where(input,textarea,select,button) { min-width: 0; font: inherit; }
 ::selection { background: rgba(37,99,235,.18); }
 :focus-visible { outline: 2px solid var(--blue); outline-offset: 3px; border-radius: 6px; }
+
+/* ── Apple-style smooth transitions ── */
+:where(a, button, [role="button"]) {
+  transition: color 0.2s cubic-bezier(0.25, 0.1, 0.25, 1),
+              background-color 0.2s cubic-bezier(0.25, 0.1, 0.25, 1),
+              border-color 0.2s cubic-bezier(0.25, 0.1, 0.25, 1),
+              transform 0.2s cubic-bezier(0.25, 0.1, 0.25, 1);
+}
+
+/* ── Improved heading typography ── */
+h1, h2, h3, h4, h5, h6 {
+  text-wrap: balance;
+  letter-spacing: -0.02em;
+}
+
+/* ── Improved paragraph readability ── */
+p {
+  text-wrap: pretty;
+  max-width: 75ch;
+}
 
 /* ── Marquee (走马灯) ── */
 @keyframes marquee-scroll {
@@ -268,7 +291,7 @@ main, section, article, div { min-width: 0; }
   .site-shell { @apply mx-auto w-full min-w-0 max-w-none px-5 sm:px-8 lg:px-12 2xl:px-16; }
   .section-space { @apply py-16 sm:py-20 lg:py-28; }
   .responsive-text { overflow-wrap: anywhere; word-break: break-word; }
-  .heading-display { font-family: "Avenir Next", "PingFang SC", sans-serif; letter-spacing: -.045em; }
+  .heading-display { font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Avenir Next", "PingFang SC", sans-serif; letter-spacing: -.035em; font-weight: 600; }
 
   .section-panel {
     @apply relative overflow-hidden border-y border-blue-100 bg-white;

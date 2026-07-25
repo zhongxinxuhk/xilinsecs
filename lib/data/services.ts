@@ -1,4 +1,3 @@
-import { Building2, Globe, Handshake, LifeBuoy } from "lucide-react";
 import type { ServicePage } from "@/lib/data/types";
 
 export const services: ServicePage[] = [
@@ -13,7 +12,7 @@ export const services: ServicePage[] = [
     seoTitle: "企业服务",
     seoDescription: "面向企业客户的信息化基础设施、软件系统与安全治理服务。",
     audience: "企业客户 / 事业单位",
-    icon: Building2,
+    icon: "Building2",
     capabilities: [
       "私有云与虚拟化环境规划、部署与恢复",
       "网站、门户、业务系统与服务入口建设",
@@ -47,7 +46,7 @@ export const services: ServicePage[] = [
     seoTitle: "客户服务",
     seoDescription: "客户需求、账单、工单和订阅入口的统一服务中心。",
     audience: "现有客户 / 潜在客户",
-    icon: LifeBuoy,
+    icon: "LifeBuoy",
     capabilities: [
       "需求提交与初步方案沟通",
       "账单、订阅和客户信息查询",
@@ -81,7 +80,7 @@ export const services: ServicePage[] = [
     seoTitle: "伙伴服务",
     seoDescription: "代理注册、订单查询、资料维护与协同工作台的统一伙伴服务。",
     audience: "渠道代理 / 生态伙伴",
-    icon: Handshake,
+    icon: "Handshake",
     capabilities: [
       "伙伴申请与资料维护",
       "代理订单查询与业务协同",
@@ -115,7 +114,7 @@ export const services: ServicePage[] = [
     seoTitle: "公共服务",
     seoDescription: "公共工具、下载与开放入口的统一服务层。",
     audience: "公众用户 / 开发者 / 外部协作方",
-    icon: Globe,
+    icon: "Globe",
     capabilities: [
       "在线编码、校验、查询等工具页面",
       "软件下载与办公接入说明",

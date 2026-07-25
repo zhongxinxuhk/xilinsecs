@@ -55,7 +55,7 @@ export default function PlatformPage() {
         image="/source/index_imgs/ihaikou_index01.webp"
         actions={[
           { label: "前往开放平台", href: platform.url },
-          { label: "查看 SLA 状态披露", href: "/status/", variant: "outline" },
+          { label: "查看 SLA 状态披露", href: "https://sla.sec.hn.cn/status/api-services", variant: "outline" },
         ]}
       />
 
@@ -186,7 +186,7 @@ export default function PlatformPage() {
                   {platformStatusPages.map((group) => (
                     <SmartLink
                       key={group.slug}
-                      href={group.internal}
+                      href={group.href}
                       className="group flex flex-col gap-3 p-6 transition hover:bg-blue-50/40"
                     >
                       <div className="flex items-center justify-between text-xs font-semibold text-blue-700">
@@ -200,7 +200,7 @@ export default function PlatformPage() {
                 </div>
                 <footer className="flex flex-wrap items-center justify-between gap-3 border-t border-blue-100 bg-white px-6 py-4 text-xs text-slate-500">
                   <span>说明 · 状态页基于 Uptime Kuma 部署，监测范围含本平台与外围交付业务系统。</span>
-                  <SmartLink href="/status/" className="font-semibold text-blue-700">查看统一状态页 →</SmartLink>
+                  <a href="https://sla.sec.hn.cn/status/api-services" target="_blank" rel="noopener noreferrer" className="font-semibold text-blue-700 hover:underline">查看状态页 →</a>
                 </footer>
               </div>
             </Reveal>

@@ -35,6 +35,7 @@ export default function PageHero({
   const titleRef = useRef<HTMLHeadingElement>(null);
   const descriptionRef = useRef<HTMLParagraphElement>(null);
   const actionsRef = useRef<HTMLDivElement>(null);
+  const imageRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     if (typeof window === "undefined" || disableFx) return;
@@ -68,14 +69,46 @@ export default function PageHero({
       }
     }, rootRef);
 
-    return () => ctx.revert();
+    // 视差滚动效果 - 使用 RAF 节流和直接样式操作，尊重 reduced-motion 偏好
+    let rafId: number | null = null;
+    const handleScroll = () => {
+      if (rafId) return;
+      
+      rafId = requestAnimationFrame(() => {
+        if (!imageRef.current) {
+          rafId = null;
+          return;
+        }
+        const scrollY = window.scrollY;
+        // 使用更柔和的视差系数 (0.12 而非 0.15)，符合 Apple 设计风格
+        // 使用 CSS transition 实现平滑过渡
+        imageRef.current.style.transition = "transform 0.3s cubic-bezier(0.25, 0.1, 0.25, 1)";
+        imageRef.current.style.transform = `translateY(${scrollY * 0.12}px)`;
+        rafId = null;
+      });
+    };
+
+    // 仅在用户未启用 reduced-motion 时启用视差效果
+    if (!reduced) {
+      window.addEventListener("scroll", handleScroll, { passive: true });
+    }
+    
+    return () => {
+      ctx.revert();
+      if (!reduced) {
+        window.removeEventListener("scroll", handleScroll);
+      }
+      if (rafId) {
+        cancelAnimationFrame(rafId);
+      }
+    };
   }, [disableFx, title]);
 
   // 将标题文本拆到 <span class="word"> 内
   const words = title.split(/(\s+)/);
 
   return (
-    <section ref={rootRef} className="section-panel relative overflow-hidden">
+    <section ref={rootRef} className="section-panel relative overflow-hidden" aria-labelledby={titleId}>
       <HeroParticles count={50} color="37, 99, 235" className="pointer-events-none absolute inset-0 z-0" />
       <div className="site-shell relative min-h-[620px] py-20 sm:py-24 lg:py-0 z-[1]">
         <div className="pointer-events-none absolute inset-0 bg-grid opacity-45 [mask-image:linear-gradient(to_right,black,transparent_78%)]" />
@@ -89,17 +122,18 @@ export default function PageHero({
               <h1
                 id={titleId}
                 ref={titleRef}
-                className="heading-display responsive-text mt-7 text-5xl font-semibold leading-[.94] text-slate-950 sm:text-6xl lg:text-7xl 2xl:text-8xl"
+                className="heading-display responsive-text mt-7 text-5xl font-semibold leading-[.94] tracking-tight text-slate-950 sm:text-6xl lg:text-7xl 2xl:text-8xl"
+                aria-label={title}
               >
                 {words.map((word, index) =>
                   /^\s+$/.test(word) ? (
-                    <span key={`space-${index}`}>{word}</span>
+                    <span key={`space-${index}`} aria-hidden="true">{word}</span>
                   ) : (
-                    <span key={`word-${index}`} className="word inline-block">{word}</span>
+                    <span key={`word-${index}`} className="word inline-block" aria-hidden="true">{word}</span>
                   )
                 )}
               </h1>
-              <p ref={descriptionRef} className="mt-7 max-w-2xl text-base leading-8 text-slate-600 md:text-lg">{description}</p>
+              <p ref={descriptionRef} className="mt-7 max-w-2xl text-base leading-8 text-slate-600 md:text-lg" style={{ maxInlineSize: '65ch' }}>{description}</p>
               {actions.length ? (
                 <div ref={actionsRef} className="mt-9 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
                   {actions.map((action) => (
@@ -118,7 +152,7 @@ export default function PageHero({
             </div>
           </div>
 
-          <div className="relative min-h-[320px] border-t border-blue-100 lg:min-h-0 lg:border-t-0">
+          <div ref={imageRef} className="relative min-h-[320px] border-t border-blue-100 lg:min-h-0 lg:border-t-0">
             {image ? (
               <>
                 <Image src={image} alt={title} fill className="object-cover saturate-[1.04]" priority />

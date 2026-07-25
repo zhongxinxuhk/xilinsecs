@@ -1,21 +1,20 @@
-import { Fingerprint, Sparkles, Users } from "lucide-react";
 import type { HomeHighlight, RoleRecord } from "@/lib/data/types";
 
 export const careerValues: HomeHighlight[] = [
   {
     title: "包容与协作",
     description: "欢迎不同背景的人一起做事，团队重视沟通质量和彼此成就感。",
-    icon: Users,
+    icon: "Users",
   },
   {
     title: "专业成长",
     description: "鼓励把项目经验沉淀为方法论，让每个人都能看到自己的成长轨迹。",
-    icon: Sparkles,
+    icon: "Sparkles",
   },
   {
     title: "解决真实问题",
     description: "我们更在意问题有没有被解决，而不是流程看起来是否复杂和完整。",
-    icon: Fingerprint,
+    icon: "Fingerprint",
   },
 ];
 

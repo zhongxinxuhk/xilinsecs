@@ -1,4 +1,3 @@
-import { Fingerprint, ShieldCheck, Users } from "lucide-react";
 import { notFound } from "next/navigation";
 import { buildMetadata } from "@/lib/metadata";
 import { leadershipNotes, newsItems, teamMembers, timeline } from "@/lib/site-data";
@@ -131,7 +130,7 @@ export default function CompanyPage({ params }: { params: { slug: string } }) {
                 items={leadershipNotes.map((item, index) => ({
                   title: item.title,
                   description: item.description,
-                  icon: [Users, Fingerprint, ShieldCheck][index] ?? ShieldCheck,
+                  icon: ["Users", "Fingerprint", "ShieldCheck"][index] ?? "ShieldCheck",
                 }))}
                 columns="three"
               />

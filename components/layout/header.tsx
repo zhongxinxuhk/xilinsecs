@@ -44,10 +44,26 @@ export default function Header() {
               <Search className="h-4 w-4" />
             </button>
             <SmartLink href="/news/" className="px-3 text-sm font-medium text-slate-600 hover:text-blue-700">企业动态</SmartLink>
-            <SmartLink href="/status/" className="inline-flex items-center gap-1.5 px-3 text-sm font-medium text-slate-600 hover:text-blue-700">
-              <span className="inline-block h-1.5 w-1.5 animate-[pulse_2.6s_ease-in-out_infinite] rounded-full bg-emerald-500" />
-              服务状态
-            </SmartLink>
+            <div className="group relative">
+              <button className="inline-flex items-center gap-1.5 px-3 text-sm font-medium text-slate-600 hover:text-blue-700">
+                <span className="inline-block h-1.5 w-1.5 animate-[pulse_2.6s_ease-in-out_infinite] rounded-full bg-emerald-500" />
+                服务状态
+                <ChevronDown className="h-3.5 w-3.5 transition group-hover:rotate-180" />
+              </button>
+              <div className="invisible absolute left-1/2 top-full w-56 -translate-x-1/2 pt-2 group-hover:visible">
+                <div className="border border-blue-100 bg-white p-2 shadow-[0_20px_60px_rgba(37,99,235,.13)]">
+                  <a href="https://sla.sec.hn.cn/status/api-services" target="_blank" rel="noopener noreferrer" className="block truncate border-b border-blue-50 px-4 py-3 text-sm text-slate-600 transition last:border-0 hover:bg-blue-50 hover:text-blue-700">
+                    API 服务
+                  </a>
+                  <a href="https://sla.sec.hn.cn/status/web-services" target="_blank" rel="noopener noreferrer" className="block truncate border-b border-blue-50 px-4 py-3 text-sm text-slate-600 transition last:border-0 hover:bg-blue-50 hover:text-blue-700">
+                    网站服务
+                  </a>
+                  <a href="https://sla.sec.hn.cn/status/information-system-infrastructure" target="_blank" rel="noopener noreferrer" className="block truncate px-4 py-3 text-sm text-slate-600 transition hover:bg-blue-50 hover:text-blue-700">
+                    信息化基础设施
+                  </a>
+                </div>
+              </div>
+            </div>
             <SmartLink href={siteConfig.wecomLink} className={buttonStyles({ size: "md" })}>与客户经理对话</SmartLink>
           </div>
 

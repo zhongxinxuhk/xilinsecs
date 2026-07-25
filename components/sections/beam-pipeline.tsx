@@ -1,15 +1,15 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import type { LucideIcon } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { resolveIcon } from "@/lib/icon-resolver";
 
 export type PipelineStep = {
   number: string;
   title: string;
   subtitle?: string;
   description: string;
-  icon?: LucideIcon;
+  icon?: string;
   color?: string;
 };
 
@@ -27,7 +27,7 @@ export default function BeamPipeline({ steps, className }: BeamPipelineProps) {
   return (
     <div className={cn("relative", className)}>
       {steps.map((step, index) => {
-        const Icon = step.icon;
+        const Icon = resolveIcon(step.icon);
         const accentColor = step.color ?? "#3b82f6";
         const isLast = index === steps.length - 1;
 

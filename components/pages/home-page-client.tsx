@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { ArrowRight, BookOpen, Cloud, Globe, HeartHandshake, ShieldCheck, Workflow } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { homeHero, newsItems, products, projects, siteConfig, testimonials, timeline } from "@/lib/site-data";
 import PageHero from "@/components/sections/page-hero";
 import SectionHeading from "@/components/sections/section-heading";
@@ -28,7 +28,7 @@ const deliverySteps: PipelineStep[] = [
     title: "需求与方案",
     subtitle: "Discovery",
     description: "明确业务目标、现有环境、时间和预算边界。输出需求分析报告和定制方案建议书。",
-    icon: BookOpen,
+    icon: "BookOpen",
     color: "#3b82f6",
   },
   {
@@ -36,7 +36,7 @@ const deliverySteps: PipelineStep[] = [
     title: "实施与安全",
     subtitle: "Implementation",
     description: "完成部署、联调、安全检查和交付验收。每个节点附带质量核查清单。",
-    icon: ShieldCheck,
+    icon: "ShieldCheck",
     color: "#0891b2",
   },
   {
@@ -44,7 +44,7 @@ const deliverySteps: PipelineStep[] = [
     title: "运维与支持",
     subtitle: "Operations",
     description: "提供持续运维、应急响应和后续技术支持。建立知识库和标准操作流程。",
-    icon: HeartHandshake,
+    icon: "HeartHandshake",
     color: "#0f9f7f",
   },
 ];
@@ -55,7 +55,7 @@ const servicePanelItems: InteractivePanelItem[] = [
     title: "私有云与基础设施",
     subtitle: "Infrastructure",
     description: "从 VMware 虚拟化到混合云架构，提供全栈基础设施规划、部署和持续运维服务。",
-    icon: Cloud,
+    icon: "Cloud",
     color: "#3b82f6",
     bullets: [
       "VMware vSphere / vSAN 集群设计与部署",
@@ -71,7 +71,7 @@ const servicePanelItems: InteractivePanelItem[] = [
     title: "信息安全服务",
     subtitle: "Cybersecurity",
     description: "覆盖漏洞扫描、渗透测试、安全加固和应急响应的全生命周期安全服务。",
-    icon: ShieldCheck,
+    icon: "ShieldCheck",
     color: "#0891b2",
     bullets: [
       "漏洞扫描与渗透测试",
@@ -87,7 +87,7 @@ const servicePanelItems: InteractivePanelItem[] = [
     title: "软件与业务系统",
     subtitle: "Development",
     description: "企业官网、业务门户、伙伴入口等定制开发，支持静态生成和低代码配置管理。",
-    icon: Globe,
+    icon: "Globe",
     color: "#0f9f7f",
     bullets: [
       "企业官网 / 门户定制开发",
@@ -103,7 +103,7 @@ const servicePanelItems: InteractivePanelItem[] = [
     title: "设备与实施交付",
     subtitle: "Hardware",
     description: "从设备选型到实施交付，提供端到端的硬件供应链和项目全流程管理。",
-    icon: Workflow,
+    icon: "Workflow",
     color: "#e48a12",
     bullets: [
       "服务器 / 网络 / 安全设备选型",

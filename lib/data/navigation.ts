@@ -37,7 +37,9 @@ export const navigation: NavItem[] = [
     children: [
       { label: "平台总览", href: "/platform/" },
       { label: "访问平台", href: "https://platform.sec.hn.cn" },
-      { label: "SLA 服务状态", href: "/status/" },
+      { label: "API 服务", href: "https://sla.sec.hn.cn/status/api-services" },
+      { label: "网站服务", href: "https://sla.sec.hn.cn/status/web-services" },
+      { label: "信息化基础设施", href: "https://sla.sec.hn.cn/status/information-system-infrastructure" },
     ],
   },
   {

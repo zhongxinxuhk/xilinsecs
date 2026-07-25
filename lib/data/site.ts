@@ -1,16 +1,3 @@
-import {
-  Blocks,
-  BriefcaseBusiness,
-  Building2,
-  Cloud,
-  Globe,
-  Handshake,
-  Laptop2,
-  Package,
-  ShieldCheck,
-  Users,
-  Workflow,
-} from "lucide-react";
 import type { CTA, HomeHighlight, LinkItem, SiteStat } from "@/lib/data/types";
 
 export const siteConfig = {
@@ -79,17 +66,17 @@ export const homeHighlights: HomeHighlight[] = [
   {
     title: "VMware私有云",
     description: "释放服务器最大性能，节省硬件采购成本，提供高可用性云计算服务。",
-    icon: Cloud,
+    icon: "Cloud",
   },
   {
     title: "信息安全咨询",
     description: "部署防火墙、态势感知平台、漏洞扫描系统，全方位保障企业信息安全。",
-    icon: ShieldCheck,
+    icon: "ShieldCheck",
   },
   {
     title: "信息化基础建设",
     description: "快速构建企业门户，提升SEO排名，提供静态网站建设和托管服务。",
-    icon: Globe,
+    icon: "Globe",
   },
 ];
 
@@ -99,21 +86,21 @@ export const contactChannels = [
     description: "适合项目咨询、长期运维与合作洽谈。",
     href: siteConfig.wecomLink,
     label: "打开企业微信",
-    icon: Handshake,
+    icon: "Handshake",
   },
   {
     title: "提交项目需求",
     description: "适合新项目、改版、集成或基础设施升级类需求。",
     href: "/contact/request/",
     label: "提交需求",
-    icon: BriefcaseBusiness,
+    icon: "BriefcaseBusiness",
   },
   {
     title: "伙伴合作入口",
     description: "适合代理合作、联合交付与资源协同。",
     href: "/partners/apply/",
     label: "申请合作",
-    icon: Users,
+    icon: "Users",
   },
 ];
 
@@ -122,7 +109,9 @@ export const footerGroups: Array<{ title: string; links: LinkItem[] }> = [
     title: "希灵 AI",
     links: [
       { label: "开放平台总览", href: "/platform/" },
-      { label: "SLA 服务状态", href: "/status/" },
+      { label: "API 服务", href: "https://sla.sec.hn.cn/status/api-services", external: true },
+      { label: "网站服务", href: "https://sla.sec.hn.cn/status/web-services", external: true },
+      { label: "信息化基础设施", href: "https://sla.sec.hn.cn/status/information-system-infrastructure", external: true },
       { label: "访问平台", href: "https://platform.sec.hn.cn", external: true },
     ],
   },
@@ -198,27 +187,27 @@ export const aboutPillars = [
   {
     title: "架构与基础设施",
     description: "围绕私有云、虚拟化、网络与边缘环境做统一规划，而不是割裂式采购。",
-    icon: Building2,
+    icon: "Building2",
   },
   {
     title: "应用与交付",
     description: "从官网、内容平台到业务系统与伙伴入口，让体验与运维都能站得住。",
-    icon: Laptop2,
+    icon: "Laptop2",
   },
   {
     title: "安全与合规",
     description: "把安全评估、加固、响应和审计意识提前到方案和实施阶段。",
-    icon: ShieldCheck,
+    icon: "ShieldCheck",
   },
   {
     title: "设备与上线保障",
     description: "把硬件、软件、流程与知识移交放进一套完整的上线链路，而不是只交设备。",
-    icon: Package,
+    icon: "Package",
   },
   {
     title: "公共服务设计",
     description: "在客户、伙伴和公众工具之间建立更低门槛、可访问、可追踪的服务入口。",
-    icon: Globe,
+    icon: "Globe",
   },
 ];
 

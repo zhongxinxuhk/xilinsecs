@@ -1,21 +1,22 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import { ArrowUpRight, Braces, KeyRound, Network } from "lucide-react";
+import { ArrowUpRight } from "lucide-react";
 import { gsap } from "gsap";
 import { ButtonLink } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
+import { resolveIcon } from "@/lib/icon-resolver";
 
 const XILING_AI_URL = "https://platform.sec.hn.cn";
 const capabilities = [
-  { icon: Network, title: "统一 API 入口", description: "减少多套接口的重复适配，集中治理。", color: "from-blue-500/85 to-cyan-500/85" },
-  { icon: Braces, title: "开发集成", description: "兼容 OpenAI 风格接口，对接网站、应用与业务系统。", color: "from-cyan-500/85 to-emerald-500/85" },
-  { icon: KeyRound, title: "调用管理", description: "便于团队持续扩展、配额控制与审计追溯。", color: "from-emerald-500/85 to-blue-500/85" },
+  { icon: "Network", title: "统一 API 入口", description: "减少多套接口的重复适配，集中治理。", color: "from-blue-500/85 to-cyan-500/85" },
+  { icon: "Braces", title: "开发集成", description: "兼容 OpenAI 风格接口，对接网站、应用与业务系统。", color: "from-cyan-500/85 to-emerald-500/85" },
+  { icon: "KeyRound", title: "调用管理", description: "便于团队持续扩展、配额控制与审计追溯。", color: "from-emerald-500/85 to-blue-500/85" },
 ];
 
 const stats = [
   { value: "99.95%", label: "API 可用率" },
-  { value: "< 800ms", label: "首次响应" },
+  { value: "< 206ms", label: "首次响应" },
   { value: "5+", label: "推理路由" },
 ];
 
@@ -151,7 +152,7 @@ export default function XilingAiSpotlight({ compact = false }: XilingAiSpotlight
             >
               <div className="pointer-events-none absolute inset-0 rounded-2xl bg-gradient-to-br from-blue-50/50 via-transparent to-cyan-50/40" />
               {capabilities.map((item, index) => {
-                const Icon = item.icon;
+                const Icon = resolveIcon(item.icon);
                 return (
                   <article
                     key={item.title}

@@ -1,4 +1,3 @@
-import { Fingerprint, ShieldCheck, Users } from "lucide-react";
 import { buildMetadata } from "@/lib/metadata";
 import { leadershipNotes, teamMembers } from "@/lib/site-data";
 import PageHero from "@/components/sections/page-hero";
@@ -53,7 +52,7 @@ export default function LegacyLeadershipTeamPage() {
                 items={leadershipNotes.map((item, index) => ({
                   title: item.title,
                   description: item.description,
-                  icon: [Users, Fingerprint, ShieldCheck][index] ?? ShieldCheck,
+                  icon: ["Users", "Fingerprint", "ShieldCheck"][index] ?? "ShieldCheck",
                 }))}
                 columns="three"
               />

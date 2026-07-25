@@ -1,4 +1,3 @@
-import { Cloud, Laptop2, Package } from "lucide-react";
 import type { ProductPage } from "@/lib/data/types";
 
 export const products: ProductPage[] = [
@@ -12,7 +11,7 @@ export const products: ProductPage[] = [
     heroImage: "/source/index_imgs/hsd_index02.webp",
     seoTitle: "云与基础设施产品",
     seoDescription: "私有云、虚拟化、容灾与边缘部署能力。",
-    icon: Cloud,
+    icon: "Cloud",
     features: [
       "VMware 私有云设计、部署和故障修复",
       "混合云和边缘节点协同接入",
@@ -37,7 +36,7 @@ export const products: ProductPage[] = [
     heroImage: "/source/index_imgs/ihaikou_index01.webp",
     seoTitle: "软件与应用产品",
     seoDescription: "官网、业务平台、客户服务和伙伴入口的软件交付能力。",
-    icon: Laptop2,
+    icon: "Laptop2",
     features: [
       "品牌官网与内容平台建设",
       "业务门户、查询中心与表单入口重构",
@@ -62,7 +61,7 @@ export const products: ProductPage[] = [
     heroImage: "/business/services/b/hhps-xinchuang/01.webp",
     seoTitle: "硬件与安全设备",
     seoDescription: "网络设备、安全设备与办公终端的一体化交付能力。",
-    icon: Package,
+    icon: "Package",
     features: [
       "计算机、网络与安全设备整合采购",
       "实施部署、资产登记与交接文档",

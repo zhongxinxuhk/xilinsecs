@@ -70,7 +70,7 @@ const aiCapabilities = [
 
 const aiStats = [
   { value: "99.95%", label: "API 可用率", suffix: "SLA" },
-  { value: "< 800", label: "平均响应", suffix: "ms" },
+  { value: "< 206", label: "平均响应", suffix: "ms" },
   { value: "10+", label: "推理路由", suffix: "routes" },
   { value: "5", label: "安全检测层", suffix: "layers" },
 ];

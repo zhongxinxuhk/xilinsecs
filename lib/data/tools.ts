@@ -1,4 +1,3 @@
-import { FileDigit, Fingerprint, Globe, Hash, KeyRound } from "lucide-react";
 import type { ToolRecord } from "@/lib/data/types";
 
 export const tools: ToolRecord[] = [
@@ -12,7 +11,7 @@ export const tools: ToolRecord[] = [
     heroImage: "/leadership/indexnews/images/news/post3_news.webp",
     seoTitle: "Base64 编解码工具",
     seoDescription: "支持文本编码、解码、复制与二维码导出的 Base64 工具。",
-    icon: Hash,
+    icon: "Hash",
     features: ["Unicode 兼容", "二维码导出", "结果复制", "本地处理"],
     tags: ["编码", "调试", "工具"],
   },
@@ -26,7 +25,7 @@ export const tools: ToolRecord[] = [
     heroImage: "/source/index_imgs/index_01.jpg",
     seoTitle: "DNS 查询控制台",
     seoDescription: "支持基于 DOH 的 DNS 记录查询与响应查看。",
-    icon: Globe,
+    icon: "Globe",
     features: ["DOH 配置读取", "多种记录类型", "查询结果复制", "边缘部署友好"],
     tags: ["DNS", "DOH", "网络"],
   },
@@ -40,7 +39,7 @@ export const tools: ToolRecord[] = [
     heroImage: "/source/index_imgs/index_cplb01.webp",
     seoTitle: "MD5 校验工具",
     seoDescription: "支持本地文件 MD5 计算与结果复制的在线工具。",
-    icon: Fingerprint,
+    icon: "Fingerprint",
     features: ["本地计算", "拖拽上传", "结果复制", "无需服务端"],
     tags: ["MD5", "校验", "文件"],
   },
@@ -54,7 +53,7 @@ export const tools: ToolRecord[] = [
     heroImage: "/business/services/g/gemini/01.png",
     seoTitle: "随机点名工具",
     seoDescription: "支持上传 Excel/CSV 名单并进行随机抽取。",
-    icon: FileDigit,
+    icon: "FileDigit",
     features: ["Excel/CSV 导入", "多人抽取", "名单预览", "本地处理"],
     tags: ["随机", "Excel", "名单"],
   },
@@ -68,7 +67,7 @@ export const tools: ToolRecord[] = [
     heroImage: "/source/index_imgs/20260322-044041.webp",
     seoTitle: "UUID 生成工具",
     seoDescription: "支持批量生成和复制 UUID v4 的在线工具。",
-    icon: KeyRound,
+    icon: "KeyRound",
     features: ["批量生成", "复制单条", "复制全部", "本地生成"],
     tags: ["UUID", "开发", "批量"],
   },

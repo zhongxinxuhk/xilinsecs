@@ -1,5 +1,3 @@
-import type { LucideIcon } from "lucide-react";
-
 export type LinkItem = {
   label: string;
   href: string;
@@ -40,12 +38,12 @@ export type SiteStat = {
 export type HomeHighlight = {
   title: string;
   description: string;
-  icon: LucideIcon;
+  icon: string;
 };
 
 export type ServicePage = SeoRecord & {
   audience: string;
-  icon: LucideIcon;
+  icon: string;
   href: string;
   capabilities: string[];
   deliverables: string[];
@@ -54,7 +52,7 @@ export type ServicePage = SeoRecord & {
 };
 
 export type ProductPage = SeoRecord & {
-  icon: LucideIcon;
+  icon: string;
   href: string;
   features: string[];
   scenarios: string[];
@@ -132,7 +130,7 @@ export type RoleRecord = SeoRecord & {
 
 export type ToolRecord = SeoRecord & {
   href: string;
-  icon: LucideIcon;
+  icon: string;
   features: string[];
 };
 

@@ -78,7 +78,6 @@ export const llmsSections = [
       "/services/",
       "/products/",
       "/platform/",
-      "/status/",
       "/news/",
       "/tools/",
       "/downloads/",

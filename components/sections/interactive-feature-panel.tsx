@@ -1,17 +1,18 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
+import anime from "animejs";
 import { ArrowUpRight, ChevronDown } from "lucide-react";
-import type { LucideIcon } from "lucide-react";
 import { cn } from "@/lib/utils";
 import SmartLink from "@/components/ui/smart-link";
+import { resolveIcon } from "@/lib/icon-resolver";
 
 export type InteractivePanelItem = {
   number: string;
   title: string;
   subtitle?: string;
   description: string;
-  icon?: LucideIcon;
+  icon?: string;
   color?: string;
   content?: string;
   href?: string;
@@ -39,17 +40,23 @@ export default function InteractiveFeaturePanel({
   defaultExpanded = 0,
 }: InteractiveFeaturePanelProps) {
   const [expanded, setExpanded] = useState<number | null>(defaultExpanded);
+  const contentRef = useRef<HTMLDivElement>(null);
+  const prevExpanded = useRef<number | null>(defaultExpanded);
 
   const toggle = (index: number) => {
     setExpanded((prev) => (prev === index ? null : index));
   };
+
+  useEffect(() => {
+    prevExpanded.current = expanded;
+  }, [expanded]);
 
   return (
     <div className={cn("grid lg:grid-cols-[1fr_1.2fr] gap-10 lg:gap-16 items-start", className)}>
       {/* 左侧：列表 */}
       <div className="border-t border-blue-100">
         {items.map((item, index) => {
-          const Icon = item.icon;
+          const Icon = resolveIcon(item.icon);
           const accentColor = item.color ?? "#3b82f6";
           const isExpanded = expanded === index;
 
@@ -133,7 +140,7 @@ export default function InteractiveFeaturePanel({
       </div>
 
       {/* 右侧：内容预览区 */}
-      <div className="relative min-h-[320px] border border-blue-100 bg-white rounded-lg overflow-hidden">
+      <div ref={contentRef} className="relative min-h-[320px] border border-blue-100 bg-white rounded-lg overflow-hidden">
         {items.map((item, index) => {
           const isExpanded = expanded === index;
           const accentColor = item.color ?? "#3b82f6";
@@ -141,11 +148,12 @@ export default function InteractiveFeaturePanel({
           return (
             <div
               key={`content-${item.number}`}
+              data-expanded={isExpanded ? "true" : undefined}
               className={cn(
                 "absolute inset-0 p-8 transition-all duration-500 ease-out",
                 isExpanded
-                  ? "opacity-100 translate-y-0 pointer-events-auto"
-                  : "opacity-0 translate-y-4 pointer-events-none"
+                  ? "opacity-100 translate-y-0 pointer-events-auto z-10"
+                  : "opacity-0 translate-y-4 pointer-events-none z-0"
               )}
               style={{ ["--accent" as string]: accentColor }}
             >
