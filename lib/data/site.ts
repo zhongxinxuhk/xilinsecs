@@ -135,7 +135,7 @@ export const footerGroups: Array<{ title: string; links: LinkItem[] }> = [
       { label: "MD5在线校验", href: "/tools/md5-check/" },
       {
         label: "软件资产S3",
-        href: "https://user-ocloud.ihep.ac.cn/share/15328d44-91cc-40ce-9e17-022ff934be16?pwd=340854",
+        href: "https://user-ocloud.ihep.ac.cn/share/7bebb733-855d-4a33-a5e5-a8c6d49d08c6?pwd=758420",
         external: true,
       },
     ],

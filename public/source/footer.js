@@ -25,7 +25,7 @@ window.siteConfig = {
                     { text: "ZTNA跨境办公", href: "/source/ssrc/cf-sec-hn-cn/" },
                     { text: "零信任跨境专线「试点先行」", href: "https://zero.xinnew.top" },
                     { text: "MD5在线校验", href: "/business/services/g/md5check.html" },
-                    { text: "软件资产S3", href: "https://user-ocloud.ihep.ac.cn/share/15328d44-91cc-40ce-9e17-022ff934be16?pwd=340854" },
+                    { text: "软件资产S3", href: "https://user-ocloud.ihep.ac.cn/share/7bebb733-855d-4a33-a5e5-a8c6d49d08c6?pwd=758420" },
                 ]
             },
             {
